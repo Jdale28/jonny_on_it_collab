@@ -8,24 +8,22 @@ const NavBarStyles = styled.div`
   align-items: center;
   width: 100%;
   height: 10vh;
-  font-size: 2rem;
-  background-color: grey;
-  font-family: 'montserat';
-  text-transform: uppercase;
+  font-size: 1rem;
+  border: 1px solid black;
   a {
     text-decoration: none;
     padding-left: 2vw;
-    color: white;
+    color: grey;
     &:hover {
       color: red;
     }
   }
   .left {
-    width: 15vw;
+    width: 55vw;
   }
   .right {
     margin-right: 2vw;
-    width: 25vw;
+    width: 45vw;
     display: flex;
     justify-content: space-around;
   }
@@ -37,14 +35,16 @@ class NavBar extends Component {
             <div>
             <NavBarStyles>
               <div className="left">
-                <Link to="/">Home</Link>
+                <a href="/">Jonny On It LOGO</a>
+              </div>
+              <div className="right">
                 <Link to="/aboutus">About Us</Link>
                 <Link to="/howitworks">How It Works</Link>
                 <Link to="/blog">Blog</Link>
-              </div>
-              <div className="right">
-                <a href="/">Test</a>
-                <a href="/">Test 2</a>
+                <div className="booknow">
+                    <Link to="/">Book Now</Link>
+                </div>
+                <Link to="/">Sign In</Link>
               </div>
             </NavBarStyles>
           </div>

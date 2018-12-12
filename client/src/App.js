@@ -8,12 +8,20 @@ import HowItWorks from "./components/navbar/HowItWorks";
 import Blog from "./components/navbar/Blog";
 import AboutUs from "./components/navbar/AboutUs";
 
+const Global = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'athletics', arial, sans-serif;
+  }
+`;
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <h1>Hello from Home Page</h1>
+          <Global />
           <NavBar />
           <Switch>
             <Route exact path="/aboutus" component={AboutUs} />
