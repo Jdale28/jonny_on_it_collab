@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class NavBar extends Component {
+class Blog extends Component {
     render() {
         return (
             <div>
-                Hello from NavBar Component
+                Hello from Blog component
             </div>
         );
     }
 }
 
-export default NavBar;
+export default Blog;

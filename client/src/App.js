@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import logo from "./logo.svg";
+import "./App.css";
+import NavBar from "./components//navbar/NavBar";
+import { createGlobalStyle } from "styled-components";
+import HowItWorks from "./components/navbar/HowItWorks";
+import Blog from "./components/navbar/Blog";
+import AboutUs from "./components/navbar/AboutUs";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello from our Jonny On It collaborative website.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <h1>Hello from Home Page</h1>
+          <NavBar />
+          <Switch>
+            <Route exact path="/aboutus" component={AboutUs} />
+            <Route exact path="/blog" component={Blog} />
+            <Route exact path="/howitworks" component={HowItWorks} />
+            <Route path="/"/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
