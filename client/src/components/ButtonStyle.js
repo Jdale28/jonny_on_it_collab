@@ -31,7 +31,7 @@ export const WhiteButton = styled(Button)`
 export const RedButton = styled(Button)`
     background-color: rgba(255,0,0,1);
     color: rgba(255,255,255,1);
-    border: rgba(255,0,0,1);
+    border-color: rgba(255,0,0,1);
     :hover {
         background-color: rgba(255,0,0,1);
         color: rgba(255,255,255,1);
@@ -41,6 +41,7 @@ export const RedButton = styled(Button)`
 export const GreenButton = styled(Button)`
     background-color: rgba(19,212,171,1);
     color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,1);
     :hover {
         background-color: rgba(255,255,255,1);
         color: rgba(19,212,171,1);
