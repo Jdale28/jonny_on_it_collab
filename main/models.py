@@ -14,7 +14,7 @@ class Property(models.Model):
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     zipcode = models.CharField(max_length=255)
-    users = models.ForeignKey(User, on_delete=models.CASCADE, related_name='properties')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='properties')
 
     def __str__(self):
         return self.streetAddress
@@ -51,7 +51,7 @@ class Job(models.Model):
 
     profession = models.CharField(max_length=255, choices=PROFESSION_CHOICES, default='Handyman')
     subcategory = models.CharField(max_length=255, choices=SUBCATEGORY_CHOICES, default='Other')
-    properties = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='jobs')
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='jobs')
 
     def __str__(self):
         return self.profession

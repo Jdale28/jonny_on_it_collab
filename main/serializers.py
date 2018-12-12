@@ -5,13 +5,13 @@ from .models import User, Property, Job
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ('id', 'profession', 'subcategory', 'properties')
+        fields = ('id', 'profession', 'subcategory', 'property')
 
 class PropertySerializer(serializers.ModelSerializer):
     jobs = JobSerializer(many=True, read_only=True)
     class Meta:
         model = Property
-        fields = ('id', 'streetAddress', 'city', 'state', 'zipcode', 'jobs', 'users')
+        fields = ('id', 'streetAddress', 'city', 'state', 'zipcode', 'jobs', 'user')
 
 class UserSerializer(serializers.ModelSerializer):
     properties = PropertySerializer(many=True, read_only=True)
