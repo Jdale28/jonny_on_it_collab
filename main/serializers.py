@@ -5,7 +5,7 @@ from .models import User, Property, Job
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ('id', 'profession', 'properties')
+        fields = ('id', 'profession', 'subcategory', 'properties')
 
 class PropertySerializer(serializers.ModelSerializer):
     jobs = JobSerializer(many=True, read_only=True)
