@@ -13,12 +13,20 @@ import UserNavBar from "./components/UserNavBar";
 import UserAccountPage from "./components/UserAccountPage";
 import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn"
 
+const Global = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'athletics', arial, sans-serif;
+  }
+`;
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <h1>Hello from Home Page</h1>
+          <Global />
           <NavBar />
           <UserAccountPage/>
           <Switch>
