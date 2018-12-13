@@ -11,13 +11,23 @@ const HomeBanner = styled.div`
     background-color: rgba(0,0,0,1);
     background: url('/images/home-page-banner.jpg');
     background-repeat: no-repeat;
-    width: 100em;
-    height: 100em;
-    margin: 0 auto;
-    background-color: rgba(255,255,255,.5);
+    background-size: 100%;
+    width: 100%;
+    height: 40vh;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    align-items: center;
+    .form-container {
+        width: 100%;
+        height: 10em;
+        background-color: rgba(255,255,255,.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    form input {
+        width: 20em;
+        height: 2.5em;
+    }
 `
 
 const FindOutLinks = styled.div`
@@ -60,12 +70,14 @@ class HomePageNoLoggedIn extends Component {
             <div>
                 <HomePageNotLoggedIn>
                     <HomeBanner>
-                        <h4>Tell us what you need</h4>
+                        <div className="form-container">
+                        <h4 className="tell-us">Tell us what you need</h4>
                         <form onSubmit={this.handleSubmit}>
                             <input placeholder="Housekeeping, Plumbing ...">
                             </input>
-                            <GoButton>Go</GoButton>
+                            <GoButton>GO</GoButton>
                         </form>
+                        </div>
                     </HomeBanner>
                     <FindOutLinks>
                         <h3>Find out what Jonny can do for you</h3>
