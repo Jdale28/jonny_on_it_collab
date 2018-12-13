@@ -28,6 +28,18 @@ const LinkList = styled.div`
 
 const DownloadLink = styled.div`
     margin: 0, 0;
+    img {
+        width: 8em;
+        height: 3em;
+    }
+`
+
+const FollowUs = styled.div`
+    margin: 0 0;
+    a {
+        width: 2em;
+        height: 2em;
+    }
 `
 
 class Footer extends Component {
@@ -57,14 +69,29 @@ class Footer extends Component {
                         </div>
                     </LinkList>
                     <DownloadLink>
-                        <h3>Downloade Here:</h3>
-                        <a href="https://play.google.com/store/apps/details?id=com.jonnyonitcustomer">
+                        <h3>Download Here:</h3>
+                        <a href="https://itunes.apple.com/us/app/jonny-on-it/id1330021042?mt=8">
                             <img src="" alt="apple download icon" />
                         </a>
                         <a href="https://play.google.com/store/apps/details?id=com.jonnyonitcustomer&hl=en_US">
-                            <img src="" />
+                            <img src="/images/google-play-icon.png" alt="google play icon" />
                         </a>
                     </DownloadLink>
+                    <FollowUs>
+                        <h3>Follow Us:</h3>
+                        <a href="">
+                            <img src="" alt="google icon" />
+                        </a>
+                        <a href="">
+                            <img src="" alt="facebook icon" />
+                        </a>
+                        <a href="">
+                            <img src="" alt="instagram icon" />
+                        </a>
+                        <a href="">
+                            <img src="" alt="twitter icon" />
+                        </a>
+                    </FollowUs>
                 </FooterStyle>
             </div >
         )
