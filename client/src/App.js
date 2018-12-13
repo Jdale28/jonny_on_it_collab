@@ -11,6 +11,7 @@ import JobSelection from "./components/book_a_job/JobSelection"
 import StepperforJob from "./components/book_a_job/StepperforJob"
 import UserAccountPage from "./components/UserAccountPage";
 import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn"
+import Footer from "./components/Footer"
 
 const Global = createGlobalStyle`
   * {
@@ -36,6 +37,7 @@ class App extends Component {
             <Route exact path="/useraccountpage" component={UserAccountPage} />
             <Route path="/" component={HomePageNotLoggedIn} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
