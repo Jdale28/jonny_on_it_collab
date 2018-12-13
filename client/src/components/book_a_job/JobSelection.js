@@ -6,6 +6,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import StepperforJob from "./StepperforJob"
 
 const styles = theme => ({
   root: {
@@ -22,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-class ControlledExpansionPanels extends React.Component {
+class JobSelection extends React.Component {
   state = {
     expanded: null,
   };
@@ -91,12 +92,14 @@ class ControlledExpansionPanels extends React.Component {
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
+
+
     );
   }
 }
 
-ControlledExpansionPanels.propTypes = {
+JobSelection.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ControlledExpansionPanels);
+export default withStyles(styles)(JobSelection);

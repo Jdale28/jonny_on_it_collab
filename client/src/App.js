@@ -8,6 +8,7 @@ import HowItWorks from "./components/navbar/HowItWorks";
 import Blog from "./components/navbar/Blog";
 import AboutUs from "./components/navbar/AboutUs";
 import JobSelection from "./components/book_a_job/JobSelection"
+import StepperforJob from "./components/book_a_job/StepperforJob"
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/howitworks" component={HowItWorks} />
             <Route exact path="/bookajob" component={JobSelection} />
+            <Route exact path="/stepperforjob" component={StepperforJob} />
             <Route path="/"/>
           </Switch>
         </div>
