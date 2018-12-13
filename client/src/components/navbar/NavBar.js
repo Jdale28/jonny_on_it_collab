@@ -36,7 +36,7 @@ class NavBar extends Component {
         return (
             <div>
             <NavBarStyles>
-              {/* <div className="left">
+              <div className="left">
                 <Link to="/">Home</Link>
                 <Link to="/aboutus">About Us</Link>
                 <Link to="/howitworks">How It Works</Link>
@@ -45,7 +45,7 @@ class NavBar extends Component {
               <div className="right">
                 <a href="/">Test</a>
                 <a href="/">Test 2</a>
-              </div> */}
+              </div>
             </NavBarStyles>
           </div>
         );
