@@ -7,10 +7,27 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StepperforJob from "./StepperforJob"
+import styled from  "styled-components"
+import { Button } from '@material-ui/core';
+
+
+const Wrapper = styled.div`
+display: flex;
+justify-content: space-evenly; 
+
+
+
+h1{
+
+}
+`
+
+
 
 const styles = theme => ({
   root: {
     width: '50%',
+    
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -39,6 +56,10 @@ class JobSelection extends React.Component {
     const { expanded } = this.state;
 
     return (
+      <Wrapper>
+        <div>
+      <StepperforJob/>
+      </div>
       <div className={classes.root}>
         <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -48,6 +69,7 @@ class JobSelection extends React.Component {
             <Typography>
               Here is where the nine icons will go in a flexbox container
             </Typography>
+            <Button onChange={this.handleChange('panel2')}> Next</Button>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
@@ -92,8 +114,7 @@ class JobSelection extends React.Component {
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>
-
-
+      </Wrapper>
     );
   }
 }
