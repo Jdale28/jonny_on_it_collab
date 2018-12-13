@@ -4,7 +4,7 @@ import { GoButton } from './ButtonStyle'
 
 const HomeBanner = styled.div`
     background-color: rgba(0,0,0,1);
-    /* background: url('./images/home-page-banner.jpg'); */
+    background: url('/images/home-page-banner.jpg');
     width: 100vw;
     height: 50vh;
     margin: 0 auto;
@@ -42,15 +42,15 @@ class HomePageNoLoggedIn extends Component {
                 <div className="find-out-links">
                     <h3>Find out what Jonny can do for you</h3>
                     <a href="">
-                        <img src="" alt="homeowner photo"></img>
+                        <img src="/images/homeowner.jpeg" alt="homeowner photo"></img>
                     </a>
-                    <a href="">
+                    <a href="/images/realtor.jpeg">
                         <img src="" alt="realtor photo"></img>
                     </a>
                     <a href=""></a>
                 </div>
                 <div className="how-it-works-diagram">
-                    <img href="" alt="how it works diagram"></img>
+                    <img href="/how-it-works-diagram.jpg" alt="how it works diagram"></img>
                 </div>
                 <Reviews>
                     <h2>Reviews</h2>
