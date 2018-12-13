@@ -101,8 +101,14 @@ export const AcceptQuoteButton = styled(GreenButton)`
 export const GoButton = styled(GreenButton)`
     width: 5em;
     height: 2em;
-    font-size: .9em;
+    font-size: 4.5em;
     font-weight: 400;
     color: rgba(0,0,0,1);
     margin: 0 0 0 1em;
+`
+
+export const NewsletterButton = styled(GreenButton)`
+    width: 5.8em;
+    height: 2.8em;
+    font-size: 1.3em;
 `
