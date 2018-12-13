@@ -106,3 +106,9 @@ export const GoButton = styled(GreenButton)`
     color: rgba(0,0,0,1);
     margin: 0 0 0 1em;
 `
+
+export const NewsletterButton = styled(GreenButton)`
+    width: 5.8em;
+    height: 2.8em;
+    font-size: 1.3em;
+`
