@@ -9,6 +9,9 @@ import Blog from "./components/navbar/Blog";
 import AboutUs from "./components/navbar/AboutUs";
 import JobSelection from "./components/book_a_job/JobSelection"
 import StepperforJob from "./components/book_a_job/StepperforJob"
+import UserNavBar from "./components/UserNavBar";
+import UserAccountPage from "./components/UserAccountPage";
+import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn"
 
 class App extends Component {
   render() {
@@ -17,13 +20,14 @@ class App extends Component {
         <div>
           <h1>Hello from Home Page</h1>
           <NavBar />
+          <UserAccountPage/>
           <Switch>
             <Route exact path="/aboutus" component={AboutUs} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/howitworks" component={HowItWorks} />
             <Route exact path="/bookajob" component={JobSelection} />
             <Route exact path="/stepperforjob" component={StepperforJob} />
-            <Route path="/"/>
+            <Route path="/" component={HomePageNotLoggedIn} />
           </Switch>
         </div>
       </Router>
