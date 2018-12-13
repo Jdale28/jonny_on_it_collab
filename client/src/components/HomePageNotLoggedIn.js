@@ -10,18 +10,14 @@ const HomePageNotLoggedIn = styled.div`
 const HomeBanner = styled.div`
     background-color: rgba(0,0,0,1);
     background: url('/images/home-page-banner.jpg');
-    width: 100vw;
-    height: 100vh;
+    background-repeat: no-repeat;
+    width: 100em;
+    height: 100em;
     margin: 0 auto;
+    background-color: rgba(255,255,255,.5);
     display: flex;
-    align-items: center;
-    .form-container {
-        width: 100vw;
-        height: 30vh;
-        background-color: rgba(255,255,255,.5);
-        display: flex;
-        align-items: column;
-    }
+    justify-content: center;
+    align-content: center;
 `
 
 const FindOutLinks = styled.div`
@@ -46,7 +42,7 @@ const HowItWorksHomePage = styled.div`
     flex-direction: column;
     .how-it-works-diagram {
         width: 200px;
-        height 200px;
+        height: 200px;
 
     }
 `
@@ -64,14 +60,12 @@ class HomePageNoLoggedIn extends Component {
             <div>
                 <HomePageNotLoggedIn>
                     <HomeBanner>
-                        <div className="form-container">
-                            <h4>Tell us what you need</h4>
-                            <form onSubmit={this.handleSubmit}>
-                                <input placeholder="Housekeeping, Plumbing ...">
-                                </input>
-                                <GoButton>Go</GoButton>
-                            </form>
-                        </div>
+                        <h4>Tell us what you need</h4>
+                        <form onSubmit={this.handleSubmit}>
+                            <input placeholder="Housekeeping, Plumbing ...">
+                            </input>
+                            <GoButton>Go</GoButton>
+                        </form>
                     </HomeBanner>
                     <FindOutLinks>
                         <h3>Find out what Jonny can do for you</h3>
