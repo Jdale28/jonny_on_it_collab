@@ -80,16 +80,16 @@ class Footer extends Component {
                     <FollowUs>
                         <h3>Follow Us:</h3>
                         <a href="">
-                            <img src="" alt="google icon" />
+                            <img src="/images/google-icon.png" alt="google icon" />
                         </a>
                         <a href="">
-                            <img src="" alt="facebook icon" />
+                            <img src="/images/google-icon.png" alt="facebook icon" />
                         </a>
                         <a href="">
-                            <img src="" alt="instagram icon" />
+                            <img src="/images/instagram-icon.png" alt="instagram icon" />
                         </a>
                         <a href="">
-                            <img src="" alt="twitter icon" />
+                            <img src="/images/twitter-icon.png" alt="twitter icon" />
                         </a>
                     </FollowUs>
                 </FooterStyle>
