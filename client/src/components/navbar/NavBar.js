@@ -42,9 +42,9 @@ class NavBar extends Component {
                 <Link to="/howitworks">How It Works</Link>
                 <Link to="/blog">Blog</Link>
                 <div className="booknow">
-                    <Link to="/">Book Now</Link>
+                    <Link to="/bookajob">Book Now</Link>
                 </div>
-                <Link to="/">Sign In</Link>
+                <Link to="/useraccountpage">Sign In</Link>
               </div>
             </NavBarStyles>
           </div>
