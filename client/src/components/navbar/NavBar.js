@@ -9,7 +9,10 @@ const NavBarStyles = styled.div`
   width: 100%;
   height: 10vh;
   font-size: 1rem;
-  border: 1px solid black;
+  img {
+    height: 7vh;
+    width: auto;
+  }
   a {
     text-decoration: none;
     padding-left: 2vw;
@@ -35,16 +38,16 @@ class NavBar extends Component {
             <div>
             <NavBarStyles>
               <div className="left">
-                <a href="/">Jonny On It LOGO</a>
+              <Link to="/"><img src="/images/JOI-long-logo.png" alt="JOI Logo"/></Link>
               </div>
               <div className="right">
                 <Link to="/aboutus">About Us</Link>
                 <Link to="/howitworks">How It Works</Link>
                 <Link to="/blog">Blog</Link>
                 <div className="booknow">
-                    <Link to="/">Book Now</Link>
+                    <Link to="/bookajob">Book Now</Link>
                 </div>
-                <Link to="/">Sign In</Link>
+                <Link to="/useraccountpage">Sign In</Link>
               </div>
             </NavBarStyles>
           </div>
