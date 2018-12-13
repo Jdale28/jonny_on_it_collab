@@ -26,11 +26,11 @@ const HomeBanner = styled.div`
         justify-content: center;
     }
     form input {
-        font-size: 3.6em;
+        font-size: 3em;
         font-style: italic;
         border: none;
-        width: 20em;
-        height: 2.5em;
+        width: 19em;
+        height: 2.3em;
     }
     .tell-us {
         font-size: 4.5em;
