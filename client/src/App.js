@@ -7,6 +7,7 @@ import { createGlobalStyle } from "styled-components";
 import HowItWorks from "./components/navbar/HowItWorks";
 import Blog from "./components/navbar/Blog";
 import AboutUs from "./components/navbar/AboutUs";
+import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn"
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
             <Route exact path="/aboutus" component={AboutUs} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/howitworks" component={HowItWorks} />
-            <Route path="/"/>
+            <Route path="/" component={HomePageNotLoggedIn} />
           </Switch>
         </div>
       </Router>
