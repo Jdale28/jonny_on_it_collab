@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+import UserNavBar from './UserNavBar'
+
+const Container = styled.div `
+border: solid;
+height: 1401px ;
+width: 1920px;
+`
+
 
 class UserAccountPage extends Component {
     render() {
         return (
+            <Container>
             <div>
-                <h2>USER ACCOUNT</h2>
+               <UserNavBar></UserNavBar>
             </div>
+            </Container>
         );
     }
 }

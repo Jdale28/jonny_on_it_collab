@@ -4,8 +4,11 @@ import styled from 'styled-components'
 // import {Link} from 'react-router-dom'
 const Menuitems = styled.div `
 border: solid;
-height: 70px;
-width: 300px;
+height: 99px;
+width: 409px;
+
+list-style-type: none;
+
 
 `
 
