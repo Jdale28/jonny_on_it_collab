@@ -5,7 +5,7 @@ import { NewsletterButton } from './ButtonStyle'
 
 const FooterStyle = styled.div`
     width: 100%;
-    height: 15vh;
+    height: 18vh;
     margin: 1em auto;
     background-color: rgba(0,45,81,1);
     color: rgba(255,255,255,1);
@@ -27,18 +27,32 @@ const LinkList = styled.div`
 `
 
 const DownloadLink = styled.div`
-    margin: 0, 0;
-    img {
-        width: 8em;
-        height: 3em;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    .download-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .download {
+        width: 6em;
+        height: 2em;
+        margin: .2em;
     }
 `
 
 const FollowUs = styled.div`
-    margin: 0 0;
-    a {
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    a img {
         width: 2em;
         height: 2em;
+        margin: .2em;
+    }
+    .follow-links {
+        display: flex;
+        flex-direction: column;
     }
 `
 
@@ -70,27 +84,33 @@ class Footer extends Component {
                     </LinkList>
                     <DownloadLink>
                         <h3>Download Here:</h3>
-                        <a href="https://itunes.apple.com/us/app/jonny-on-it/id1330021042?mt=8">
-                            <img src="" alt="apple download icon" />
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.jonnyonitcustomer&hl=en_US">
-                            <img src="/images/google-play-icon.png" alt="google play icon" />
-                        </a>
+                        <div className="download-container">
+                            <a href="https://itunes.apple.com/us/app/jonny-on-it/id1330021042?mt=8">
+                                <img src="/images/apple-download-icon.png" alt="apple download icon" className="download" />
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.jonnyonitcustomer&hl=en_US">
+                                <img src="/images/google-play-icon.png" alt="google play icon" className="download" />
+                            </a>
+                        </div>
                     </DownloadLink>
                     <FollowUs>
-                        <h3>Follow Us:</h3>
-                        <a href="">
-                            <img src="/images/google-icon.png" alt="google icon" />
-                        </a>
-                        <a href="">
-                            <img src="/images/google-icon.png" alt="facebook icon" />
-                        </a>
-                        <a href="">
-                            <img src="/images/instagram-icon.png" alt="instagram icon" />
-                        </a>
-                        <a href="">
-                            <img src="/images/twitter-icon.png" alt="twitter icon" />
-                        </a>
+                        <h3>Follow Us: </h3>
+                        <div className="follow-links">
+                            <a href="what goes here?">
+                                <img src="/images/google-icon.png" alt="google icon" />
+                            </a>
+                            <a href="https://www.facebook.com/jonnyonit/?__tn__=%2Cd%2CP-R&eid=ARCUtiVTICjhi1kHmB95YacUSlQSWgGKUtjpRZu1yvXq049UH-BQBl3HcchWByeLoNPFW9rnfP7zlFD-">
+                                <img src="/images/facebook-icon.png" alt="facebook icon" />
+                            </a>
+                        </div>
+                        <div className="follow-links">
+                            <a href="https://www.instagram.com/jonnyonitinc/">
+                                <img src="/images/instagram-icon.png" alt="instagram icon" />
+                            </a>
+                            <a href="https://twitter.com/jonnyonitinc">
+                                <img src="/images/twitter-icon.png" alt="twitter icon" />
+                            </a>
+                        </div>
                     </FollowUs>
                 </FooterStyle>
             </div >
