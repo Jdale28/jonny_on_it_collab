@@ -10,7 +10,7 @@ const Center = styled.div`
 class JobType extends Component {
 
     componentDidMount() {
-        
+
     }
 
     render() {
@@ -37,16 +37,41 @@ class JobType extends Component {
 
         const otherChoice = "Other"
 
-        
+        const whichJob = ["ELECTRICIAN", "PLUMBING", "CLEANING", "ETC"]
+
+            if (something === "ELECTRICIAN") {
+                jobOption = electricianOptions
+            } else if (something === "PLUMBING") {
+                jobOption = plumberOptions
+            } else if (something === "") {
+                jobOption = cleaningOptions
+            } else if (something === "") {
+                jobOption = pestTermiteOptions
+            } else if (something === "") {
+                jobOption = painterOptions
+            } else if (something === "") {
+                jobOption = carpenterOptions
+            } else if (something === "") {
+                jobOption = moldWaterBioOptions
+            } else if (something === "") {
+                jobOption = rooferOptions
+            } else if (something === "") {
+                jobOption = heatAirOptions
+            } else if (something === "") {
+                jobOption = floorOptions
+            } else {
+                jobOption = otherChoice
+            }
 
         return (
             <Center>
                 <h1>Job Type</h1>
-                <form action="#">
-                </form>
+                {this.jobOption.map((jobOption, i) =>
+                    <button>{jobOption}</button>
+                )}
             </Center>
-        );
+        )
     }
 }
 
-export default JobType;
+export default JobType
