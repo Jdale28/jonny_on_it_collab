@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-// import var from 'JobSelection'
+// import { jobtype } from './JobSelection'
 
 const Center = styled.div`
     text-align: center;
@@ -24,38 +24,42 @@ class JobType extends Component {
 
         const carpenterOptions = ["Trim", "Sheetrock", "Windows", "Doors", "Cabinets and Shelving"]
 
-        const moldWaterBioOptions = ["Water Damage Remediation", "Mold Remediation", "BioHazard/Animal Waste Removal", "Other Mold, Water, Bio", "Radon Testing"]
-
         const rooferOptions = ["Roof Replacement", "Gutters", "Roof Repairs"]
 
         const heatAirOptions = ["Blocked Vents", "Faulty Thermostat", "AC not cooling", "Pressure Imbalance", "Compressor Failure", "nsulation"]
 
-        const floorOptions = ["Hardwood Install & Repair", "Carpet Install & Repair", "Tile Install & Repair"]
+        // const floorOptions = ["Hardwood Install & Repair", "Carpet Install & Repair", "Tile Install & Repair"]
 
-        const otherChoice = "Handyman"
+        // const moldOptions = ["Water Damage Remediation", "Mold Remediation", "BioHazard/Animal Waste Removal", "Other Mold, Water, Bio", "Radon Testing"]
 
-        // const whichJob = ["ELECTRICIAN", "PLUMBING", "CLEANING", "ETC"]
+        const otherChoice = "Other"
 
-            // if (this.props.? === "ELECTRICIAN") {
+        // console.log(jobtype, res.data)
+
+            // if (this.props.jobtype === "ELECTRICIAN") {
             //     jobOption = electricianOptions
-            // } else if (this.props.? === "PLUMBING") {
+            // } else if (this.props.jobtype === "PLUMBING") {
             //     jobOption = plumberOptions
-            // } else if (this.props.? === "CLEANING") {
+            // } else if (this.props.jobtype === "CLEANING") {
             //     jobOption = cleaningOptions
-            // } else if (this.props.? === "PEST") {
+            // } else if (this.props.jobtype === "PEST") {
             //     jobOption = pestTermiteOptions
-            // } else if (this.props.? === "PAINTING") {
+            // } else if (this.props.jobtype === "PAINTING") {
             //     jobOption = painterOptions
-            // } else if (this.props.? === "CARPENTRY") {
+            // } else if (this.props.jobtype === "CARPENTRY") {
             //     jobOption = carpenterOptions
-            // } else if (this.props.? === "MOLD") {
-            //     jobOption = moldOptions
-            // } else if (this.props.? === "ROOFING") {
+            // } else if (this.props.jobtype === "ROOFING") {
             //     jobOption = rooferOptions
-            // } else if (this.props.? === "HVAC") {
+            // } else if (this.props.jobtype === "HVAC") {
             //     jobOption = heatAirOptions
             // } else {
             //     jobOption = otherChoice
+            // }
+
+            // else if (this.props.jobtype === "MOLD") {
+            //     jobOption = moldOptions
+            // } else if (this.props.jobtype === "FLOOR") {
+            //     jobOption = floorOptions
             // }
 
         return (

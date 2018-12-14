@@ -90,7 +90,7 @@ class Footer extends Component {
                     </Newsletter>
                     <LinkList>
                         <div className="top-links">
-                            <Link to="/">About Us</Link>
+                            <Link to="/aboutus">About Us</Link>
                             <Link to="/blog">Blog</Link>
                             <Link to="/howitworks">How It Works</Link>
                             <Link to="/providerterms">Service Professional Terms</Link>
