@@ -9,6 +9,7 @@ border:  none;
 height: 70px;
 width: 309px;
 color: black;
+font-size: 18px;
 margin-top: 10px;
 list-style-type: none;
 &:active {
@@ -18,6 +19,7 @@ list-style-type: none;
 const Menutitle = styled.h1`
 margin-top: 75px;
 margin-left: 0px;
+font-size: 30px;
 `
 const Backgrounddiv = styled.div`
 background-color: whitesmoke;

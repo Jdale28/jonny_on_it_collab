@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import UserJobs from './UserJobs'
 
+
+
+
 const Container = styled.div `
-border: solid;
+border: none;
 height: 90% ;
 width: 70%;
 margin-left: 25%;
@@ -13,6 +16,7 @@ position: absolute;
 `
 const Title = styled.h1 `
 margin-top: 80px;
+font-size: 25px;
 `
 const Job = styled.div `
 margin-top: 20px;
@@ -22,18 +26,24 @@ height: 50px;
 opacity: 1;
 background: rgba(255,255,255,1);
 border-radius: 5px 5px 5px 5px;
+color: rgba(66,66,66,1);
 `
 
 
 
 class UserDashboard extends Component {
+ 
+
+    
+  
     render() {
         return (
             <Container>
+                
               <Title> MY JOBS </Title>
               {/* <DropDown/> */}
               <Job> <p>ACTIVE </p> </Job>
-
+                
               <UserJobs/>
             </Container>
         );
