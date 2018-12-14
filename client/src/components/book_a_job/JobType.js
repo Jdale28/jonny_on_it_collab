@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+// import var from 'JobSelection'
 
 const Center = styled.div`
     text-align: center;
@@ -8,10 +9,6 @@ const Center = styled.div`
 `
 
 class JobType extends Component {
-
-    componentDidMount() {
-
-    }
 
     render() {
 
@@ -35,30 +32,28 @@ class JobType extends Component {
 
         const floorOptions = ["Hardwood Install & Repair", "Carpet Install & Repair", "Tile Install & Repair"]
 
-        const otherChoice = "Other"
+        const otherChoice = "Handyman"
 
         // const whichJob = ["ELECTRICIAN", "PLUMBING", "CLEANING", "ETC"]
 
-            // if (something === "ELECTRICIAN") {
+            // if (this.props.? === "ELECTRICIAN") {
             //     jobOption = electricianOptions
-            // } else if (something === "PLUMBING") {
+            // } else if (this.props.? === "PLUMBING") {
             //     jobOption = plumberOptions
-            // } else if (something === "") {
+            // } else if (this.props.? === "CLEANING") {
             //     jobOption = cleaningOptions
-            // } else if (something === "") {
+            // } else if (this.props.? === "PEST") {
             //     jobOption = pestTermiteOptions
-            // } else if (something === "") {
+            // } else if (this.props.? === "PAINTING") {
             //     jobOption = painterOptions
-            // } else if (something === "") {
+            // } else if (this.props.? === "CARPENTRY") {
             //     jobOption = carpenterOptions
-            // } else if (something === "") {
-            //     jobOption = moldWaterBioOptions
-            // } else if (something === "") {
+            // } else if (this.props.? === "MOLD") {
+            //     jobOption = moldOptions
+            // } else if (this.props.? === "ROOFING") {
             //     jobOption = rooferOptions
-            // } else if (something === "") {
+            // } else if (this.props.? === "HVAC") {
             //     jobOption = heatAirOptions
-            // } else if (something === "") {
-            //     jobOption = floorOptions
             // } else {
             //     jobOption = otherChoice
             // }
@@ -69,6 +64,7 @@ class JobType extends Component {
                 {this.jobOption.map((jobOption, i) =>
                     <button>{jobOption}</button>
                 )}
+                <button type="submit">Next</button>
             </Center>
         )
     }

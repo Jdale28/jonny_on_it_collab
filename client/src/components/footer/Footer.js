@@ -93,7 +93,7 @@ class Footer extends Component {
                             <Link to="/">About Us</Link>
                             <Link to="/blog">Blog</Link>
                             <Link to="/howitworks">How It Works</Link>
-                            <Link to="/">Service Professional Terms</Link>
+                            <Link to="/providerterms">Service Professional Terms</Link>
                         </div>
                         <div className="bottom-links">
                             <Link to="/">Contact Us</Link>
