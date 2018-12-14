@@ -9,7 +9,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StepperforJob from "./StepperforJob"
 import styled from  "styled-components"
 import { Button } from '@material-ui/core';
-import axios from 'axios'
+import { IncomingMessage } from 'http';
+import JobType from './JobType'
 import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
@@ -43,7 +44,8 @@ const styles = theme => ({
 class JobSelection extends React.Component {
   state = {
     expanded: null,
-    jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"]
+    jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
+    jobType:''
   };
 
   handleChange = panel => (event, expanded) => {
@@ -51,7 +53,11 @@ class JobSelection extends React.Component {
       expanded: expanded ? panel : false,
     });
   };
-
+  
+  handleClick = {this.setState({
+    jobType: jobType
+  });
+};
 
 
   render() {
@@ -72,21 +78,22 @@ class JobSelection extends React.Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-            { this.state.jobs.map((jobs) => (
+            { this.state.jobs.map((job) => (
           <IconsBox>
-            <Link to={`/`}>{jobs}</Link>
+            <Button handleClick>{job}</Button>
             </IconsBox>
             ))}
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
+        {/* <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Job Type</Typography>
+            <Typography className={classes.heading}>Job Type
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              Here is where the specific jobtypes will display
+            <JobType />
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -120,7 +127,7 @@ class JobSelection extends React.Component {
               Here is where you would pay for your job.
             </Typography>
           </ExpansionPanelDetails>
-        </ExpansionPanel>
+        </ExpansionPanel> */}
       </div>
       </Wrapper>
     );

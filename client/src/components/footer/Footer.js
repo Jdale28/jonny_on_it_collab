@@ -15,20 +15,23 @@ const FooterStyle = styled.div`
 `
 
 const Newsletter = styled.div`
-    font-size: 1.4em;
+    font-size: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     input {
-        font-size: .8em;
+        font-size: .6em;
         width: 14em;
         height: 2.4em;
         margin: 1em;
     }
+    h4 {
+        text-align: center;
+    }
 `
 
 const LinkList = styled.div`
-    font-size: 1.6em;
+    font-size: .8em;
     margin: .4em;
     display: flex;
     flex-direction: column;
@@ -44,7 +47,7 @@ const LinkList = styled.div`
 `
 
 const DownloadLink = styled.div`
-    font-size: 1.4em;
+    font-size: .8em;
     display: flex;
     align-items: center;
     .download-container {
@@ -52,20 +55,20 @@ const DownloadLink = styled.div`
         flex-direction: column;
     }
     .download {
-        width: 8em;
-        height: 3em;
-        margin: .4em;
+        width: 6em;
+        height: 1.8em;
+        margin: .1em .1em .1em .3em;
     }
 `
 
 const FollowUs = styled.div`
-    font-size: 1.4em;
+    font-size: .8em;
     display: flex;
     align-items: center;
     a img {
-        width: 3em;
-        height: 3em;
-        margin: .4em;
+        width: 2em;
+        height: 2em;
+        margin: .1em .1em .1em .3em;
     }
     .follow-links {
         display: flex;
@@ -90,7 +93,7 @@ class Footer extends Component {
                             <Link to="/">About Us</Link>
                             <Link to="/blog">Blog</Link>
                             <Link to="/howitworks">How It Works</Link>
-                            <Link to="/">Service Professional Terms</Link>
+                            <Link to="/providerterms">Service Professional Terms</Link>
                         </div>
                         <div className="bottom-links">
                             <Link to="/">Contact Us</Link>
@@ -103,10 +106,10 @@ class Footer extends Component {
                         <h3>Download Here:</h3>
                         <div className="download-container">
                             <a href="https://itunes.apple.com/us/app/jonny-on-it/id1330021042?mt=8">
-                                <img src="/images/apple-download-icon.png" alt="apple download icon" className="download" />
+                                <img src="https://i.imgur.com/BBB6EPz.png" alt="apple download icon" className="download" />
                             </a>
                             <a href="https://play.google.com/store/apps/details?id=com.jonnyonitcustomer&hl=en_US">
-                                <img src="/images/google-play-icon.png" alt="google play icon" className="download" />
+                                <img src="https://i.imgur.com/OtVV2By.png" alt="google play icon" className="download" />
                             </a>
                         </div>
                     </DownloadLink>
@@ -114,18 +117,18 @@ class Footer extends Component {
                         <h3>Follow Us: </h3>
                         <div className="follow-links">
                             <a href="what goes here?">
-                                <img src="/images/google-icon.png" alt="google icon" />
+                                <img src="https://i.imgur.com/bX1tHiX.png" alt="google icon" />
                             </a>
                             <a href="https://www.facebook.com/jonnyonit/?__tn__=%2Cd%2CP-R&eid=ARCUtiVTICjhi1kHmB95YacUSlQSWgGKUtjpRZu1yvXq049UH-BQBl3HcchWByeLoNPFW9rnfP7zlFD-">
-                                <img src="/images/facebook-icon.png" alt="facebook icon" />
+                                <img src="https://i.imgur.com/oznBtnF.png" alt="facebook icon" />
                             </a>
                         </div>
                         <div className="follow-links">
                             <a href="https://www.instagram.com/jonnyonitinc/">
-                                <img src="/images/instagram-icon.png" alt="instagram icon" />
+                                <img src="https://i.imgur.com/2k7bybK.png" alt="instagram icon" />
                             </a>
                             <a href="https://twitter.com/jonnyonitinc">
-                                <img src="/images/twitter-icon.png" alt="twitter icon" />
+                                <img src="https://i.imgur.com/ux916Fb.png" alt="twitter icon" />
                             </a>
                         </div>
                     </FollowUs>

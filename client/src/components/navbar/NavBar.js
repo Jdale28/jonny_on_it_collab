@@ -38,7 +38,7 @@ class NavBar extends Component {
             <div>
             <NavBarStyles>
               <div className="left">
-              <Link to="/"><img src="/images/JOI-long-logo.png" alt="JOI Logo"/></Link>
+              <Link to="/"><img src="https://i.imgur.com/rU0JNDM.png" alt="JOI Logo"/></Link>
               </div>
               <div className="right">
                 <Link to="/aboutus">About Us</Link>
