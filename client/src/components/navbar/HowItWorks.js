@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import axios from 'axios'
 
 const BannerImage = styled.div`
   width: 100%;
@@ -8,7 +9,7 @@ const BannerImage = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 3vh;
-  background-image: url("/images/how-it-works-banner.jpg");
+  background-image: url("https://i.imgur.com/7pyalnv.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
 `;
@@ -19,7 +20,7 @@ const HowImage = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 15vw 5vh 15vw;
-  background-image: url("/images/how-it-works-diagram.png");
+  background-image: url("https://i.imgur.com/hOKjGXT.png");
   background-repeat: no-repeat;
   background-size: 100%;
 `;
@@ -138,14 +139,14 @@ const KeyIconFlex = styled.div`
     height: 3vw;
     border-radius: 50%;
     background-color: white;
-    background-image: url("/images/PNGs/Icon-Plumbing.png");
+    background-image: url("https://i.imgur.com/V7kRgZt.png");
     background-repeat: no-repeat;
     background-size: 100%;
     margin-bottom: 5vh;
   }
 `;
 
-class AboutUs extends Component {
+class HowItWorks extends Component {
   render() {
     return (
       <div>
@@ -189,7 +190,7 @@ class AboutUs extends Component {
             <p>Find exactly what you need, exactly when you need it.</p>
             <IconFlex>
               <div className="OneIcon">
-                <img src="/images/PNGs/Icon-Plumbing.png" alt="Plumbing Icon" />
+                <img src="https://i.imgur.com/V7kRgZt.png" alt="Plumbing Icon" />
                 <h2>Plumbing</h2>
                 <p>
                   Find plumbers to fix burst pipes, low water pressure and more.
@@ -197,7 +198,7 @@ class AboutUs extends Component {
               </div>
               <div className="OneIcon">
                 <img
-                  src="/images/PNGs/Icon-PestControl.png"
+                  src="https://i.imgur.com/3KWUeIk.png"
                   alt="Pest Control Icon"
                 />
                 <h2>Pest Control</h2>
@@ -205,7 +206,7 @@ class AboutUs extends Component {
               </div>
               <div className="OneIcon">
                 <img
-                  src="/images/PNGs/Icon-Electrician.png"
+                  src="https://i.imgur.com/6FJukAj.png"
                   alt="Electrician Icon"
                 />
                 <h2>Electrician</h2>
@@ -217,18 +218,18 @@ class AboutUs extends Component {
             </IconFlex>
             <IconFlex>
               <div className="OneIcon">
-                <img src="/images/PNGs/Icon-Roofing.png" alt="Roofing Icon" />
+                <img src="https://i.imgur.com/I38zh0o.png" alt="Roofing Icon" />
                 <h2>Roofing</h2>
                 <p>Repair, replace, and maintain your roof.</p>
               </div>
               <div className="OneIcon">
-                <img src="/images/PNGs/Icon-Cleaning.png" alt="Cleaning Icon" />
+                <img src="https://i.imgur.com/rF2kuSz.png" alt="Cleaning Icon" />
                 <h2>Cleaning</h2>
                 <p>Get help for spaces, large or small.</p>
               </div>
               <div className="OneIcon">
                 <img
-                  src="/images/PNGs/Icon-Carpentry.png"
+                  src="https://i.imgur.com/rdltZ3w.png"
                   alt="Carpentry Icon"
                 />
                 <h2>Carpentry</h2>
@@ -241,7 +242,7 @@ class AboutUs extends Component {
             <IconFlex>
               <div className="OneIcon">
                 <img
-                  src="/images/PNGs/Icon-HVAC.png"
+                  src="https://i.imgur.com/Ur5RsN1.png"
                   alt="Heating and Air Icon"
                 />
                 <h2>Heating and Air</h2>
@@ -251,12 +252,12 @@ class AboutUs extends Component {
                 </p>
               </div>
               <div className="OneIcon">
-                <img src="/images/PNGs/Icon-Painting.png" alt="Painting Icon" />
+                <img src="https://i.imgur.com/o33n7rS.png" alt="Painting Icon" />
                 <h2>Painting</h2>
                 <p>Personalize your home or rental by adding fresh color.</p>
               </div>
               <div className="OneIcon">
-                <img src="/images/PNGs/Icon-Handyman.png" alt="Handyman Icon" />
+                <img src="https://i.imgur.com/jLQuSOu.png" alt="Handyman Icon" />
                 <h2>Handyman</h2>
                 <p>
                   Have an odd job not listed here? Reach out to a handyman for
@@ -316,4 +317,4 @@ class AboutUs extends Component {
   }
 }
 
-export default AboutUs;
+export default HowItWorks;

@@ -62,7 +62,7 @@ const ChristianImg = styled.div`
   width: 300px;
   margin: 0 1vw;
   border: 1px solid black;
-  background-image: url("/images/christian-ries.jpg");
+  background-image: url("https://i.imgur.com/xNkuCIV.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -81,23 +81,23 @@ const ChristianImg = styled.div`
 `;
 const ChrisImg = styled(ChristianImg)`
   width: 256px;
-  background-image: url("/images/Chris-Coakley.jpg");
+  background-image: url("https://i.imgur.com/EOoNfYC.jpg");
   background-size: 100%;
 `;
 const LeahImg = styled(ChristianImg)`
   width: 256px;
-  background-image: url("/images/Leah-pierce.jpg");
+  background-image: url("https://i.imgur.com/xfmc5co.jpg");
   background-size: 100%;
 `;
 const LoriImg = styled(ChristianImg)`
   width: 245px;
   height: 191px;
-  background-image: url("/images/Lori-Tillery.jpg");
+  background-image: url("https://i.imgur.com/clUjSm4.jpg");
   background-size: 100%;
 `;
 const LucyImg = styled(ChristianImg)`
   width: 258px;
-  background-image: url("/images/Lucy-Arnold.jpg");
+  background-image: url("https://i.imgur.com/8NlN31B.jpg");
   background-size: 100%;
 `;
 
