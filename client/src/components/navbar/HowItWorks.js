@@ -9,6 +9,7 @@ const BannerImage = styled.div`
   align-items: center;
   margin-bottom: 3vh;
   background-image: url("/images/how-it-works-banner.jpg");
+  background-repeat: no-repeat;
   background-size: 100%;
 `;
 const HowImage = styled.div`
@@ -19,6 +20,7 @@ const HowImage = styled.div`
   align-items: center;
   margin: 0 15vw 5vh 15vw;
   background-image: url("/images/how-it-works-diagram.png");
+  background-repeat: no-repeat;
   background-size: 100%;
 `;
 const IconBox = styled.div`
@@ -137,6 +139,7 @@ const KeyIconFlex = styled.div`
     border-radius: 50%;
     background-color: white;
     background-image: url("/images/PNGs/Icon-Plumbing.png");
+    background-repeat: no-repeat;
     background-size: 100%;
     margin-bottom: 5vh;
   }
