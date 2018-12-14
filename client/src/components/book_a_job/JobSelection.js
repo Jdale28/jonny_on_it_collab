@@ -9,18 +9,23 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import StepperforJob from "./StepperforJob"
 import styled from  "styled-components"
 import { Button } from '@material-ui/core';
+import { IncomingMessage } from 'http';
 
 
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly; 
-
-
-
-h1{
-
-}
 `
+const IconsBox = styled.div`
+   display: block;
+  `
+const IndividualBox = styled.div`
+    display: flex;
+`
+
+
+
+
 
 
 
@@ -68,6 +73,17 @@ class JobSelection extends React.Component {
           <ExpansionPanelDetails>
             <Typography>
               Here is where the nine icons will go in a flexbox container
+              <IconsBox>
+              <img src="/images/PNGs/Icon-Carpentry.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-Cleaning.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-Electrician.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-Handyman.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-HVAC.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-Painting.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-PestControl.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-Plumbing.png" alt="Plumbing Icon" />
+              <img src="/images/PNGs/Icon-Roofing.png" alt="Plumbing Icon" />
+              </IconsBox>
             </Typography>
             <Button onChange={this.handleChange('panel2')}> Next</Button>
           </ExpansionPanelDetails>
