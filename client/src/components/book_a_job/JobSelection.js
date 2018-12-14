@@ -10,7 +10,7 @@ import StepperforJob from "./StepperforJob"
 import styled from  "styled-components"
 import { Button } from '@material-ui/core';
 import { IncomingMessage } from 'http';
-
+import JobType from './JobType'
 
 const Wrapper = styled.div`
 display: flex;
@@ -91,10 +91,12 @@ class JobSelection extends React.Component {
         </ExpansionPanel>
         <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Job Type</Typography>
+            <Typography className={classes.heading}>Job Type
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
+            <JobType />
               Here is where the specific jobtypes will display
             </Typography>
           </ExpansionPanelDetails>
