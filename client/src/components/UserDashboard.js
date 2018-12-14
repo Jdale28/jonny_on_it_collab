@@ -7,7 +7,7 @@ border: solid;
 height: 90% ;
 width: 70%;
 margin-left: 25%;
-margin-top: -50px;
+margin-top: -5px;
 position: absolute;
 // margin-top: 10px;
 `
