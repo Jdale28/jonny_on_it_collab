@@ -13,7 +13,7 @@ const HomeBanner = styled.div`
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 40vh;
+    height: 44vh;
     display: flex;
     align-items: center;
     .form-container {
@@ -26,14 +26,14 @@ const HomeBanner = styled.div`
         justify-content: center;
     }
     form input {
-        font-size: 3.6em;
+        font-size: 2.6em;
         font-style: italic;
         border: none;
-        width: 20em;
-        height: 2.5em;
+        width: 19em;
+        height: 2.3em;
     }
     .tell-us {
-        font-size: 4.5em;
+        font-size: 3.2em;
         margin: 10px auto;
     }
 `
