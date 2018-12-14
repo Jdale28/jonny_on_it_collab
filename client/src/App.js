@@ -7,15 +7,16 @@ import { createGlobalStyle } from "styled-components";
 import HowItWorks from "./components/navbar/HowItWorks";
 import Blog from "./components/navbar/Blog";
 import AboutUs from "./components/navbar/AboutUs";
-import JobSelection from "./components/book_a_job/JobSelection"
-import StepperforJob from "./components/book_a_job/StepperforJob"
+import BookProperty from "./components/book_a_job/BookProperty"
+import JobSelection from "./components/book_a_job/JobSelection";
+import StepperforJob from "./components/book_a_job/StepperforJob";
 import UserAccountPage from "./components/UserAccountPage";
-import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn"
-import Footer from "./components/footer/Footer"
-import OurGuarantee from "./components/footer/OurGuarantee"
-import UserTerms from "./components/footer/UserTerms"
-import ProviderTerms from "./components/footer/ProviderTerms"
-import SignIn from "./components/SignIn"
+import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn";
+import Footer from "./components/footer/Footer";
+import OurGuarantee from "./components/footer/OurGuarantee";
+import UserTerms from "./components/footer/UserTerms";
+import ProviderTerms from "./components/footer/ProviderTerms";
+import SignIn from "./components/SignIn";
 
 const Global = createGlobalStyle`
   * {
@@ -39,6 +40,7 @@ class App extends Component {
             <Route exact path="/aboutus" component={AboutUs} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/howitworks" component={HowItWorks} />
+            <Route exact path="/bookproperty" component={BookProperty} />
             <Route exact path="/bookajob" component={JobSelection} />
             <Route exact path="/stepperforjob" component={StepperforJob} />
             <Route exact path="/useraccountpage" component={UserAccountPage} />

@@ -45,7 +45,7 @@ class JobSelection extends React.Component {
   state = {
     expanded: null,
     jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
-    jobType:''
+    jobtype:''
   };
 
   handleChange = panel => (event, expanded) => {
@@ -54,10 +54,11 @@ class JobSelection extends React.Component {
     });
   };
   
-  handleClick = {this.setState({
-    jobType: jobType
-  });
-};
+//   handleClick = (event) =>{
+//     this.setState({
+//     jobtype: jobtype
+//   });
+//  };
 
 
   render() {
