@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { NewsletterButton } from './ButtonStyle'
+import { NewsletterButton } from '../ButtonStyle'
 
 const FooterStyle = styled.div`
     width: 100%;
@@ -95,7 +95,7 @@ class Footer extends Component {
                         <div className="bottom-links">
                             <Link to="/">Contact Us</Link>
                             <Link to="/">FAQ</Link>
-                            <Link to="/">Our Guarantee</Link>
+                            <Link to="/ourguarantee">Our Guarantee</Link>
                             <Link to="/">User Terms</Link>
                         </div>
                     </LinkList>
