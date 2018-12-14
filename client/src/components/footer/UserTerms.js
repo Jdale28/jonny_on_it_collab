@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Guarantee = styled.div`
-    margin: 4em 0 .4em 3em;
+    margin: 4em 3em .4em 3em;
     h2 {
         color: rgba(14,151,255,1);
-        font-size: 4em;
+        font-size: 2.2em;
+        margin: 1em 0 0 0;
     }
     p {
         color: rgba(112,112,112,1);
-        font-size: 2.5em;
-        margin: 2em auto;
+        font-size: 1em;
+        line-height: 1.5;
+        margin: .5em auto .5em auto;
     }
 `
 
@@ -66,7 +68,7 @@ class UserTerms extends Component {
                     <h2>Intellectual Property</h2>
                     <p>JONNY ON IT and other graphics, logos, designs, page headers, button icons, scripts, and other names are the trademarks or trade dress of Jonny On It. These trademarks and/or trade dress may not be used, including as part of any trademark, service mark, domain name, social media account name, keyword advertisement, email address, or in connection with any product or service in a manner that is likely to cause confusion.</p>
                     <p>You should assume that all content and material made available on the Platform is protected by copyright law. Aside from User- and Provider-uploaded content, all materials and other information on the Platform, including, but not limited to, all text, graphics, logos, icons, images, photos, videos, audio clips, data compilations, and software are the exclusive property of Jonny On It or our licensors and are protected by U.S. and international copyright laws and may not be used without the express written permission of the owner thereof.</p>
-                    <h2>You should assume that all content and material made available on the Platform is protected by copyright law. Aside from User- and Provider-uploaded content, all materials and other information on the Platform, including, but not limited to, all text, graphics, logos, icons, images, photos, videos, audio clips, data compilations, and software are the exclusive property of Jonny On It or our licensors and are protected by U.S. and international copyright laws and may not be used without the express written permission of the owner thereof.</h2>
+                    <p>You should assume that all content and material made available on the Platform is protected by copyright law. Aside from User- and Provider-uploaded content, all materials and other information on the Platform, including, but not limited to, all text, graphics, logos, icons, images, photos, videos, audio clips, data compilations, and software are the exclusive property of Jonny On It or our licensors and are protected by U.S. and international copyright laws and may not be used without the express written permission of the owner thereof.</p>
                     <p>Confidential Information: Each party will use the same degree of care that it uses to protect the confidentiality of its own confidential information of like kind (but in no event less than reasonable care) and will not disclose or use any Confidential Information (as defined below) of the other party for any purpose outside of the scope of these Terms, and each party shall limit access to Confidential Information to those of its employees, contractors, and agents who need such access for purposes consistent with these Terms and who have signed confidentiality agreements with the receiving party containing protections no less stringent than those herein. In this Agreement, “Confidential Information” means all information, data, and financial information relating to the business, commercial strategies, pricing, personnel, customers, products, or services of a party not generally known to the public or that by its nature one would generally assume to be confidential (the “discloser”) but excludes any information that the other party (the “recipient”) proves (i) was lawfully in the recipient’s possession before receiving it from the discloser; (ii) is provided in good faith to the recipient by a third party without breaching any rights of the discloser or any other party; (iii) is or becomes generally available to, or accessible by, the public through no fault of the recipient; or (iv) was or is independently developed by the recipient without reference to the discloser’s Confidential Information. In the event that the recipient or any representative of the recipient becomes legally compelled (by law, rule, regulation, subpoena, or similar court process) to disclose any of the Confidential Information, the recipient will (if permitted to do so) provide the discloser with notice of such circumstances and will limit such disclosure to the required disclosure.</p>
                     <p>Security Requirements: While We take steps to employ appropriate technical and organizational security measures, We cannot guarantee that unauthorized third parties will never be able to defeat those measures. We expressly deny any responsibility for damages, monetary or otherwise, resulting from unauthorized third party access to your account or use, alteration, or disclosure of your content or information. We will promptly notify You in writing as soon as We suspect or become aware of actual third party access to your account or use, alteration, or disclosure of your content or information.</p>
                     <h2>Communication, Text Messages, and Phone Calls</h2>

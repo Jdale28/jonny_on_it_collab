@@ -37,31 +37,31 @@ class JobType extends Component {
 
         const otherChoice = "Other"
 
-        const whichJob = ["ELECTRICIAN", "PLUMBING", "CLEANING", "ETC"]
+        // const whichJob = ["ELECTRICIAN", "PLUMBING", "CLEANING", "ETC"]
 
-            if (something === "ELECTRICIAN") {
-                jobOption = electricianOptions
-            } else if (something === "PLUMBING") {
-                jobOption = plumberOptions
-            } else if (something === "") {
-                jobOption = cleaningOptions
-            } else if (something === "") {
-                jobOption = pestTermiteOptions
-            } else if (something === "") {
-                jobOption = painterOptions
-            } else if (something === "") {
-                jobOption = carpenterOptions
-            } else if (something === "") {
-                jobOption = moldWaterBioOptions
-            } else if (something === "") {
-                jobOption = rooferOptions
-            } else if (something === "") {
-                jobOption = heatAirOptions
-            } else if (something === "") {
-                jobOption = floorOptions
-            } else {
-                jobOption = otherChoice
-            }
+            // if (something === "ELECTRICIAN") {
+            //     jobOption = electricianOptions
+            // } else if (something === "PLUMBING") {
+            //     jobOption = plumberOptions
+            // } else if (something === "") {
+            //     jobOption = cleaningOptions
+            // } else if (something === "") {
+            //     jobOption = pestTermiteOptions
+            // } else if (something === "") {
+            //     jobOption = painterOptions
+            // } else if (something === "") {
+            //     jobOption = carpenterOptions
+            // } else if (something === "") {
+            //     jobOption = moldWaterBioOptions
+            // } else if (something === "") {
+            //     jobOption = rooferOptions
+            // } else if (something === "") {
+            //     jobOption = heatAirOptions
+            // } else if (something === "") {
+            //     jobOption = floorOptions
+            // } else {
+            //     jobOption = otherChoice
+            // }
 
         return (
             <Center>
