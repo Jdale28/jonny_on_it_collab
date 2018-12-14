@@ -101,7 +101,7 @@ export const AcceptQuoteButton = styled(GreenButton)`
 export const GoButton = styled(GreenButton)`
     width: 5em;
     height: 2em;
-    font-size: 3.6em;
+    font-size: 3em;
     font-weight: 400;
     color: rgba(0,0,0,1);
     margin: 0 0 0 1em;

@@ -79,7 +79,7 @@ class Footer extends Component {
             <div>
                 <FooterStyle>
                     <Newsletter>
-                        <h4>Sign upfor our newsletter</h4>
+                        <h4>Sign up for our newsletter</h4>
                         <form>
                             <input placeholder="  Your Email"></input>
                             <NewsletterButton type="submit">SUBMIT</NewsletterButton>
@@ -88,7 +88,7 @@ class Footer extends Component {
                     <LinkList>
                         <div className="top-links">
                             <Link to="/">About Us</Link>
-                            <Link to="/">Blog</Link>
+                            <Link to="/blog">Blog</Link>
                             <Link to="/howitworks">How It Works</Link>
                             <Link to="/">Service Professional Terms</Link>
                         </div>
