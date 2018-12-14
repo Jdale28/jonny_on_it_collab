@@ -16,7 +16,6 @@ list-style-type: none;
 `
 const Menutitle = styled.h1`
 margin-top: 75px;
-padding:
 `
 
 // import React from 'react';
