@@ -4,13 +4,15 @@ import styled from 'styled-components'
 
 const Container = styled.div `
 border: solid;
-height: 50px ;
-width: 50px;
-margin-left: 50%;
+height: 90% ;
+width: 70%;
+margin-left: 25%;
+margin-top: -5px;
 position: absolute;
-margin-top: 50px;
-// align-item: right;
-// justify-content: right;
+// margin-top: 10px;
+`
+const Title = styled.h1 `
+margin-top: 80px;
 `
 
 
@@ -19,7 +21,7 @@ class UserDashboard extends Component {
     render() {
         return (
             <Container>
-             Hello
+              <Title> MY JOBS </Title>
             </Container>
         );
     }
