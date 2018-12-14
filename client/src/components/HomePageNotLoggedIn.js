@@ -13,12 +13,12 @@ const HomeBanner = styled.div`
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 44vh;
+    height: 54vh;
     display: flex;
     align-items: center;
     .form-container {
         width: 100%;
-        height: 15em;
+        height: 12em;
         background-color: rgba(255,255,255,.5);
         display: flex;
         flex-direction: column;
@@ -26,14 +26,14 @@ const HomeBanner = styled.div`
         justify-content: center;
     }
     form input {
-        font-size: 2.6em;
+        font-size: 1.4em;
         font-style: italic;
         border: none;
         width: 19em;
         height: 2.3em;
     }
     .tell-us {
-        font-size: 3.2em;
+        font-size: 1.8em;
         margin: 10px auto;
     }
 `
@@ -50,13 +50,13 @@ const FindOutLinks = styled.div`
         color: rgba(0,45,81,1);
     }
     .find-out-title {
-        font-size: 2.5em;
+        font-size: 1.4em;
         color: rgba(14,151,255,1);
     }
     .new-user {
-        width: 18em;
-        height: 12em;
-        margin: 10px 10px;
+        width: 12em;
+        height: 8em;
+        margin: 8px;
     }
 `
 
@@ -75,7 +75,7 @@ const Reviews = styled.div`
     text-align: center;
     h2 {
         color: rgba(14,151,255,1);
-        font-size: 4em; 
+        font-size: 1.8em; 
         margin: .2em auto;
     }
     .reviews {
@@ -83,7 +83,8 @@ const Reviews = styled.div`
         display: flex;
         justify-content: center;
         .review {
-            width: 22em;
+            font-size: .8em;
+            width: 20em;
             margin: 0 1em;
         }
     }

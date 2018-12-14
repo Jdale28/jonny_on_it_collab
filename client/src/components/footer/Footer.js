@@ -15,20 +15,23 @@ const FooterStyle = styled.div`
 `
 
 const Newsletter = styled.div`
-    font-size: 1.4em;
+    font-size: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     input {
-        font-size: .8em;
+        font-size: .6em;
         width: 14em;
         height: 2.4em;
         margin: 1em;
     }
+    h4 {
+        text-align: center;
+    }
 `
 
 const LinkList = styled.div`
-    font-size: 1.6em;
+    font-size: .8em;
     margin: .4em;
     display: flex;
     flex-direction: column;
@@ -44,7 +47,7 @@ const LinkList = styled.div`
 `
 
 const DownloadLink = styled.div`
-    font-size: 1.4em;
+    font-size: .8em;
     display: flex;
     align-items: center;
     .download-container {
@@ -52,20 +55,20 @@ const DownloadLink = styled.div`
         flex-direction: column;
     }
     .download {
-        width: 8em;
-        height: 3em;
-        margin: .4em;
+        width: 6em;
+        height: 1.8em;
+        margin: .1em .1em .1em .3em;
     }
 `
 
 const FollowUs = styled.div`
-    font-size: 1.4em;
+    font-size: .8em;
     display: flex;
     align-items: center;
     a img {
-        width: 3em;
-        height: 3em;
-        margin: .4em;
+        width: 2em;
+        height: 2em;
+        margin: .1em .1em .1em .3em;
     }
     .follow-links {
         display: flex;
