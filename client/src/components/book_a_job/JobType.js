@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { GreenButton } from '../ButtonStyle'
 // import { jobtype } from './JobSelection'
 
 const Center = styled.div`
@@ -28,13 +29,11 @@ class JobType extends Component {
 
         const heatAirOptions = ["Blocked Vents", "Faulty Thermostat", "AC not cooling", "Pressure Imbalance", "Compressor Failure", "nsulation"]
 
-        // const floorOptions = ["Hardwood Install & Repair", "Carpet Install & Repair", "Tile Install & Repair"]
-
-        // const moldOptions = ["Water Damage Remediation", "Mold Remediation", "BioHazard/Animal Waste Removal", "Other Mold, Water, Bio", "Radon Testing"]
-
         const otherChoice = "Other"
 
-        // console.log(jobtype, res.data)
+        // LEAVE THESE COMMENTED OUT - WE ARE NOT USING THEM
+        // const floorOptions = ["Hardwood Install & Repair", "Carpet Install & Repair", "Tile Install & Repair"]
+        // const moldOptions = ["Water Damage Remediation", "Mold Remediation", "BioHazard/Animal Waste Removal", "Other Mold, Water, Bio", "Radon Testing"]
 
             // if (this.props.jobtype === "ELECTRICIAN") {
             //     jobOption = electricianOptions
@@ -56,6 +55,7 @@ class JobType extends Component {
             //     jobOption = otherChoice
             // }
 
+            // LEAVE THIS COMMENTED OUT - WE ARE NOT USING THEM
             // else if (this.props.jobtype === "MOLD") {
             //     jobOption = moldOptions
             // } else if (this.props.jobtype === "FLOOR") {
@@ -68,7 +68,7 @@ class JobType extends Component {
                 {this.jobOption.map((jobOption, i) =>
                     <button>{jobOption}</button>
                 )}
-                <button type="submit">Next</button>
+                <GreenButton type="submit">Next</GreenButton>
             </Center>
         )
     }
