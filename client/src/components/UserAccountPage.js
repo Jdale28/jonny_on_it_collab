@@ -5,13 +5,17 @@ import UserDashboard from './UserDashboard'
 
 const Container = styled.div `
 border: solid;
-height: 100vh ;
+height: 100vh;
 width: 100vw;
 `
 
 
 
 class UserAccountPage extends Component {
+
+    state = {
+        user: []
+    }
     render() {
         return (
             <Container>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 // import {Link} from 'react-router-dom'
 
 const Menuitems = styled.div`
+
 border:  none;
 height: 70px;
 width: 309px;
@@ -16,18 +17,14 @@ list-style-type: none;
 `
 const Menutitle = styled.h1`
 margin-top: 75px;
-padding:
+margin-left: 0px;
 `
+const Backgrounddiv = styled.div`
+background-color: whitesmoke;
+width: 23%;
+margin-left: 0px;
 
-// import React from 'react';
-
-// const Item = (props) => {
-//     return (
-//         <Menuitems> <div><li>{props.content}</li></div> </Menuitems>
-//     );
-// };
-
-// export default Item;
+`
 
 class UserNavBar extends Component {
 
@@ -47,7 +44,7 @@ class UserNavBar extends Component {
             <div>
                <Menutitle>  MY ACCOUNT </Menutitle>
                 <ul>
-                  
+                  <Backgrounddiv>
                <Menuitems> <div><li>MY JOBS</li></div> </Menuitems>
                <Menuitems> <div><li>INBOX</li></div></Menuitems>
                <Menuitems> <div> <li>INVOICE HISTORY</li></div> </Menuitems> 
@@ -55,7 +52,7 @@ class UserNavBar extends Component {
                <Menuitems> <div><li> MANAGE PROPERTIES</li></div> </Menuitems> 
                <Menuitems> <div><li> ACOUNT DETAILS</li></div> </Menuitems> 
                <Menuitems> <div><li>PAYMENT METHOD</li></div></Menuitems> 
-               
+               </Backgrounddiv>
                 </ul>
                
             </div>
