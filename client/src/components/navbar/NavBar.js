@@ -9,6 +9,7 @@ const NavBarStyles = styled.div`
   width: 100%;
   height: 10vh;
   font-size: 1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   img {
     height: 7vh;
     width: auto;
@@ -47,7 +48,8 @@ class NavBar extends Component {
                 <div className="booknow">
                     <Link to="/bookajob">Book Now</Link>
                 </div>
-                <Link to="/useraccountpage">Sign In</Link>
+                {/* <Link to="/useraccountpage">Sign In IF AUTHENTICATED</Link> */}
+                <Link to="/signin">Sign In</Link>
               </div>
             </NavBarStyles>
           </div>
