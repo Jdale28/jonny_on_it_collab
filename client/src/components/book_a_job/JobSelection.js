@@ -15,6 +15,7 @@ import { IncomingMessage } from 'http';
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly; 
+*{margin: 0};
 `
 const IconsBox = styled.div`
    display: block;
@@ -31,7 +32,7 @@ const IndividualBox = styled.div`
 
 const styles = theme => ({
   root: {
-    width: '50%',
+    width: '65%',
     
   },
   heading: {
