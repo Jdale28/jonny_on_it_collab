@@ -30,7 +30,19 @@ Myron Young: User Story and Dev To Do for Book A Job pages.
 Charles DeRosier: User Story and Developer To Do for Home Page, How It Works pages, and Misc pages. Start of defining naming conventions.
 
 December 12, 2018:
-Jordan Dale: Nav Bar, Footer
+Jordan Dale: Nav Bar, How It Works
+Loren Kelley: User Account
+Myron Young: Book Now 
+Charles DeRosier: Button Style component, Home Page Not Logged In
+
+December 13, 2018:
+Jordan Dale: How It Works, About Us
+Loren Kelley: User Account
+Myron Young: Book Now stepper
+Charles DeRosier: Home Page, Footer
+
+December 14, 2018:
+Jordan Dale: About Us, moved images to imgur
 Loren Kelley: User Account
 Myron Young: Book Now
-Charles DeRosier: Button Style component
+Charles DeRosier: Our Guarantee, User Terms, Provider Terms, Book Now JobType

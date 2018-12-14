@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Guarantee = styled.div`
-    margin: 4em 0 .4em 3em;
+    margin: 4em 3em .4em 3em;
     color: rgba(112,112,112,1);
     h1 {
         color: rgba(14,151,255,1);
-        font-size: 4em;
+        font-size: 2.8em;
     }
     p {
-        font-size: 2.5em;
-        margin: 2em auto;
+        font-size: 1em;
+        line-height: 1.5;
+        margin: 1.8em auto 4em auto;
     }
 `
 

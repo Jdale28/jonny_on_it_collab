@@ -10,7 +10,8 @@ import StepperforJob from "./StepperforJob"
 import styled from  "styled-components"
 import { Button } from '@material-ui/core';
 import { IncomingMessage } from 'http';
-
+import JobType from './JobType'
+import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
 display: flex;
@@ -18,22 +19,16 @@ justify-content: space-evenly;
 *{margin: 0};
 `
 const IconsBox = styled.div`
-   display: block;
+     display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px;
+  grid-template-areas: ". . . . ." ". . . . .";
   `
-const IndividualBox = styled.div`
-    display: flex;
-`
-
-
-
-
-
-
 
 const styles = theme => ({
   root: {
     width: '65%',
-    
+
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -49,6 +44,8 @@ const styles = theme => ({
 class JobSelection extends React.Component {
   state = {
     expanded: null,
+    jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
+    jobType:''
   };
 
   handleChange = panel => (event, expanded) => {
@@ -56,10 +53,18 @@ class JobSelection extends React.Component {
       expanded: expanded ? panel : false,
     });
   };
+  
+  handleClick = {this.setState({
+    jobType: jobType
+  });
+};
+
 
   render() {
     const { classes } = this.props;
     const { expanded } = this.state;
+
+
 
     return (
       <Wrapper>
@@ -73,29 +78,22 @@ class JobSelection extends React.Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              Here is where the nine icons will go in a flexbox container
-              <IconsBox>
-              <img src="/images/PNGs/Icon-Carpentry.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-Cleaning.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-Electrician.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-Handyman.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-HVAC.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-Painting.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-PestControl.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-Plumbing.png" alt="Plumbing Icon" />
-              <img src="/images/PNGs/Icon-Roofing.png" alt="Plumbing Icon" />
-              </IconsBox>
+            { this.state.jobs.map((job) => (
+          <IconsBox>
+            <Button handleClick>{job}</Button>
+            </IconsBox>
+            ))}
             </Typography>
-            <Button onChange={this.handleChange('panel2')}> Next</Button>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
+        {/* <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Job Type</Typography>
+            <Typography className={classes.heading}>Job Type
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              Here is where the specific jobtypes will display
+            <JobType />
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -129,7 +127,7 @@ class JobSelection extends React.Component {
               Here is where you would pay for your job.
             </Typography>
           </ExpansionPanelDetails>
-        </ExpansionPanel>
+        </ExpansionPanel> */}
       </div>
       </Wrapper>
     );
