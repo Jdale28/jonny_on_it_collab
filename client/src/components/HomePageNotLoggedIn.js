@@ -9,7 +9,7 @@ const HomePageNotLoggedIn = styled.div`
 
 const HomeBanner = styled.div`
     background-color: rgba(0,0,0,1);
-    background: url('/images/home-page-banner.jpg');
+    background-image: url("https://i.imgur.com/AFHbyQJ.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
@@ -62,7 +62,7 @@ const FindOutLinks = styled.div`
 
 const HowItWorksHomePage = styled.div`
     display: flex;
-    justify-content:center;
+    justify-content: center;
     .how-it-works-diagram {
         width: 68em;
         height: 52em;
@@ -109,17 +109,17 @@ class HomePageNoLoggedIn extends Component {
                         <h3 className="find-out-title">Find out what Jonny can do for you</h3>
                         <div className="find-out-container">
                             <a href="/howitworks">
-                                <img src="/images/homeowner.jpeg" alt="homeowner photo" className="new-user" />
+                                <img src="https://i.imgur.com/3jWLdtT.jpg" alt="homeowner photo" className="new-user" />
                                 <p>I AM A HOMEOWNER</p>
                             </a>
                             <a href="/howitworks">
-                                <img src="/images/realtor.jpeg" alt="realtor photo" className="new-user" />
+                                <img src="https://i.imgur.com/37PgZ8b.jpg" alt="realtor photo" className="new-user" />
                                 <p>I AM A REALTOR</p>
                             </a>
                         </div>
                     </FindOutLinks>
                     <HowItWorksHomePage>
-                        <img src="/images/how-it-works-diagram.png" alt="how it works diagram" className="how-it-works-diagram" />
+                        <img src="https://i.imgur.com/hOKjGXT.png" alt="how it works diagram" className="how-it-works-diagram" />
                     </HowItWorksHomePage>
                     <Reviews>
                         <h2>Reviews</h2>

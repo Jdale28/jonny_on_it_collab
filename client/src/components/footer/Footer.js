@@ -106,10 +106,10 @@ class Footer extends Component {
                         <h3>Download Here:</h3>
                         <div className="download-container">
                             <a href="https://itunes.apple.com/us/app/jonny-on-it/id1330021042?mt=8">
-                                <img src="/images/apple-download-icon.png" alt="apple download icon" className="download" />
+                                <img src="https://i.imgur.com/BBB6EPz.png" alt="apple download icon" className="download" />
                             </a>
                             <a href="https://play.google.com/store/apps/details?id=com.jonnyonitcustomer&hl=en_US">
-                                <img src="/images/google-play-icon.png" alt="google play icon" className="download" />
+                                <img src="https://i.imgur.com/OtVV2By.png" alt="google play icon" className="download" />
                             </a>
                         </div>
                     </DownloadLink>
@@ -117,18 +117,18 @@ class Footer extends Component {
                         <h3>Follow Us: </h3>
                         <div className="follow-links">
                             <a href="what goes here?">
-                                <img src="/images/google-icon.png" alt="google icon" />
+                                <img src="https://i.imgur.com/bX1tHiX.png" alt="google icon" />
                             </a>
                             <a href="https://www.facebook.com/jonnyonit/?__tn__=%2Cd%2CP-R&eid=ARCUtiVTICjhi1kHmB95YacUSlQSWgGKUtjpRZu1yvXq049UH-BQBl3HcchWByeLoNPFW9rnfP7zlFD-">
-                                <img src="/images/facebook-icon.png" alt="facebook icon" />
+                                <img src="https://i.imgur.com/oznBtnF.png" alt="facebook icon" />
                             </a>
                         </div>
                         <div className="follow-links">
                             <a href="https://www.instagram.com/jonnyonitinc/">
-                                <img src="/images/instagram-icon.png" alt="instagram icon" />
+                                <img src="https://i.imgur.com/2k7bybK.png" alt="instagram icon" />
                             </a>
                             <a href="https://twitter.com/jonnyonitinc">
-                                <img src="/images/twitter-icon.png" alt="twitter icon" />
+                                <img src="https://i.imgur.com/ux916Fb.png" alt="twitter icon" />
                             </a>
                         </div>
                     </FollowUs>
