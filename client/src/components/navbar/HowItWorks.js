@@ -9,6 +9,7 @@ const BannerImage = styled.div`
   align-items: center;
   margin-bottom: 3vh;
   background-image: url("/images/how-it-works-banner.jpg");
+  background-repeat: no-repeat;
   background-size: 100%;
 `;
 const HowImage = styled.div`
@@ -19,6 +20,7 @@ const HowImage = styled.div`
   align-items: center;
   margin: 0 15vw 5vh 15vw;
   background-image: url("/images/how-it-works-diagram.png");
+  background-repeat: no-repeat;
   background-size: 100%;
 `;
 const IconBox = styled.div`
@@ -137,6 +139,7 @@ const KeyIconFlex = styled.div`
     border-radius: 50%;
     background-color: white;
     background-image: url("/images/PNGs/Icon-Plumbing.png");
+    background-repeat: no-repeat;
     background-size: 100%;
     margin-bottom: 5vh;
   }
@@ -272,31 +275,38 @@ class AboutUs extends Component {
           </p>
           <div className="FeaturesFlexBox">
             <KeyIconFlex>
-              <div className="KeyIcon"></div>
-              <div className="KeyIcon"></div>
+              <div className="KeyIcon" />
+              <div className="KeyIcon" />
             </KeyIconFlex>
             <KeyFlex>
               <h4 className="KeyHeader">Safe and Secure</h4>
               <p className="KeyTagline">
-                All our service providers are insured and have passed a background check. You'll also get a photo so you know who to expect at your door.
+                All our service providers are insured and have passed a
+                background check. You'll also get a photo so you know who to
+                expect at your door.
               </p>
               <h4 className="KeyHeader">Detailed Records</h4>
               <p className="KeyTagline">
-                Jonny saves all of your service records. This way, when you move or sell your house, you vcan share these records with the new owner/occupant.
+                Jonny saves all of your service records. This way, when you move
+                or sell your house, you vcan share these records with the new
+                owner/occupant.
               </p>
             </KeyFlex>
             <KeyIconFlex>
-            <div className="KeyIcon"></div>
-              <div className="KeyIcon"></div>
+              <div className="KeyIcon" />
+              <div className="KeyIcon" />
             </KeyIconFlex>
             <KeyFlex>
               <h4 className="KeyHeader">Honest Reviews</h4>
               <p className="KeyTagline">
-                We don't have any paid or incentivized reviews in our app, so you can trust that the reviews are honest & genuine.
+                We don't have any paid or incentivized reviews in our app, so
+                you can trust that the reviews are honest & genuine.
               </p>
               <h4 className="KeyHeader">Ideal for Realtors</h4>
               <p className="KeyTagline">
-                Hire professionals for your punch list, share a preferred venfor list with your customers, and get everything done in record time!
+                Hire professionals for your punch list, share a preferred venfor
+                list with your customers, and get everything done in record
+                time!
               </p>
             </KeyFlex>
           </div>
