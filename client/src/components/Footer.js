@@ -15,19 +15,36 @@ const FooterStyle = styled.div`
 `
 
 const Newsletter = styled.div`
-    margin: 2em 10em;
+    font-size: 1.4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    input {
+        font-size: .8em;
+        width: 14em;
+        height: 2.4em;
+        margin: 1em;
+    }
 `
 
 const LinkList = styled.div`
-    margin: 0 0;
+    font-size: 1.6em;
+    margin: .4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .top-links, .bottom-links {
+        margin: .2em;
+    }
     a {
+        margin: .4em;
         text-decoration: none;
         color: rgba(255,255,255,1);
     }
 `
 
 const DownloadLink = styled.div`
-    font-size: 2em;
+    font-size: 1.4em;
     display: flex;
     align-items: center;
     .download-container {
@@ -35,20 +52,20 @@ const DownloadLink = styled.div`
         flex-direction: column;
     }
     .download {
-        width: 6em;
-        height: 2em;
-        margin: .2em;
+        width: 8em;
+        height: 3em;
+        margin: .4em;
     }
 `
 
 const FollowUs = styled.div`
-    font-size: 2em;
+    font-size: 1.4em;
     display: flex;
     align-items: center;
     a img {
-        width: 2em;
-        height: 2em;
-        margin: .2em;
+        width: 3em;
+        height: 3em;
+        margin: .4em;
     }
     .follow-links {
         display: flex;
@@ -64,7 +81,7 @@ class Footer extends Component {
                     <Newsletter>
                         <h4>Sign upfor our newsletter</h4>
                         <form>
-                            <input></input>
+                            <input placeholder="  Your Email"></input>
                             <NewsletterButton type="submit">SUBMIT</NewsletterButton>
                         </form>
                     </Newsletter>

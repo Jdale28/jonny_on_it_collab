@@ -108,7 +108,7 @@ export const GoButton = styled(GreenButton)`
 `
 
 export const NewsletterButton = styled(GreenButton)`
-    width: 5.8em;
-    height: 2.8em;
-    font-size: 1.3em;
+    width: 5.6em;
+    height: 2.4em;
+    font-size: 1em;
 `
