@@ -30,3 +30,6 @@
     transform: rotate(360deg);
   }
 }
+.icon{
+  color: rgba(0,45,81,1);
+}

@@ -2,19 +2,18 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import UserNavBar from './UserNavBar'
 import UserDashboard from './UserDashboard'
-import UserActiveJobs from './UserActiveJobs'
-
 import axios from 'axios'
 
 
 const Container = styled.div `
-border: solid;
+border: none;
 height: 100vh;
 width: 100vw;
 `
-
-
-
+const Name = styled.div`
+margin: 20px;
+margin-left: 370px;
+`
 class UserAccountPage extends Component {
 
     state = {
@@ -25,6 +24,7 @@ class UserAccountPage extends Component {
         const id = this.props.match.params.id
         
         axios.get(`/api/users/${id}`).then(res => {
+            console.log(res)
             this.setState({user: res.data})
         })
 
@@ -34,9 +34,10 @@ class UserAccountPage extends Component {
         return (
             <Container>
             <div>
+            <Name> Hello, {this.state.user.name} !</Name>
                 <UserDashboard/>
           
-                <h1>{this.state.user.name}</h1>
+             
           
                <UserNavBar/>
 
