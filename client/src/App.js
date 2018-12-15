@@ -16,7 +16,6 @@ import OurGuarantee from "./components/footer/OurGuarantee"
 import UserTerms from "./components/footer/UserTerms"
 import ProviderTerms from "./components/footer/ProviderTerms"
 import SignIn from "./components/SignIn"
-
 const Global = createGlobalStyle`
   * {
     margin: 0;
