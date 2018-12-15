@@ -19,6 +19,9 @@ const TimeStyle = styled.div`
         display: flex;
         margin: 100px;
     }
+    .slots-content.hidden {
+        display: none;
+    }
     .time-slot {
         font-size: 1.2em;
         border: 1px solid rgba(114,114,114,1);
@@ -26,13 +29,18 @@ const TimeStyle = styled.div`
         width: 30vw;
         height: 2.4em;
         padding: .1em;
-        margin: .2em;
+        margin: .4em;
         display: flex;
     }
     .time-slot button {
         width: 2em;
         height: 2em;
         border-radius: 50%;
+    }
+    .time-slot p {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
     }
 `
 
@@ -43,11 +51,12 @@ class BookTime extends Component {
                 <h2>Time</h2>
                 <div className="button-container">
                     <div classname="topbuttons">
-                        <RedButton>TODAY</RedButton>
+                        <RedButton classNmae={this.props.shouldHide ? 'hidden' : ''}>TODAY</RedButton>
                         <GreenButton>SCHEDULE</GreenButton>
                     </div>
+                    <div className="date-bar"></div>
                     <div className="time-slots">
-                        <form>
+                        <form className="slots-content">
                             <div className="time-slot">
                                 <button>X</button><p>9 AM - 11 AM</p>
                             </div>
@@ -64,7 +73,7 @@ class BookTime extends Component {
                                 <button>X</button><p>5 PM - 7 PM</p>
                             </div>
                             <div classname="bottom-button">
-                                <BlueButton>Next</BlueButton>
+                                <BlueButton type="submit">Next</BlueButton>
                             </div>
                         </form>
                     </div>
