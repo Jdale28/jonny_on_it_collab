@@ -97,7 +97,7 @@ class Footer extends Component {
                         </div>
                         <div className="bottom-links">
                             <Link to="/">Contact Us</Link>
-                            <Link to="/">FAQ</Link>
+                            <Link to="/faq">FAQ</Link>
                             <Link to="/ourguarantee">Our Guarantee</Link>
                             <Link to="/userterms">User Terms</Link>
                         </div>
