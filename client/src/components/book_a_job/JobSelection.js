@@ -54,10 +54,11 @@ class JobSelection extends React.Component {
     });
   };
   
-  handleClick = {this.setState({
-    jobType: jobType
+  handleClick = (event) =>{
+    this.setState({
+    jobtype: jobtype
   });
-};
+ };
 
 
   render() {
