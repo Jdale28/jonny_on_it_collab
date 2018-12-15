@@ -17,6 +17,7 @@ import OurGuarantee from "./components/footer/OurGuarantee";
 import UserTerms from "./components/footer/UserTerms";
 import ProviderTerms from "./components/footer/ProviderTerms";
 import SignIn from "./components/SignIn";
+import FAQ from "./components/footer/FAQ";
 
 const Global = createGlobalStyle`
   * {
@@ -43,7 +44,7 @@ class App extends Component {
             <Route exact path="/bookproperty" component={BookProperty} />
             <Route exact path="/bookajob" component={JobSelection} />
             <Route exact path="/stepperforjob" component={StepperforJob} />
-
+            <Route exact path="/faq" component={FAQ} />
             <Route exact path="/useraccountpage/:id" component={UserAccountPage} />
             <Route exact path="/signin" component={SignIn} />
             <Route path="/" component={HomePageNotLoggedIn} />

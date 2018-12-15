@@ -12,11 +12,12 @@ const PageStyle = styled.div`
     margin-bottom: 2vh;
   }
   .About {
-    margin-top: 3vh;
+    margin-top: 5vh;
+    margin-left: 5vh;
   }
   p {
     color: rgba(112, 112, 112, 1);
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
   .OurTeam {
     margin-top: 5vh;
@@ -30,16 +31,18 @@ const Center = styled.div`
 `;
 
 const AboutHeaders = styled.div`
-  width: 100%;
+  width: 94%;
   height: 30vh;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  margin: 3vh 5vh;
   .column {
     width: 45vw;
     height: 25vh;
+    margin-right: 3vh;
   }
 `;
 
@@ -106,7 +109,7 @@ class AboutUs extends Component {
     return (
       <PageStyle>
         <h1 className="About">About Us</h1>
-        <p>
+        <p className="About">
           Jonny On It is a mobile app that saves homeowners time and money by
           instantly matching customers with home service providers like
           plumbers, HVAC technicians, electricians, locksmiths, and appliance
@@ -114,7 +117,7 @@ class AboutUs extends Component {
           schedule jobs, pay for services, and rate venders - all in real time.
         </p>
         <br />
-        <p>
+        <p className="About">
           Founded in 2016, Jonny On It is proudly based in Atlanta, Georgia.
         </p>
         <AboutHeaders>
