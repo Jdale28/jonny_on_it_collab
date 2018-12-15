@@ -42,16 +42,31 @@ const TimeStyle = styled.div`
         display: flex;
         align-items: center;
     }
+    /* .time-slot, p.hidden {
+        display: none;
+    } */
 `
 
 class BookTime extends Component {
     render() {
+
+        // function myFunction() {
+        //     var x = document.getElementBy("time-slots");
+        //     if (x.style.display === "none") {
+        //       x.style.display = "block";
+        //     } else {
+        //       x.style.display = "none";
+        //     }
+        //   }
+
+        // onclick={myFunction()}
+
         return (
             <TimeStyle>
                 <h2>Time</h2>
                 <div className="button-container">
                     <div classname="topbuttons">
-                        <RedButton classNmae={this.props.shouldHide ? 'hidden' : ''}>TODAY</RedButton>
+                        <RedButton>TODAY</RedButton>
                         <GreenButton>SCHEDULE</GreenButton>
                     </div>
                     <div className="date-bar"></div>
@@ -77,10 +92,36 @@ class BookTime extends Component {
                             </div>
                         </form>
                     </div>
+                    {/* {!this.state.isHidden && <Child />} */}
                 </div>
             </TimeStyle>
         )
     }
 }
+// const Child = () => (
+//                     <div className="time-slots">
+//                         <form className="slots-content">
+//                             <div className="time-slot">
+//                                 <button>X</button><p>9 AM - 11 AM</p>
+//                             </div>
+//                             <div className="time-slot">
+//                                 <button>X</button><p>11 AM - 1 PM</p>
+//                             </div>
+//                             <div className="time-slot">
+//                                 <button>X</button><p>1 PM - 3 PM</p>
+//                             </div>
+//                             <div className="time-slot">
+//                                 <button>X</button><p>3 PM - 5 PM</p>
+//                             </div>
+//                             <div className="time-slot">
+//                                 <button>X</button><p>5 PM - 7 PM</p>
+//                             </div>
+//                             <div classname="bottom-button">
+//                                 <BlueButton type="submit">Next</BlueButton>
+//                             </div>
+//                         </form>
+//                     </div>
+//                     )
 
+// const app = document.getElementById('app')
 export default BookTime
