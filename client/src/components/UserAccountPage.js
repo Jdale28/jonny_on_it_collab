@@ -14,8 +14,11 @@ width: 100vw;
 const Name = styled.div`
 color:  rgba(14,151,255,1);
 font-size: 35px;
+font-weight: bold;
 margin: 20px;
 margin-left: 361px;
+margin-top: 15px;
+postion: fixed;
 `
 class UserAccountPage extends Component {
 
@@ -40,8 +43,7 @@ class UserAccountPage extends Component {
             <Name> HELLO, {this.state.user.name} !</Name>
                 <UserDashboard/>
                
-          
-               <UserNavBar/>
+               <UserNavBar/> 
 
             </div>
             </Container>
