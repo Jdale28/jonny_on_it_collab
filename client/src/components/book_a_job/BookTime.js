@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { RedButton, GreenButton, BlueButton } from '../ButtonStyle'
+import axios from 'axios'
 
 const TimeStyle = styled.div`
     font-size: .8em;
@@ -15,7 +16,7 @@ const TimeStyle = styled.div`
         margin: 20px;
         justify-content: space-between;
     }
-    .topbuttons {
+    .top-buttons {
         display: flex;
         margin: 100px;
     }
@@ -61,14 +62,15 @@ class BookTime extends Component {
 
     handleChange = (event) => {
         const updatedChangeProperty = { ...this.state.property }
-        updatedChangeProperty[event.target.name] = event.target.value
+        updatedChangeProperty[event.target.time] = event.target.value
         this.setState({ property: updatedChangeProperty })
     }
 
     handleUpdate = (event) => {
         event.preventDefault()
         axios.patch(`/api/properties/${this.props.match.params.propertyId}`, this.state.property).then(res => {
-            this.props.history.push(`/properties/${res.data._id}/payment`)
+            this.props.history.push(`/payment`)
+            // /properties/${res.data._id}
         })
     }
 
@@ -89,7 +91,7 @@ class BookTime extends Component {
             <TimeStyle>
                 <h2>Time</h2>
                 <div className="button-container">
-                    <div classname="topbuttons">
+                    <div classname="top-buttons">
                         <RedButton>TODAY</RedButton>
                         <GreenButton>SCHEDULE</GreenButton>
                     </div>
@@ -97,21 +99,31 @@ class BookTime extends Component {
                     <div className="time-slots">
                         <form className="slots-content">
                             <div className="time-slot">
-                                <button>X</button><p>9 AM - 11 AM</p>
+                                <button
+                                onChange={this.handleChange}
+                                value="9 AM - 11 AM">X</button><p>9 AM - 11 AM</p>
                             </div>
                             <div className="time-slot">
-                                <button>X</button><p>11 AM - 1 PM</p>
+                                <button
+                                onChange={this.handleChange}
+                                value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
                             </div>
                             <div className="time-slot">
-                                <button>X</button><p>1 PM - 3 PM</p>
+                                <button
+                                onChange={this.handleChange}
+                                value="1 PM - 3 PM">X</button><p>1 PM - 3 PM</p>
                             </div>
                             <div className="time-slot">
-                                <button>X</button><p>3 PM - 5 PM</p>
+                                <button
+                                onChange={this.handleChange}
+                                value="3 PM - 5 PM">X</button><p>3 PM - 5 PM</p>
                             </div>
                             <div className="time-slot">
-                                <button>X</button><p>5 PM - 7 PM</p>
+                                <button
+                                onChange={this.handleChange}
+                                value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
                             </div>
-                            <div classname="bottom-button">
+                            <div className="bottom-button">
                                 <BlueButton type="submit">Next</BlueButton>
                             </div>
                         </form>
