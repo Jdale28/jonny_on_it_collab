@@ -48,6 +48,30 @@ const TimeStyle = styled.div`
 `
 
 class BookTime extends Component {
+
+    state = {
+        property: {}
+    }
+
+    componentDidMount() {
+        axios.get(`/api/properties/${this.props.match.params.propertyId}`).then((res) => {
+            this.setState({ property: res.data })
+        })
+    }
+
+    handleChange = (event) => {
+        const updatedChangeProperty = { ...this.state.property }
+        updatedChangeProperty[event.target.name] = event.target.value
+        this.setState({ property: updatedChangeProperty })
+    }
+
+    handleUpdate = (event) => {
+        event.preventDefault()
+        axios.patch(`/api/properties/${this.props.match.params.propertyId}`, this.state.property).then(res => {
+            this.props.history.push(`/properties/${res.data._id}/payment`)
+        })
+    }
+
     render() {
 
         // function myFunction() {
