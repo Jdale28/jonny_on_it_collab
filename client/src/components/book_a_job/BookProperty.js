@@ -39,7 +39,7 @@ class BookProperty extends Component {
             city: '',
             state: '',
             zipcode: '',
-            user: 0
+            user: ''
         }
     }
 

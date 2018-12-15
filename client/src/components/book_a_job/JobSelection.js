@@ -54,11 +54,11 @@ class JobSelection extends React.Component {
     });
   };
   
-//   handleClick = (event) =>{
-//     this.setState({
-//     jobtype: jobtype
-//   });
-//  };
+  handleClick = (event) =>{
+    this.setState({
+    jobtype: jobtype
+  });
+ };
 
 
   render() {
@@ -87,7 +87,7 @@ class JobSelection extends React.Component {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        {/* <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
+        <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>Job Type
             </Typography>
@@ -128,7 +128,7 @@ class JobSelection extends React.Component {
               Here is where you would pay for your job.
             </Typography>
           </ExpansionPanelDetails>
-        </ExpansionPanel> */}
+        </ExpansionPanel>
       </div>
       </Wrapper>
     );
