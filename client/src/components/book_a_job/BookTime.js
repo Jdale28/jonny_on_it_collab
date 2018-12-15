@@ -22,8 +22,10 @@ const TimeStyle = styled.div`
     .time-slot {
         font-size: 1.2em;
         border: 1px solid rgba(114,114,114,1);
-        border-radius: .6em;
-        width: 20vw;
+        border-radius: .3em;
+        width: 30vw;
+        height: 2.4em;
+        padding: .1em;
         margin: .2em;
         display: flex;
     }
