@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BlueButton } from '../ButtonStyle'
+import axios from 'axios'
 
 const BookPropertyStyle = styled.div`
     font-size: .8em;
@@ -26,7 +27,39 @@ const BookPropertyStyle = styled.div`
     }
 `
 
+
+
 class BookProperty extends Component {
+
+    state = {
+        properties: [],
+        newProperty: {
+            streetAdress: '',
+            // streetAddress2: '',
+            city: '',
+            state: '',
+            zipcode: '',
+            user: 0
+        }
+    }
+
+    // NEED TO GET JOB ID AND PASS IT IN
+
+    handleChange = (event) => {
+        const updatedNewProperty = { ...this.state.newProperty }
+        updatedNewProperty[event.target.name] = event.target.value
+        this.setState({ newProperty: updatedNewProperty })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        axios.post(`/api/users/${this.props.match.params.userId}/properties`, this.state.newProperty).then(res => {
+            this.props.history.push(`/bookajob/${this.props.match.params.userId}/time`)
+            // NEED TO FIGURE CORRECT PATH FOR POST
+            // CORRECT PATH TO PUSH (REDIRECT)
+        })
+    }
+    
     render() {
         return (
             <BookPropertyStyle>
@@ -36,9 +69,9 @@ class BookProperty extends Component {
                         <p>Street</p>
                         <input>
                         </input>
-                        <p>Street 2 (Optional)</p>
+                        {/* <p>Street 2 (Optional)</p>
                         <input>
-                        </input>
+                        </input> */}
                         <p>City</p>
                         <input>
                         </input>
