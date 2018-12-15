@@ -5,14 +5,17 @@ import UserDashboard from './UserDashboard'
 import axios from 'axios'
 
 
+
 const Container = styled.div `
 border: none;
 height: 100vh;
 width: 100vw;
 `
 const Name = styled.div`
+color:  rgba(14,151,255,1);
+font-size: 35px;
 margin: 20px;
-margin-left: 370px;
+margin-left: 361px;
 `
 class UserAccountPage extends Component {
 
@@ -34,10 +37,9 @@ class UserAccountPage extends Component {
         return (
             <Container>
             <div>
-            <Name> Hello, {this.state.user.name} !</Name>
+            <Name> HELLO, {this.state.user.name} !</Name>
                 <UserDashboard/>
-          
-             
+               
           
                <UserNavBar/>
 

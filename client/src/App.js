@@ -41,7 +41,6 @@ class App extends Component {
             <Route exact path="/howitworks" component={HowItWorks} />
             <Route exact path="/bookajob" component={JobSelection} />
             <Route exact path="/stepperforjob" component={StepperforJob} />
-
             <Route exact path="/useraccountpage/:id" component={UserAccountPage} />
             <Route exact path="/signin" component={SignIn} />
             <Route path="/" component={HomePageNotLoggedIn} />
