@@ -6,6 +6,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register('users', views.UserView)
 router.register('properties', views.PropertyView)
+router.register('payments', views.PaymentView)
 router.register('jobs', views.JobView)
 
 

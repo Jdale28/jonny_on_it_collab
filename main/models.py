@@ -19,6 +19,20 @@ class Property(models.Model):
     def __str__(self):
         return self.streetAddress
 
+class Payment(models.Model):
+    CARD_CHOICES = (
+        ('AMEX', 'Amex'), ('VISA', 'Visa'), ('MASTERCARD', 'Mastercard'), ('DISCOVER', 'Discover'),
+    )
+
+    cardholderName = models.CharField(max_length=255)
+    cardType = models.CharField(max_length=255, choices=CARD_CHOICES, default='Visa')
+    cardNumber = models.CharField(max_length=16)
+    cardCVV = models.CharField(max_length=4)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='payments')
+
+    def __str__(self):
+        return self.cardType
+
 class Job(models.Model):
     PROFESSION_CHOICES = (
         ('ELECTRICIAN', 'Electrician'), ('PLUMBING', 'Plumbing'), ('CLEANING', 'Cleaning'), ('PEST', 'Pest & Termite'), ('PAINTING', 'Painting'),
@@ -51,6 +65,7 @@ class Job(models.Model):
 
     profession = models.CharField(max_length=255, choices=PROFESSION_CHOICES, default='Handyman')
     subcategory = models.CharField(max_length=255, choices=SUBCATEGORY_CHOICES, default='Other')
+    time = models.DateTimeField(null=True, blank=True)
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='jobs')
 
     def __str__(self):
