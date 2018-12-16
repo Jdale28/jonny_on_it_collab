@@ -4,7 +4,6 @@ import { BlueButton } from '../ButtonStyle'
 import axios from 'axios'
 
 const BookPropertyStyle = styled.div`
-    font-size: .8em;
     margin: 3em auto;
     display: flex;
     flex-direction: column;
@@ -26,8 +25,6 @@ const BookPropertyStyle = styled.div`
         justify-content: center;
     }
 `
-
-
 
 class BookProperty extends Component {
 
@@ -68,26 +65,40 @@ class BookProperty extends Component {
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
                         <p>Street</p>
-                        <input>
+                        <input
+                        onChange={this.handleChange}
+                        value={this.state.property.streetAddress}
+                        type="text" name="streetaddress"
+                        maxLength="120">
                         </input>
-                        {/* <p>Street 2 (Optional)</p>
-                        <input>
+                        {/* <p>Street Address 2 (optional)</p>
+                        <input
+                        onChange={this.handleChange}
+                        value={this.state.property.streetAddress2}
+                        type="text" name="streetadress2"
+                        maxLength="120">
                         </input> */}
                         <p>City</p>
-                        <input>
+                        <input
+                        onChange={this.handleChange}
+                        value={this.state.property.city}
+                        type="text" name="city"
+                        maxLength="120">
                         </input>
-                        <div className="address-bottom">
-                            <div>
-                                <p>State</p>
-                                <input>
-                                </input>
-                            </div>
-                            <div>
-                                <p>Zip Code</p>
-                                <input>
-                                </input>
-                            </div>
-                        </div>
+                        <p>State</p>
+                        <input
+                        onChange={this.handleChange}
+                        value={this.state.property.state}
+                        type="text" name="state"
+                        maxLength="120">
+                        </input>
+                        <p>Zip code</p>
+                        <input
+                        onChange={this.handleChange}
+                        value={this.state.property.zipcode}
+                        type="text" name="zipcode"
+                        maxLength="10">
+                        </input>
                         <div className="next">
                             <BlueButton>Next</BlueButton>
                         </div>
