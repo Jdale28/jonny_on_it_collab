@@ -14,13 +14,14 @@ const BookPropertyStyle = styled.div`
     form input {
         width: 100%;
         height: 2.5em;
-        margin: .2em auto 1em auto;
+        margin: 0 auto .4em auto;
     }
-    .address-bottom {
+    .sub-form-container {
         display: flex;
         justify-content: space-around;
     }
-    .next {
+    .submit-button {
+        margin: .4em 0;
         display: flex;
         justify-content: center;
     }
@@ -57,19 +58,19 @@ class BookProperty extends Component {
             // CORRECT PATH TO PUSH (REDIRECT)
         })
     }
-    
+
     render() {
         return (
             <BookPropertyStyle>
                 <h1>Property</h1>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
-                        <p>Street</p>
+                        <label>Street</label>
                         <input
-                        onChange={this.handleChange}
-                        value={this.state.property.streetAddress}
-                        type="text" name="streetaddress"
-                        maxLength="120">
+                            onChange={this.handleChange}
+                            // value={this.state.property.streetAddress}
+                            type="text" name="streetaddress"
+                            maxLength="120">
                         </input>
                         {/* <p>Street Address 2 (optional)</p>
                         <input
@@ -78,28 +79,34 @@ class BookProperty extends Component {
                         type="text" name="streetadress2"
                         maxLength="120">
                         </input> */}
-                        <p>City</p>
+                        <label>City</label>
                         <input
-                        onChange={this.handleChange}
-                        value={this.state.property.city}
-                        type="text" name="city"
-                        maxLength="120">
+                            onChange={this.handleChange}
+                            // value={this.state.property.city}
+                            type="text" name="city"
+                            maxLength="120">
                         </input>
-                        <p>State</p>
-                        <input
-                        onChange={this.handleChange}
-                        value={this.state.property.state}
-                        type="text" name="state"
-                        maxLength="120">
-                        </input>
-                        <p>Zip code</p>
-                        <input
-                        onChange={this.handleChange}
-                        value={this.state.property.zipcode}
-                        type="text" name="zipcode"
-                        maxLength="10">
-                        </input>
-                        <div className="next">
+                        <div className="sub-form-container">
+                            <div>
+                                <label>State</label>
+                                <input
+                                    onChange={this.handleChange}
+                                    // value={this.state.property.state}
+                                    type="text" name="state"
+                                    maxLength="120">
+                                </input>
+                            </div>
+                            <div>
+                                <label>Zip code</label>
+                                <input
+                                    onChange={this.handleChange}
+                                    // value={this.state.property.zipcode}
+                                    type="text" name="zipcode"
+                                    maxLength="10">
+                                </input>
+                            </div>
+                        </div>
+                        <div className="submit-button">
                             <BlueButton>Next</BlueButton>
                         </div>
                     </form>

@@ -18,6 +18,7 @@ import Footer from "./components/footer/Footer";
 import OurGuarantee from "./components/footer/OurGuarantee";
 import UserTerms from "./components/footer/UserTerms";
 import ProviderTerms from "./components/footer/ProviderTerms";
+import ContactUs from "./components/footer/ContactUs"
 import SignIn from "./components/SignIn";
 
 const Global = createGlobalStyle`
@@ -36,6 +37,7 @@ class App extends Component {
           <Global />
           <NavBar />
           <Switch>
+            <Route exact path="/contactus" component={ContactUs} />
             <Route exact path="/providerterms" component={ProviderTerms} />
             <Route exact path="/userterms" component={UserTerms} />
             <Route exact path="/ourguarantee" component={OurGuarantee} />
