@@ -1,31 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BlueButton } from '../ButtonStyle'
+import { FormStyled } from '../FormStyle'
 import axios from 'axios'
-
-const BookPropertyStyle = styled.div`
-    margin: 3em auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .form-container {
-        width: 40vw;
-    }
-    form input {
-        width: 100%;
-        height: 2.5em;
-        margin: 0 auto .4em auto;
-    }
-    .sub-form-container {
-        display: flex;
-        justify-content: space-around;
-    }
-    .submit-button {
-        margin: .4em 0;
-        display: flex;
-        justify-content: center;
-    }
-`
 
 class BookProperty extends Component {
 
@@ -61,7 +38,7 @@ class BookProperty extends Component {
 
     render() {
         return (
-            <BookPropertyStyle>
+            <FormStyled>
                 <h1>Property</h1>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
@@ -111,7 +88,7 @@ class BookProperty extends Component {
                         </div>
                     </form>
                 </div>
-            </BookPropertyStyle>
+            </FormStyled>
         )
     }
 }

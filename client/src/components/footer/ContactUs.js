@@ -1,48 +1,45 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BlueButton } from '../ButtonStyle'
+import { FormStyled } from '../FormStyle'
 
-const ContactUsStyle = styled.div`
-    margin: 3em auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .form-container {
-        width: 40vw;
-    }
-    form input {
-        width: 100%;
-        height: 2.5em;
-        margin: 0 auto .4em auto;
-    }
-    .submit-button {
-        margin: .4em 0;
-        display: flex;
-        justify-content: center;
-    }
+const ContactStyle = styled.div`
+
 `
 
 class ContactUs extends Component {
     render() {
         return (
-            <ContactUsStyle>
+            <FormStyled>
                 <h2>Contact Us</h2>
                 <div className="form-container">
                     <form>
-                        <p>First Name</p>
-                        <input type="text" placeholder="Required" />
-                        <p>Last Name</p>
-                        <input type="text" placeholder="Required" />
-                        <p>Email</p>
-                        <input type="text" placeholder="Required" />
-                        <p>Details</p>
-                        <textarea type="text" placeholder="Required" />
+                        <p>First Name<span className="span">*</span><span className="span" className="right">* Required</span></p>
+                        <input type="text" />
+                        <p>Last Name<span className="span">*</span></p>
+                        <input type="text" />
+                        <p>Email<span className="span">*</span></p>
+                        <input type="text" />
+                        <div className="text-area">
+                            <p>Details<span className="span">*</span></p>
+                            <textarea type="text" columns="45" rows="8" />
+                        </div>
                         <div className="submit-button">
                             <BlueButton type="submit">Contact Us</BlueButton>
                         </div>
                     </form>
                 </div>
-            </ContactUsStyle>
+                <ContactStyle>
+                    <h4>Adress</h4>
+                    <p>3423 Piedmont Road NE</p>
+                    <p>Atlanta, Georgia 30305</p>
+                    <h4>Phone</h4>
+                    <p>(833) Hi Jonny</p>
+                    <p>(833) 445 - 6669</p>
+                    <h4>Email</h4>
+                    <p>info@jonnyonit.com</p>
+                </ContactStyle>
+            </FormStyled>
         )
     }
 }

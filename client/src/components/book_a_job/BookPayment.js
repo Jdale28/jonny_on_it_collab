@@ -1,38 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BlueButton } from '../ButtonStyle'
-
-const PaymentStyle = styled.div`
-    margin: 3em auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .form-container {
-        width: 40vw;
-    }
-    form input {
-        width: 100%;
-        height: 2.5em;
-        margin: 0 auto .4em auto;
-    }
-    .sub-form-container {
-        display: flex;
-        justify-content: space-around;
-    }
-    .submit-button {
-        margin: .4em 0;
-        display: flex;
-        justify-content: center;
-    }
-    .sub-text {
-        font-size: .8em;
-    }
-`
+import { FormStyled } from '../FormStyle'
 
 class BookPayment extends Component {
     render() {
         return (
-            <PaymentStyle>
+            <FormStyled>
                 <h2>Payment Info</h2>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
@@ -78,7 +52,7 @@ class BookPayment extends Component {
                         </div>
                     </form>
                 </div>
-            </PaymentStyle>
+            </FormStyled>
         )
     }
 }
