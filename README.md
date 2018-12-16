@@ -46,3 +46,9 @@ Jordan Dale: About Us, moved images to imgur
 Loren Kelley: User Account
 Myron Young: Book Now
 Charles DeRosier: Our Guarantee, User Terms, Provider Terms, Book Now JobType
+
+December 15, 2018:
+Jordan Dale: FAQ, update colors, authentication
+Loren Kelley: User Account
+Myron Young: Book Now
+Charles DeRosier: Book Property (styled/methods), Book Time (styled/some methods), Book Payment (styled)
