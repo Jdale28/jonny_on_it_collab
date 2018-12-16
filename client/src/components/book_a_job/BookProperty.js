@@ -28,7 +28,7 @@ class BookProperty extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        axios.post(`/api/users/2/${this.props.match.params.userId}/bookproperty`, this.state.newProperty).then(res => {
+        axios.post(`/api/properties`, this.state.newProperty).then(res => {
             console.log('banana')
             this.state.redirect(`/booktime`)
             // /bookajob/${this.props.match.params.userId}rops.history.push(`/bookajob/${this.props.match.params.userId}/time`)
