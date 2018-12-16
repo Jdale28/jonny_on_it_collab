@@ -9,7 +9,7 @@ class BookProperty extends Component {
     state = {
         properties: [],
         newProperty: {
-            streetAdress: '',
+            streetAddress: '',
             // streetAddress2: '',
             city: '',
             state: '',
@@ -28,7 +28,8 @@ class BookProperty extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        axios.post(`/api/property/${this.props.match.params.userId}`, this.state.newProperty).then(res => {
+        axios.post(`/api/users/2/${this.props.match.params.userId}/bookproperty`, this.state.newProperty).then(res => {
+            console.log('banana')
             this.state.redirect(`/booktime`)
             // /bookajob/${this.props.match.params.userId}rops.history.push(`/bookajob/${this.props.match.params.userId}/time`)
             // NEED TO FIGURE CORRECT PATH FOR POST
@@ -44,21 +45,21 @@ class BookProperty extends Component {
                         <label>Street</label>
                         <input
                             onChange={this.handleChange}
-                            // value={this.state.property.streetAddress}
-                            type="text" name="streetaddress"
+                            value={this.state.newProperty.streetAddress}
+                            type="text" name="streetAddress"
                             maxLength="120">
                         </input>
                         {/* <p>Street Address 2 (optional)</p>
                         <input
                         onChange={this.handleChange}
-                        value={this.state.property.streetAddress2}
+                        // value={this.state.newProperty.streetAddress2}
                         type="text" name="streetadress2"
                         maxLength="120">
                         </input> */}
                         <label>City</label>
                         <input
                             onChange={this.handleChange}
-                            // value={this.state.property.city}
+                            value={this.state.newProperty.city}
                             type="text" name="city"
                             maxLength="120">
                         </input>
@@ -67,7 +68,7 @@ class BookProperty extends Component {
                                 <label>State</label>
                                 <input
                                     onChange={this.handleChange}
-                                    // value={this.state.property.state}
+                                    value={this.state.newProperty.state}
                                     type="text" name="state"
                                     maxLength="120">
                                 </input>
@@ -76,7 +77,7 @@ class BookProperty extends Component {
                                 <label>Zip code</label>
                                 <input
                                     onChange={this.handleChange}
-                                    // value={this.state.property.zipcode}
+                                    value={this.state.newProperty.zipcode}
                                     type="text" name="zipcode"
                                     maxLength="10">
                                 </input>
