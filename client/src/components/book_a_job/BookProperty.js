@@ -28,8 +28,8 @@ class BookProperty extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        axios.post(`/api/users/${this.props.match.params.userId}/properties`, this.state.newProperty).then(res => {
-            this.props.history.push(`/time`)
+        axios.post(`/api/property/${this.props.match.params.userId}`, this.state.newProperty).then(res => {
+            this.state.redirect(`/booktime`)
             // /bookajob/${this.props.match.params.userId}
             // NEED TO FIGURE CORRECT PATH FOR POST
             // CORRECT PATH TO PUSH (REDIRECT)
@@ -84,7 +84,7 @@ class BookProperty extends Component {
                             </div>
                         </div>
                         <div className="submit-button">
-                            <BlueButton>Next</BlueButton>
+                            <BlueButton type="submit">Next</BlueButton>
                         </div>
                     </form>
                 </div>
