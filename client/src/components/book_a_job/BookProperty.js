@@ -30,12 +30,11 @@ class BookProperty extends Component {
         event.preventDefault()
         axios.post(`/api/property/${this.props.match.params.userId}`, this.state.newProperty).then(res => {
             this.state.redirect(`/booktime`)
-            // /bookajob/${this.props.match.params.userId}
+            // /bookajob/${this.props.match.params.userId}rops.history.push(`/bookajob/${this.props.match.params.userId}/time`)
             // NEED TO FIGURE CORRECT PATH FOR POST
             // CORRECT PATH TO PUSH (REDIRECT)
         })
     }
-
     render() {
         return (
             <FormStyled>
