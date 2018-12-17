@@ -21,7 +21,7 @@ font-size: 25px;
 const Job = styled.div `
 font-size: 20px;
 margin-top: 20px;
-text-align: left;
+
 border: solid 1px rgba(112,112,112,1);
 width: 400px;
 height: 50px;
@@ -44,7 +44,7 @@ class UserDashboard extends Component {
               <Title> MY JOBS </Title>
               {/* <DropDown/> */}
               <Job> <p>ACTIVE </p> </Job>
-                
+             
               <UserJobs/>
             </Container>
         );

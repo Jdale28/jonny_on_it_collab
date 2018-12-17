@@ -21,6 +21,7 @@ list-style-type: none;
     background-color: rgba(19,212,171,1)
 }
 position: relative;
+font-family: 'athletics', arial, sans-serif;
 `
 const Menutitle = styled.h1`
 margin-top: 75px;
@@ -59,7 +60,7 @@ class UserNavBar extends Component {
             <Link to='/useraccountpage/:id'> <Menuitems> <div> <li> PREFERRED PROVIDERS</li></div></Menuitems> </Link> 
             <Link to='/useraccountpage/:id'><Menuitems> <div><li> MANAGE PROPERTIES</li></div> </Menuitems> </Link> 
             <Link to='/useraccountpage/:id'><Menuitems> <div><li> ACOUNT DETAILS</li></div> </Menuitems> </Link> 
-            <Link to='/useraccountpage/:id'><Menuitems> <div><li>PAYMENT METHOD</li></div></Menuitems> </Link> 
+            <Link to='/userpaymentmethods'><Menuitems> <div><li>PAYMENT METHOD</li></div></Menuitems> </Link> 
                </Backgrounddiv>
                 </ul>
 )
