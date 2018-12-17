@@ -86,6 +86,7 @@ const IconFlex = styled.div`
 const KeyFeatures = styled.div`
   width: 100%;
   height: 65vh;
+  margin-top: 10vh;
   margin-bottom: 15vh;
   background-color: rgba(242, 242, 241, 1);
   .KeyTitle {
