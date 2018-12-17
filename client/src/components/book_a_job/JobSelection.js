@@ -46,9 +46,9 @@ class JobSelection extends React.Component {
   state = {
     expanded: null,
     jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
-
     jobtype: "",
-    myJob:[]
+    myJob:[],
+    selected: false
 
   };
 
@@ -60,8 +60,10 @@ class JobSelection extends React.Component {
   
 
   handleClick = (e, job) =>{
-
-    this.setState({jobtype: job})
+    this.setState({
+      jobtype: job,
+      selected: true
+    })
 
     // if(this.state.jobtype === ""){
     //   this.state.jobtype.push(newJob)
