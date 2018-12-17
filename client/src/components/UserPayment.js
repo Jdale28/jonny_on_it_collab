@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import UserNavBar from './UserNavBar'
 import UserPaymentDashboard from './UserPaymentDashboard'
+import UserModal from './UserModal'
+
 import axios from 'axios'
 
 
@@ -21,6 +23,7 @@ margin-top: 15px;
 postion: fixed;
 font-family: 'athletics', arial, sans-serif;
 `
+
 class UserPayment extends Component {
 
     state = {
@@ -43,8 +46,8 @@ class UserPayment extends Component {
             <div>
             <Name> HELLO, {this.state.user.name} !</Name>
                 <UserPaymentDashboard/>
-               
                <UserNavBar/> 
+            <UserModal/>
 
             </div>
             </Container>
