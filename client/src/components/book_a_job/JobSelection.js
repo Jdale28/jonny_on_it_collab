@@ -72,10 +72,7 @@ class JobSelection extends React.Component {
     //   this.state.myJob.push(newJob)
     // }
   }
-
-
-
-  render() {
+render() {
     const { classes } = this.props;
     const { expanded } = this.state;
 
