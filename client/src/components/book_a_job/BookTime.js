@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { RedButton, GreenButton, BlueButton } from '../ButtonStyle'
+import Calendar from 'react-calendar'
 import axios from 'axios'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -61,7 +62,7 @@ const TimeStyle = styled.div`
 class BookTime extends Component {
 
     state = {
-        jobdate: "",
+        date: new Date(),
         showCalendar: false,
         showForm: false
     }
@@ -82,13 +83,12 @@ class BookTime extends Component {
     handleClick = (e, date) => {
         const today = new Date()
         console.log(today)
-        this.setState({ jobdate: date })
+        this.setState({ date: date })
     }
 
-    handleCalendarDate = (e, calendarDate) => {
-        const today = new Date()
-        console.log(today)
-        this.setState({ jobdate: calendarDate })
+    onChange = date => {
+        this.setState({ date })
+        console.log(date)
     }
 
     handleSubmit = (event) => {
@@ -128,9 +128,10 @@ class BookTime extends Component {
                             >TODAY</RedButton>
                             <GreenButton
                             onClick={this.toggleCalendar}
-                            onBlur={(e) => this.handleCalendarDate(e, this.value)}
                             >SCHEDULE</GreenButton>
-                            {this.state.showCalendar ? <input type="datetime-local" /> : null}
+                            {this.state.showCalendar ? <Calendar
+                                value={this.state.date}
+                                onChange={this.onChange} /> : null}
                         </div>
                         <div className="date-bar"></div>
                         <div className="slots-content">
