@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div`
 display: flex;
-justify-content: space-evenly; 
+justify-content: space-evenly;
 *{margin: 0};
 `
 const IconsBox = styled.div`
@@ -40,7 +40,6 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 });
-
 
 class JobSelection extends React.Component {
   state = {
@@ -80,9 +79,11 @@ class JobSelection extends React.Component {
     const { classes } = this.props;
     const { expanded } = this.state;
 
+  render() {
+    const { classes } = this.props;
+    const { expanded } = this.state;
 
     return (
-      
       <Wrapper>
         <div>
         <p>Which Job is it? {this.state.jobtype}</p>
