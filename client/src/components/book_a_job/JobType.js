@@ -27,13 +27,14 @@ const Center = styled.div`
           };
 
 
-          checkOptions = () => {
-            if (this.props.jobtype === "ELECTRICIAN") {
-                console.log("Hello setting state")
-            } else {
-                console.log("Hello")
-            }
+          checkOptions = (e,job) => {
+              this.setState({
+                  myJob: job
+              })
+            console.log(job)
           }
+            
+           
           
   render() {
     let jobOptions = []
@@ -70,7 +71,7 @@ const Center = styled.div`
           <Button
           variant="contained"
           color="primary"
-          onClick={(e) => this.checkOptions(e,jobOptions)}
+          onClick={(e) => this.checkOptions(e,job)}
           // {console.log(jobOptions)}
           >{job}</Button>
         )
