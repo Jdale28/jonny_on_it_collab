@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 // import axios from 'axios'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+
+
 
 const Menuitems = styled.div`
 
@@ -12,9 +14,14 @@ color: black;
 font-size: 18px;
 margin-top: 10px;
 list-style-type: none;
-&:active {
+:hover{
     background-color: rgba(19,212,171,1)
 }
+:active {
+    background-color: rgba(19,212,171,1)
+}
+position: relative;
+font-family: 'athletics', arial, sans-serif;
 `
 const Menutitle = styled.h1`
 margin-top: 75px;
@@ -47,15 +54,17 @@ class UserNavBar extends Component {
                <Menutitle>  MY ACCOUNT </Menutitle>
                 <ul>
                   <Backgrounddiv>
-               <Menuitems> <div><li>MY JOBS</li></div> </Menuitems>
-               <Menuitems> <div><li>INBOX</li></div></Menuitems>
-               <Menuitems> <div> <li>INVOICE HISTORY</li></div> </Menuitems> 
-               <Menuitems> <div> <li> PREFERRED PROVIDERS</li></div></Menuitems> 
-               <Menuitems> <div><li> MANAGE PROPERTIES</li></div> </Menuitems> 
-               <Menuitems> <div><li> ACOUNT DETAILS</li></div> </Menuitems> 
-               <Menuitems> <div><li>PAYMENT METHOD</li></div></Menuitems> 
+            <Link to='/useraccountpage/:id'><Menuitems> <div><li>MY JOBS</li></div> </Menuitems> </Link> 
+            <Link to='/useraccountpage/:id'> <Menuitems> <div><li>INBOX</li></div></Menuitems></Link> 
+            <Link to='/useraccountpage/:id'> <Menuitems> <div> <li>INVOICE HISTORY</li></div> </Menuitems> </Link> 
+            <Link to='/useraccountpage/:id'> <Menuitems> <div> <li> PREFERRED PROVIDERS</li></div></Menuitems> </Link> 
+            <Link to='/useraccountpage/:id'><Menuitems> <div><li> MANAGE PROPERTIES</li></div> </Menuitems> </Link> 
+            <Link to='/useraccountpage/:id'><Menuitems> <div><li> ACOUNT DETAILS</li></div> </Menuitems> </Link> 
+            <Link to='/userpaymentmethods'><Menuitems> <div><li>PAYMENT METHOD</li></div></Menuitems> </Link> 
                </Backgrounddiv>
                 </ul>
+)
+
                
             </div>
          

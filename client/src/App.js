@@ -13,11 +13,13 @@ import BookProperty from "./components/book_a_job/BookProperty";
 import JobSelection from "./components/book_a_job/JobSelection";
 import StepperforJob from "./components/book_a_job/StepperforJob";
 import UserAccountPage from "./components/UserAccountPage";
-import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn";
-import Footer from "./components/footer/Footer";
-import OurGuarantee from "./components/footer/OurGuarantee";
-import UserTerms from "./components/footer/UserTerms";
-import ProviderTerms from "./components/footer/ProviderTerms";
+import HomePageNotLoggedIn from "./components/HomePageNotLoggedIn"
+import Footer from "./components/footer/Footer"
+import OurGuarantee from "./components/footer/OurGuarantee"
+import UserTerms from "./components/footer/UserTerms"
+import ProviderTerms from "./components/footer/ProviderTerms"
+import UserPayment from "./components/UserPayment";
+import UserInbox from "./components/UserInbox"
 import ContactUs from "./components/footer/ContactUs"
 import SignIn from "./components/SignIn";
 import FAQ from "./components/footer/FAQ";
@@ -52,6 +54,8 @@ class App extends Component {
             <Route exact path="/stepperforjob" component={StepperforJob} />
             <Route exact path="/faq" component={FAQ} />
             <Route exact path="/useraccountpage/:id" component={UserAccountPage} />
+            <Route exact path="/userpaymentmethods" component={UserPayment}/>
+            <Route exact path="/userinbox" component={UserInbox}/>
             <Route exact path="/signin" component={SignIn} />
             <Route path="/" component={HomePageNotLoggedIn} />
           </Switch>
