@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
 import axios from 'axios'
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 class BookProperty extends Component {
 
@@ -28,12 +29,12 @@ class BookProperty extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        console.log('before post')
         axios.post(`/api/properties`, this.state.newProperty).then(res => {
-            console.log('banana')
-            this.state.redirect(`/booktime`)
-            // /bookajob/${this.props.match.params.userId}rops.history.push(`/bookajob/${this.props.match.params.userId}/time`)
+            console.log('after post', res)
+            // this.state.redirect(res, `/booktime`)
             // NEED TO FIGURE CORRECT PATH FOR POST
-            // CORRECT PATH TO PUSH (REDIRECT)
+            // CORRECT PATH TO redirect (REDIRECT)
         })
     }
     render() {
