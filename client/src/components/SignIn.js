@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import axios from "axios";
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 const BannerImage = styled.div`
   width: 100%;
   height: 40vh;
-  /* margin-bottom: 3vh; */
   background-image: url("https://i.imgur.com/Wrc9gsZ.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -43,21 +46,62 @@ const ColumnPanel = styled.div`
   }
   input {
     width: 25vw;
+    margin-bottom: 1vh;
   }
   button {
-      margin-top: 3vh;
-      margin-left: 4vh;
-      width: 20vw;
+    margin-top: 3vh;
+    margin-left: 4vh;
+    width: 20vw;
   }
 `;
-// class User(models.Model):
-//     name = models.CharField(max_length=255)
-//     email = models.CharField(max_length=255)
-//     phonenumber = models.CharField(max_length=255)
-//     password = models.CharField(max_length=255, default='password')
 
 class SignIn extends Component {
-    render() {
+  state = {
+    user: {},
+    newUser: {
+      name: '',
+      email: '',
+      phonenumber: '',
+      password: ''
+    }
+  };
+
+  componentDidMount() {
+    this.getAllEmployeeData();
+  }
+
+  getAllEmployeeData = () => {
+    const url = `/api/users`;
+    axios.get(url).then(res => {
+      console.log(res);
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const payload = {
+      name: this.state.newUser.name,
+      email: this.state.newUser.email,
+      phonenumber: this.state.newUser.phonenumber,
+      password: this.state.newUser.password
+    };
+    axios.post(`/api/users/`, payload).then(res => {
+        console.log(res.data)
+      const newUser = res.data;
+      const newStateNewUser = {...this.state.user, newUser};
+      this.setState({ user: newStateNewUser });
+    });
+  };
+
+  handleChange = event => {
+    const updatedNewUser = { ...this.state.newUser };
+    updatedNewUser[event.target.name] = event.target.value;
+    this.setState({ newUser: updatedNewUser });
+  };
+
+
+
+  render() {
     return (
       <div>
         <BannerImage />
@@ -93,24 +137,24 @@ class SignIn extends Component {
                 manage payment details, and share your favorite service
                 professionals with other users.
               </h3>
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <p>
                   Full Name<span className="span">*</span>
                 </p>
-                <input type="text" />
+                <input type="text" onChange={this.handleChange} name="name"/>
                 <p>
                   Email<span className="span">*</span>
                 </p>
-                <input type="email" />
+                <input type="email" onChange={this.handleChange} name="email"/>
                 <p>
                   Phone Number<span className="span">*</span>
                 </p>
-                <input type="text" />
+                <input type="text" onChange={this.handleChange} name="phonenumber"/>
                 <p>
                   Password<span className="span">*</span>
                 </p>
-                <input type="password" />
-                <button>Create Account</button>
+                <input type="password" onChange={this.handleChange} name="password"/>
+                <button type="submit">Create Account</button>
               </form>
             </div>
           </ColumnPanel>

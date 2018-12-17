@@ -20,6 +20,7 @@ const NavBarStyles = styled.div`
     color: grey;
     &:hover {
       color: red;
+      text-decoration: none;
     }
   }
   .left {
@@ -54,6 +55,7 @@ const BigButton = styled.div `
     color: white;
     &:hover {
       color: red;
+      text-decoration: none;
     }
   }
 `
