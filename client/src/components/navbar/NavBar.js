@@ -49,7 +49,7 @@ class NavBar extends Component {
                     <Link to="/bookajob">Book Now</Link>
                 </div>
                 {/* <Link to="/useraccountpage">Sign In IF AUTHENTICATED</Link> */}
-                <Link to="/signin">Sign In</Link>
+                <Link to="/UserAccountPage/1">Sign In</Link>
               </div>
             </NavBarStyles>
           </div>
