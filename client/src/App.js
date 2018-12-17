@@ -17,6 +17,9 @@ import UserTerms from "./components/footer/UserTerms"
 import ProviderTerms from "./components/footer/ProviderTerms"
 import SignIn from "./components/SignIn"
 import UserPayment from "./components/UserPayment";
+import UserInbox from "./components/UserInbox"
+
+
 const Global = createGlobalStyle`
   * {
     margin: 0;
@@ -43,6 +46,7 @@ class App extends Component {
             <Route exact path="/stepperforjob" component={StepperforJob} />
             <Route exact path="/useraccountpage/:id" component={UserAccountPage} />
             <Route exact path="/userpaymentmethods" component={UserPayment}/>
+            <Route exact path="/userinbox" component={UserInbox}/>
             <Route exact path="/signin" component={SignIn} />
             <Route path="/" component={HomePageNotLoggedIn} />
           </Switch>
