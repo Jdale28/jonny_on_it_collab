@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
+import styled from 'styled-components'
 import axios from 'axios'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
+const Temp = styled.div`
+    width: 100px;
+    height: 40px;
+`
+
 class BookProperty extends Component {
 
     state = {
+        users: [],
         properties: [],
         newProperty: {
             streetAddress: '',
@@ -19,24 +26,43 @@ class BookProperty extends Component {
         }
     }
 
-    // NEED TO GET JOB ID AND PASS IT IN
+    componentDidMount() {
+        this.getAllUserData()
+    }
+
+    getAllUserData = () => {
+        const url = `/api/users/`
+        axios.get(url).then(res => {
+            this.setState({ users: res.data })
+        })
+    }
 
     handleChange = (event) => {
+        event.preventDefault()
         const updatedNewProperty = { ...this.state.newProperty }
         updatedNewProperty[event.target.name] = event.target.value
+        console.log(updatedNewProperty)
         this.setState({ newProperty: updatedNewProperty })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        console.log('before post')
-        axios.post(`/api/properties`, this.state.newProperty).then(res => {
-            console.log('after post', res)
-            // this.state.redirect(res, `/booktime`)
-            // NEED TO FIGURE CORRECT PATH FOR POST
-            // CORRECT PATH TO redirect (REDIRECT)
+    handleSubmit = event => {
+        // const below was for testing post - remove
+        const userId = 1
+        const payload = {
+            streetAddress: this.state.newProperty.streetAddress,
+            city: this.state.newProperty.city,
+            state: this.state.newProperty.state,
+            zipcode: this.state.newProperty.zipcode,
+            user: userId
+        }
+        axios.post(`/api/properties/`, payload).then(res => {
+            const newProperty = res.data
+            const newUserProperty = [...this.state.properties, newProperty]
+            this.setState({ properties: newUserProperty })
         })
     }
+
+
     render() {
         return (
             <FormStyled>
@@ -54,7 +80,7 @@ class BookProperty extends Component {
                         <input
                         onChange={this.handleChange}
                         // value={this.state.newProperty.streetAddress2}
-                        type="text" name="streetadress2"
+                        type="text" name="streetaddress2"
                         maxLength="120">
                         </input> */}
                         <label>City</label>
@@ -85,7 +111,7 @@ class BookProperty extends Component {
                             </div>
                         </div>
                         <div className="submit-button">
-                            <BlueButton type="submit">Next</BlueButton>
+                            <BlueButton>Next</BlueButton>
                         </div>
                     </form>
                 </div>
