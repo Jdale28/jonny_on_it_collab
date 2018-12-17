@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { RedButton, GreenButton, BlueButton } from '../ButtonStyle'
 import axios from 'axios'
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 const TimeStyle = styled.div`
     font-size: .8em;
@@ -59,35 +61,52 @@ const TimeStyle = styled.div`
 class BookTime extends Component {
 
     state = {
-        user: 1,
-        property: [],
-        properties: [],
-        // property: {}
+        jobdate: "",
+        showCalendar: false,
+        showForm: false
     }
 
-    // componentDidMount() {
-    //     axios.get(`/api/properties/${this.props.match.params.propertyId}`).then((res) => {
-    //         this.setState({ property: res.data })
-    //     })
-    // }
+    componentDidMount() {
+        axios.get(`/api/jobs/`).then((res) => {
+            // ${this.props.match.params.propertyId}
+            this.setState({ jobs: res.data })
+        })
+    }
 
-    // handleChange = (event) => {
-    //     const updatedChangeProperty = { ...this.state.property }
-    //     updatedChangeProperty[event.target.time] = event.target.value
-    //     this.setState({ property: updatedChangeProperty })
-    // }
+    handleChange = (event) => {
+        const updatedChangeProperty = { ...this.state.property }
+        updatedChangeProperty[event.target.time] = event.target.value
+        this.setState({ property: updatedChangeProperty })
+    }
 
-    // handleUpdate = (event) => {
-    //     event.preventDefault()
-    //     axios.patch(`/api/properties/${this.props.match.params.propertyId}/`, this.state.property).then(res => {
-    //         console.log('hi')
-    //     })
-    // }
+    handleClick = (e, date) => {
+        const today = new Date()
+        console.log(today)
+        this.setState({ jobdate: date })
+    }
+
+    handleCalendarDate = (e, calendarDate) => {
+        const today = new Date()
+        console.log(today)
+        this.setState({ jobdate: calendarDate })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+    }
+
+    toggleCalendar = () => {
+        this.setState({ showCalendar: !this.state.showCalendar })
+    }
+
+    toggleSlots = () => {
+        this.setState({ showSlots: !this.state.showSlots })
+    }
 
     render() {
 
         // function showTimes() {
-        //     var x = document.getElementsByClassName("slots-content");
+        //     var x = document.getElementsByClassName("slots-content")
         //     if (x.style.display === "none") {
         //       x.style.display = "block";
         //     } else {
@@ -100,18 +119,23 @@ class BookTime extends Component {
         return (
             <TimeStyle>
                 <h2>Time</h2>
-                <div className="button-container">
-                    <div className="top-buttons">
-                        <RedButton
-                        // onClick={showTimes()}
-                        >TODAY</RedButton>
-                        <GreenButton>SCHEDULE</GreenButton>
-                    </div>
-                    <div className="date-bar"></div>
-                    <div className="slots-content">
-                    <form onSubmit={this.handleUpdate}>
-                        <div className="time-slots">
-                            
+                <form onSubmit={this.handleSubmit}>
+                    <div className="button-container">
+                        <div className="top-buttons">
+                            <RedButton
+                                type="datetime-local"
+                                onClick={(e) => this.handleClick(e, this.value)}
+                            >TODAY</RedButton>
+                            <GreenButton
+                            onClick={this.toggleCalendar}
+                            onBlur={(e) => this.handleCalendarDate(e, this.value)}
+                            >SCHEDULE</GreenButton>
+                            {this.state.showCalendar ? <input type="datetime-local" /> : null}
+                        </div>
+                        <div className="date-bar"></div>
+                        <div className="slots-content">
+                            <div className="time-slots">
+
                                 <div className="time-slot">
                                     <button
                                         onChange={this.handleChange}
@@ -140,13 +164,12 @@ class BookTime extends Component {
                                 <div className="bottom-button">
                                     <BlueButton type="submit">Next</BlueButton>
                                 </div>
-                            
+
+                            </div>
                         </div>
                         {/* {!this.state.isHidden && <Child />} */}
-                    </form>
                     </div>
-                </div>
-
+                </form>
             </TimeStyle>
         )
     }
