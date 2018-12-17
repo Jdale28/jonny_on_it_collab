@@ -1,75 +1,100 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import StepperforJob from "./StepperforJob"
-import styled from  "styled-components"
-import { Button } from '@material-ui/core';
-import { IncomingMessage } from 'http';
-import JobType from './JobType'
-import { Link } from 'react-router-dom'
+// import React from 'react';
+// import PropTypes from 'prop-types';
+// import { withStyles } from '@material-ui/core/styles';
+// import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+// import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+// import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+// import Typography from '@material-ui/core/Typography';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import StepperforJob from "./StepperforJob"
+// import styled from  "styled-components"
+// import { Button } from '@material-ui/core';
+// import { IncomingMessage } from 'http';
+// import JobType from './JobType'
+// import { Link } from 'react-router-dom'
 
-const Wrapper = styled.div`
-display: flex;
-justify-content: space-evenly; 
-*{margin: 0};
-`
-const IconsBox = styled.div`
-     display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px;
-  grid-template-areas: ". . . . ." ". . . . .";
-  `
+// const Wrapper = styled.div`
+// display: flex;
+// justify-content: space-evenly; 
+// *{margin: 0};
+// `
+// const IconsBox = styled.div`
+//      display: grid;
+//   grid-template-columns: 100px 100px 100px 100px 100px;
+//   grid-template-rows: 100px 100px;
+//   grid-template-areas: ". . . . ." ". . . . .";
+//   `
 
-const styles = theme => ({
-  root: {
-    width: '65%',
+// const styles = theme => ({
+//   root: {
+//     width: '65%',
 
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: '33.33%',
-    flexShrink: 0,
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-});
+//   },
+//   heading: {
+//     fontSize: theme.typography.pxToRem(15),
+//     flexBasis: '33.33%',
+//     flexShrink: 0,
+//   },
+//   secondaryHeading: {
+//     fontSize: theme.typography.pxToRem(15),
+//     color: theme.palette.text.secondary,
+//   },
+// });
+
 
 class JobSelection extends React.Component {
   state = {
     expanded: null,
     jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
-    jobtype:''
+
+    jobtype:[],
+    myJob:[]
+
   };
 
-  handleChange = panel => (event, expanded) => {
-    this.setState({
-      expanded: expanded ? panel : false,
-    });
-  };
+//   handleChange = panel => (event, expanded) => {
+//     this.setState({
+//       expanded: expanded ? panel : false,
+//     });
+//   };
   
-  handleClick = (event) =>{
-    this.setState({
-    // jobtype: jobtype
-  });
- };
+
+  handleClick = (e) =>{
+    const newJob = e.target.innerHTML
+
+    if(this.state.jobtype === null){
+      this.state.jobtype.push(newJob)
+      this.state.myJob.push(newJob)
+    } else{
+      this.state.jobtype.pop()
+      this.state.myJob.pop()
+      this.state.jobtype.push(newJob)
+      this.state.myJob.push(newJob)
+    }
+  }
+
+  
+  
 
 
-  render() {
-    const { classes } = this.props;
-    const { expanded } = this.state;
 
+//   handleClick = (event) =>{
+//     this.setState({
+//     jobtype: jobtype
+//   });
+//  };
+
+
+//   render() {
+//     const { classes } = this.props;
+//     const { expanded } = this.state;
 
 
     return (
+      
       <Wrapper>
         <div>
+        <p>Which Job is it? {this.state.jobtype}</p>
       <StepperforJob/>
       </div>
       <div className={classes.root}>
@@ -78,13 +103,17 @@ class JobSelection extends React.Component {
             <Typography className={classes.heading}>Book a Job</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
+          <IconsBox>
             <Typography>
             { this.state.jobs.map((job) => (
-          <IconsBox>
-            <Button handleClick>{job}</Button>
-            </IconsBox>
+            <Button variant="contained"
+                        value={job}
+                        color="primary"
+                        onClick={this.handleClick}
+                        className={classes.button}>{job}</Button>
             ))}
             </Typography>
+            </IconsBox>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
@@ -94,7 +123,7 @@ class JobSelection extends React.Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-            <JobType />
+            <JobType{...this.state} />
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -135,8 +164,8 @@ class JobSelection extends React.Component {
   }
 }
 
-JobSelection.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// JobSelection.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
-export default withStyles(styles)(JobSelection);
+// export default withStyles(styles)(JobSelection);

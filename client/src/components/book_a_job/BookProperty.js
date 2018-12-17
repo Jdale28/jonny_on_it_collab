@@ -1,40 +1,16 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import { BlueButton } from '../ButtonStyle'
+import { FormStyled } from '../FormStyle'
 import axios from 'axios'
-
-const BookPropertyStyle = styled.div`
-    font-size: .8em;
-    margin: 3em auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .form-container {
-        width: 40vw;
-    }
-    form input {
-        width: 100%;
-        height: 2.5em;
-        margin: .2em auto 1em auto;
-    }
-    .address-bottom {
-        display: flex;
-        justify-content: space-around;
-    }
-    .next {
-        display: flex;
-        justify-content: center;
-    }
-`
-
-
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 class BookProperty extends Component {
 
     state = {
         properties: [],
         newProperty: {
-            streetAdress: '',
+            streetAddress: '',
             // streetAddress2: '',
             city: '',
             state: '',
@@ -53,46 +29,67 @@ class BookProperty extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        axios.post(`/api/users/${this.props.match.params.userId}/properties`, this.state.newProperty).then(res => {
-            this.props.history.push(`/bookajob/${this.props.match.params.userId}/time`)
+        console.log('before post')
+        axios.post(`/api/properties`, this.state.newProperty).then(res => {
+            console.log('after post', res)
+            // this.state.redirect(res, `/booktime`)
             // NEED TO FIGURE CORRECT PATH FOR POST
-            // CORRECT PATH TO PUSH (REDIRECT)
+            // CORRECT PATH TO redirect (REDIRECT)
         })
     }
-    
     render() {
         return (
-            <BookPropertyStyle>
+            <FormStyled>
                 <h1>Property</h1>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
-                        <p>Street</p>
-                        <input>
+                        <label>Street</label>
+                        <input
+                            onChange={this.handleChange}
+                            value={this.state.newProperty.streetAddress}
+                            type="text" name="streetAddress"
+                            maxLength="120">
                         </input>
-                        {/* <p>Street 2 (Optional)</p>
-                        <input>
+                        {/* <p>Street Address 2 (optional)</p>
+                        <input
+                        onChange={this.handleChange}
+                        // value={this.state.newProperty.streetAddress2}
+                        type="text" name="streetadress2"
+                        maxLength="120">
                         </input> */}
-                        <p>City</p>
-                        <input>
+                        <label>City</label>
+                        <input
+                            onChange={this.handleChange}
+                            value={this.state.newProperty.city}
+                            type="text" name="city"
+                            maxLength="120">
                         </input>
-                        <div className="address-bottom">
+                        <div className="sub-form-container">
                             <div>
-                                <p>State</p>
-                                <input>
+                                <label>State</label>
+                                <input
+                                    onChange={this.handleChange}
+                                    value={this.state.newProperty.state}
+                                    type="text" name="state"
+                                    maxLength="120">
                                 </input>
                             </div>
                             <div>
-                                <p>Zip Code</p>
-                                <input>
+                                <label>Zip code</label>
+                                <input
+                                    onChange={this.handleChange}
+                                    value={this.state.newProperty.zipcode}
+                                    type="text" name="zipcode"
+                                    maxLength="10">
                                 </input>
                             </div>
                         </div>
-                        <div className="next">
-                            <BlueButton>Next</BlueButton>
+                        <div className="submit-button">
+                            <BlueButton type="submit">Next</BlueButton>
                         </div>
                     </form>
                 </div>
-            </BookPropertyStyle>
+            </FormStyled>
         )
     }
 }

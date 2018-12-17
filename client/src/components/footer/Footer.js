@@ -15,29 +15,30 @@ const FooterStyle = styled.div`
 `
 
 const Newsletter = styled.div`
-    font-size: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     input {
-        font-size: .6em;
+        font-size: .7em;
         width: 14em;
         height: 2.4em;
-        margin: 1em;
+        margin: .1em;
     }
     h4 {
         text-align: center;
+    }
+    .newsletterH4 {
+        font-size: 1.2em;
     }
 `
 
 const LinkList = styled.div`
     font-size: .8em;
-    margin: .4em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     .top-links, .bottom-links {
-        margin: .2em;
+        margin: .1em;
     }
     a {
         margin: .4em;
@@ -46,8 +47,7 @@ const LinkList = styled.div`
     }
 `
 
-const DownloadLink = styled.div`
-    font-size: .8em;
+const DownloadLink = styled.div`  
     display: flex;
     align-items: center;
     .download-container {
@@ -58,6 +58,9 @@ const DownloadLink = styled.div`
         width: 6em;
         height: 1.8em;
         margin: .1em .1em .1em .3em;
+    }
+    .downloadH3 {
+        font-size: .8em;
     }
 `
 
@@ -74,6 +77,9 @@ const FollowUs = styled.div`
         display: flex;
         flex-direction: column;
     }
+    .followH3 {
+        font-size: .8em;
+    }
 `
 
 class Footer extends Component {
@@ -82,7 +88,7 @@ class Footer extends Component {
             <div>
                 <FooterStyle>
                     <Newsletter>
-                        <h4>Sign up for our newsletter</h4>
+                        <h4 className="newsletterH4">Sign up for our newsletter</h4>
                         <form>
                             <input placeholder="  Your Email"></input>
                             <NewsletterButton type="submit">SUBMIT</NewsletterButton>
@@ -96,14 +102,14 @@ class Footer extends Component {
                             <Link to="/providerterms">Service Professional Terms</Link>
                         </div>
                         <div className="bottom-links">
-                            <Link to="/">Contact Us</Link>
+                            <Link to="/contactus">Contact Us</Link>
                             <Link to="/faq">FAQ</Link>
                             <Link to="/ourguarantee">Our Guarantee</Link>
                             <Link to="/userterms">User Terms</Link>
                         </div>
                     </LinkList>
                     <DownloadLink>
-                        <h3>Download Here:</h3>
+                        <h3 className="downloadH3">Download Here:</h3>
                         <div className="download-container">
                             <a href="https://itunes.apple.com/us/app/jonny-on-it/id1330021042?mt=8">
                                 <img src="https://i.imgur.com/BBB6EPz.png" alt="apple download icon" className="download" />
@@ -114,7 +120,7 @@ class Footer extends Component {
                         </div>
                     </DownloadLink>
                     <FollowUs>
-                        <h3>Follow Us: </h3>
+                        <h3 className="followH3">Follow Us: </h3>
                         <div className="follow-links">
                             <a href="what goes here?">
                                 <img src="https://i.imgur.com/bX1tHiX.png" alt="google icon" />
