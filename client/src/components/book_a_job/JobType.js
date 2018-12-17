@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { GreenButton } from '../ButtonStyle'
+import StepperforJob from './StepperforJob'
 // import { jobtype } from './JobSelection'
 
 const Center = styled.div`
@@ -10,8 +11,12 @@ const Center = styled.div`
 `
 
 class JobType extends Component {
-
+    state = {
+        jobOption:[]
+      };
     render() {
+
+        const { classes } = this.props;
 
         const electricianOptions = ["Replace Electrical Box", "Replace Switches", "Wiring", "Replace Fixtures"]
 
@@ -35,35 +40,35 @@ class JobType extends Component {
         // const floorOptions = ["Hardwood Install & Repair", "Carpet Install & Repair", "Tile Install & Repair"]
         // const moldOptions = ["Water Damage Remediation", "Mold Remediation", "BioHazard/Animal Waste Removal", "Other Mold, Water, Bio", "Radon Testing"]
 
-
-        //     if (this.props.? === "ELECTRICIAN") {
-        //         jobOption = electricianOptions
-        //     } else if (this.props.? === "PLUMBING") {
-        //         jobOption = plumberOptions
-        //     } else if (this.props.? === "CLEANING") {
-        //         jobOption = cleaningOptions
-        //     } else if (this.props.? === "PEST") {
-        //         jobOption = pestTermiteOptions
-        //     } else if (this.props.? === "PAINTING") {
-        //         jobOption = painterOptions
-        //     } else if (this.props.? === "CARPENTRY") {
-        //         jobOption = carpenterOptions
-        //     } else if (this.props.? === "MOLD") {
-        //         jobOption = moldOptions
-        //     } else if (this.props.? === "ROOFING") {
-        //         jobOption = rooferOptions
-        //     } else if (this.props.? === "HVAC") {
-        //         jobOption = heatAirOptions
-        //     } else {
-        //         jobOption = otherChoice
-        //     }
+            
+            if (this.props.jobtype === "ELECTRICIAN") {
+                this.setState.jobOption = electricianOptions
+            } else if (this.props.jobtype === "PLUMBING") {
+                this.setState.jobOption = plumberOptions
+            } else if (this.props.jobtype === "CLEANING") {
+                this.setState.jobOption = cleaningOptions
+            } else if (this.props.jobtype === "PEST") {
+                this.setState.jobOption = pestTermiteOptions
+            } else if (this.props.jobtype === "PAINTING") {
+                this.setState.jobOption = painterOptions
+            } else if (this.props.jobtype === "CARPENTRY") {
+                this.setState.jobOption = carpenterOptions
+            // } else if (this.props.jobtype === "MOLD") {
+            //     this.setState.jobOption = moldOptions
+            } else if (this.props.jobtype === "ROOFING") {
+                this.setState.jobOption = rooferOptions
+            } else if (this.props.jobtype === "HVAC") {
+                this.setState.jobOption = heatAirOptions
+            } else {
+                this.setState.jobOption = otherChoice
+            }
 
         return (
             <Center>
                 <h1>Job Type</h1>
-                {this.jobOption.map((jobOption, i) =>
-                    <button>{jobOption}</button>
-                )}
+                {this.state.jobOption.map((jobOption) =>(
+                    <h1>{jobOption}</h1>
+                ))}
                 <GreenButton type="submit">Next</GreenButton>
             </Center>
         )

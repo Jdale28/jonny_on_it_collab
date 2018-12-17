@@ -46,7 +46,10 @@ class JobSelection extends React.Component {
   state = {
     expanded: null,
     jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
-    jobtype:''
+
+    jobtype:[],
+    myJob:[]
+
   };
 
 //   handleChange = panel => (event, expanded) => {
@@ -55,6 +58,25 @@ class JobSelection extends React.Component {
 //     });
 //   };
   
+
+  handleClick = (e) =>{
+    const newJob = e.target.innerHTML
+
+    if(this.state.jobtype === null){
+      this.state.jobtype.push(newJob)
+      this.state.myJob.push(newJob)
+    } else{
+      this.state.jobtype.pop()
+      this.state.myJob.pop()
+      this.state.jobtype.push(newJob)
+      this.state.myJob.push(newJob)
+    }
+  }
+
+  
+  
+
+
 
 //   handleClick = (event) =>{
 //     this.setState({
@@ -69,8 +91,10 @@ class JobSelection extends React.Component {
 
 
     return (
+      
       <Wrapper>
         <div>
+        <p>Which Job is it? {this.state.jobtype}</p>
       <StepperforJob/>
       </div>
       <div className={classes.root}>
@@ -79,13 +103,17 @@ class JobSelection extends React.Component {
             <Typography className={classes.heading}>Book a Job</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
+          <IconsBox>
             <Typography>
             { this.state.jobs.map((job) => (
-          <IconsBox>
-            <Button handleClick>{job}</Button>
-            </IconsBox>
+            <Button variant="contained"
+                        value={job}
+                        color="primary"
+                        onClick={this.handleClick}
+                        className={classes.button}>{job}</Button>
             ))}
             </Typography>
+            </IconsBox>
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
@@ -95,7 +123,7 @@ class JobSelection extends React.Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-            <JobType />
+            <JobType{...this.state} />
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
