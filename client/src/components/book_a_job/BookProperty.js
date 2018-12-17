@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
-import styled from 'styled-components'
 import axios from 'axios'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-
-const Temp = styled.div`
-    width: 100px;
-    height: 40px;
-`
 
 class BookProperty extends Component {
 
@@ -45,7 +39,7 @@ class BookProperty extends Component {
         this.setState({ newProperty: updatedNewProperty })
     }
 
-    handleSubmit = event => {
+    handleSubmit = (event) => {
         // const below was for testing post - remove
         const userId = 1
         const payload = {

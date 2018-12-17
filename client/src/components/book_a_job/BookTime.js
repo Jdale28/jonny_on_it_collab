@@ -18,7 +18,6 @@ const TimeStyle = styled.div`
     }
     .top-buttons {
         display: flex;
-        margin: 100px;
     }
     .slots-content.hidden {
         display: none;
@@ -43,41 +42,52 @@ const TimeStyle = styled.div`
         display: flex;
         align-items: center;
     }
-    /* .time-slot, p.hidden {
+    /* .slots-content {
         display: none;
     } */
 `
 
+// function showTimes() {
+//     var x = document.getElementsByClassName("slots-content");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
+//   }
+
 class BookTime extends Component {
 
     state = {
-        property: {}
+        user: 1,
+        property: [],
+        properties: [],
+        // property: {}
     }
 
-    componentDidMount() {
-        axios.get(`/api/properties/${this.props.match.params.propertyId}`).then((res) => {
-            this.setState({ property: res.data })
-        })
-    }
+    // componentDidMount() {
+    //     axios.get(`/api/properties/${this.props.match.params.propertyId}`).then((res) => {
+    //         this.setState({ property: res.data })
+    //     })
+    // }
 
-    handleChange = (event) => {
-        const updatedChangeProperty = { ...this.state.property }
-        updatedChangeProperty[event.target.time] = event.target.value
-        this.setState({ property: updatedChangeProperty })
-    }
+    // handleChange = (event) => {
+    //     const updatedChangeProperty = { ...this.state.property }
+    //     updatedChangeProperty[event.target.time] = event.target.value
+    //     this.setState({ property: updatedChangeProperty })
+    // }
 
-    handleUpdate = (event) => {
-        event.preventDefault()
-        axios.patch(`/api/properties/${this.props.match.params.propertyId}`, this.state.property).then(res => {
-            this.props.history.push(`/bookpayment`)
-            // /properties/${res.data._id}
-        })
-    }
+    // handleUpdate = (event) => {
+    //     event.preventDefault()
+    //     axios.patch(`/api/properties/${this.props.match.params.propertyId}/`, this.state.property).then(res => {
+    //         console.log('hi')
+    //     })
+    // }
 
     render() {
 
         // function showTimes() {
-        //     var x = document.getElementByClass("time-slots");
+        //     var x = document.getElementsByClassName("slots-content");
         //     if (x.style.display === "none") {
         //       x.style.display = "block";
         //     } else {
@@ -91,14 +101,17 @@ class BookTime extends Component {
             <TimeStyle>
                 <h2>Time</h2>
                 <div className="button-container">
-                    <div classname="top-buttons">
-                        <RedButton>TODAY</RedButton>
+                    <div className="top-buttons">
+                        <RedButton
+                        // onClick={showTimes()}
+                        >TODAY</RedButton>
                         <GreenButton>SCHEDULE</GreenButton>
                     </div>
                     <div className="date-bar"></div>
+                    <div className="slots-content">
                     <form onSubmit={this.handleUpdate}>
                         <div className="time-slots">
-                            <form className="slots-content">
+                            
                                 <div className="time-slot">
                                     <button
                                         onChange={this.handleChange}
@@ -127,10 +140,11 @@ class BookTime extends Component {
                                 <div className="bottom-button">
                                     <BlueButton type="submit">Next</BlueButton>
                                 </div>
-                            </form>
+                            
                         </div>
                         {/* {!this.state.isHidden && <Child />} */}
                     </form>
+                    </div>
                 </div>
 
             </TimeStyle>
