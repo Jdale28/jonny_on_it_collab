@@ -33,7 +33,7 @@ class ContactUs extends Component {
                     <h2>Contact Us</h2>
                     <div className="form-container">
                         <form>
-                            <p>First Name<span className="span">*</span><span className="span" className="right">* Required</span></p>
+                            <p>First Name<span className="span">*</span><span className="right">* Required</span></p>
                             <input type="text" />
                             <p>Last Name<span className="span">*</span></p>
                             <input type="text" />

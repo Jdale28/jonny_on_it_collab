@@ -109,11 +109,11 @@ class HomePageNoLoggedIn extends Component {
                         <h3 className="find-out-title">Find out what Jonny can do for you</h3>
                         <div className="find-out-container">
                             <a href="/howitworks">
-                                <img src="https://i.imgur.com/3jWLdtT.jpg" alt="homeowner photo" className="new-user" />
+                                <img src="https://i.imgur.com/3jWLdtT.jpg" alt="homeowner" className="new-user" />
                                 <p>I AM A HOMEOWNER</p>
                             </a>
                             <a href="/howitworks">
-                                <img src="https://i.imgur.com/37PgZ8b.jpg" alt="realtor photo" className="new-user" />
+                                <img src="https://i.imgur.com/37PgZ8b.jpg" alt="realtor" className="new-user" />
                                 <p>I AM A REALTOR</p>
                             </a>
                         </div>
