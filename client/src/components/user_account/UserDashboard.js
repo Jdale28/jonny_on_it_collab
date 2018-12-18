@@ -44,8 +44,7 @@ class UserDashboard extends Component {
               <Title> MY JOBS </Title>
               {/* <DropDown/> */}
               <Job> <p>ACTIVE </p> </Job>
-             
-              <UserJobs/>
+              <UserJobs {...this.props}/>
             </Container>
         );
     }

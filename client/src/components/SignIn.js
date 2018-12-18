@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 const BannerImage = styled.div`
   width: 100%;
@@ -59,10 +59,10 @@ class SignIn extends Component {
   state = {
     user: {},
     newUser: {
-      name: '',
-      email: '',
-      phonenumber: '',
-      password: ''
+      name: "",
+      email: "",
+      phonenumber: "",
+      password: ""
     }
   };
 
@@ -86,10 +86,10 @@ class SignIn extends Component {
       password: this.state.newUser.password
     };
     axios.post(`/api/users/`, payload).then(res => {
-        console.log(res.data)
       const newUser = res.data;
-      const newStateNewUser = {...this.state.user, newUser};
+      const newStateNewUser = { ...this.state.user, newUser };
       this.setState({ user: newStateNewUser });
+      this.props.history.push(`/UserAccountPage/${res.data.id}`);
     });
   };
 
@@ -98,8 +98,6 @@ class SignIn extends Component {
     updatedNewUser[event.target.name] = event.target.value;
     this.setState({ newUser: updatedNewUser });
   };
-
-
 
   render() {
     return (
@@ -141,19 +139,27 @@ class SignIn extends Component {
                 <p>
                   Full Name<span className="span">*</span>
                 </p>
-                <input type="text" onChange={this.handleChange} name="name"/>
+                <input type="text" onChange={this.handleChange} name="name" />
                 <p>
                   Email<span className="span">*</span>
                 </p>
-                <input type="email" onChange={this.handleChange} name="email"/>
+                <input type="email" onChange={this.handleChange} name="email" />
                 <p>
                   Phone Number<span className="span">*</span>
                 </p>
-                <input type="text" onChange={this.handleChange} name="phonenumber"/>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  name="phonenumber"
+                />
                 <p>
                   Password<span className="span">*</span>
                 </p>
-                <input type="password" onChange={this.handleChange} name="password"/>
+                <input
+                  type="password"
+                  onChange={this.handleChange}
+                  name="password"
+                />
                 <button type="submit">Create Account</button>
               </form>
             </div>
