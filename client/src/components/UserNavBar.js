@@ -12,7 +12,7 @@ height: 70px;
 width: 309px;
 color: black;
 font-size: 18px;
-margin-top: 10px;
+margin-top: 0px;
 list-style-type: none;
 :hover{
     background-color: rgba(19,212,171,1)
