@@ -12,12 +12,18 @@ import { Button } from '@material-ui/core';
 import { IncomingMessage } from 'http';
 import JobType from './JobType'
 import { Link } from 'react-router-dom'
+import classNames from 'classnames'
 
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly; 
 *{margin: 0};
 `
+const Center = styled.div`
+    text-align: center;
+    border: 1px solid black;
+    width: 60vw;
+    `
 const IconsBox = styled.div`
      display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
@@ -65,18 +71,7 @@ class JobSelection extends React.Component {
       myJob: job,
       selected: true
     })
-
-    // if(this.state.jobtype === ""){
-    //   this.state.jobtype.push(newJob)
-    //   this.state.myJob.push(newJob)
-    // } else{
-    //   this.state.jobtype.pop()
-    //   this.state.myJob.pop()
-    //   this.state.jobtype.push(newJob)
-    //   this.state.myJob.push(newJob)
-    // }
   }
-
 
 
   render() {
@@ -105,7 +100,10 @@ class JobSelection extends React.Component {
                         value={job}
                         color="primary"
                         onClick={(e) => this.handleClick(e ,job)}
-                        className={classes.button}>{job}</Button>
+                        className={classes.button}
+                        onChange={this.handleChange('panel2')}
+                        expanded={expanded === 'panel2'}
+                        >{job}</Button>
             ))}
             </Typography>
             </IconsBox>
@@ -155,6 +153,7 @@ class JobSelection extends React.Component {
         </ExpansionPanel>
       </div>
       </Wrapper>
+      
     );
   }
 }
