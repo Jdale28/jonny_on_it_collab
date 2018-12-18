@@ -7,6 +7,7 @@ const FooterStyle = styled.div`
     width: 100%;
     height: 18vh;
     margin: 1em auto;
+    padding: 1em;
     background-color: rgba(0,45,81,1);
     color: rgba(255,255,255,1);
     display: flex;

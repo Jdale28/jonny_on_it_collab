@@ -10,9 +10,10 @@ class BookPayment extends Component {
     state = {
         user: {},
         job: {},
+        payments: [],
         newPayment: {
-            CARD_CHOICES: "",
-            cardHolderName: "",
+            cardType: "",
+            cardholderName: "",
             cardNumber: "",
             cardMonth: "",
             cardYear: "",
@@ -28,7 +29,7 @@ class BookPayment extends Component {
     getAllUserData = () => {
         const url = `/api/users/`
         axios.get(url).then(res => {
-            this.setState({ users: res.data })
+            this.setState({ users: res.data, payments: res.data })
         })
     }
 
@@ -36,26 +37,29 @@ class BookPayment extends Component {
         event.preventDefault()
         const updatedNewPayment = { ...this.state.newPayment }
         updatedNewPayment[event.target.name] = event.target.value
-        console.log(updatedNewPayment)
         this.setState({ newPayment: updatedNewPayment })
     }
 
     handleSubmit = (event) => {
+        event.preventDefault()
         // const below was for testing post - remove
         const userId = 1
         const payload = {
-            // CARD_CHOICES: this.state.newPayment.streetAddress,
-            cardHolderName: this.state.newPayment.cardName,
+            // cardType: this.state.newPayment.cardType,
+            cardType: "AMEX",
+            cardholderName: this.state.newPayment.cardholderName,
             cardNumber: this.state.newPayment.cardNumber,
-            cardMonth: this.state.newPayment.cardMonth,
-            cardYear: this.state.newPayment.cardYear,
+            // cardMonth: this.state.newPayment.cardMonth,
+            // cardYear: this.state.newPayment.cardYear,
             cardCVV: this.state.newPayment.cardCVV,
             user: userId
         }
-        axios.post(`/api/users/${this.state.userId}/payments/`, payload).then(res => {
-            const newPayment = res.data
-            const newUserPayment = [...this.state.payments, newPayment]
-            this.setState({ payments: newUserPayment })
+        axios.post(`/api/payments/`, payload).then(res => {
+            // /users/${this.state.userId}
+            // const newPayment = res.data
+            console.log(res)
+            // const newUserPayment = [...this.state.payments, newPayment]
+            this.getAllUserData()
         })
     }
 
@@ -65,45 +69,45 @@ class BookPayment extends Component {
                 <h2>Payment Info</h2>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
-                    <p>Card Holder Name</p>
+                    <label>Card Holder Name</label>
                         <input
                             onChange={this.handleChange}
-                            value={this.state.newPayment.cardHolderName}
-                            type="text" name="cardnumber"
+                            value={this.state.newPayment.cardholderName}
+                            type="text" name="cardholderName"
                             maxLength="120">
                         </input>
-                        <p>Card Number</p>
+                        <label>Card Number</label>
                         <input
                             onChange={this.handleChange}
                             value={this.state.newPayment.cardNumber}
-                            type="text" name="cardnumber"
+                            type="text" name="cardNumber"
                             maxLength="120">
                         </input>
                         <div className="sub-form-container">
                             <div>
-                                <p>MM</p>
+                                <label>MM</label>
                                 <input
                                     onChange={this.handleChange}
-                                    value={this.state.newPayment.month}
-                                    type="text" name="city"
+                                    value={this.state.newPayment.cardMonth}
+                                    type="text" name="cardMonth"
                                     maxLength="120">
                                 </input>
                             </div>
                             <div>
-                                <p>YY</p>
+                                <label>YY</label>
                                 <input
                                     onChange={this.handleChange}
-                                    value={this.state.newPayment.year}
-                                    type="text" name="year"
+                                    value={this.state.newPayment.cardYear}
+                                    type="text" name="cardYear"
                                     maxLength="120">
                                 </input>
                             </div>
                             <div>
-                                <p>CVV</p>
+                                <label>CVV</label>
                                 <input
                                     onChange={this.handleChange}
-                                    value={this.state.newPayment.cvv}
-                                    type="text" name="cvv"
+                                    value={this.state.newPayment.cardCVV}
+                                    type="text" name="cardCVV"
                                     maxLength="10">
                                 </input>
                             </div>
