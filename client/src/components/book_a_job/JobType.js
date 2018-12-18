@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { GreenButton } from '../ButtonStyle'
 import StepperforJob from './StepperforJob'
+import { Button } from '@material-ui/core';
 // import { jobtype } from './JobSelection'
 
+const jobOptions = []
 const Center = styled.div`
     text-align: center;
     border: 1px solid black;
@@ -25,17 +27,17 @@ const Center = styled.div`
           };
 
 
-          checkOptions = () => {
-            if (this.props.jobtype === "ELECTRICIAN") {
-                console.log("Hello")
-                console.log(this.state.electricianOptions)
-            } else {
-                console.log("Hello")
-            }
+          checkOptions = (e,job) => {
+              this.setState({
+                  myJob: job
+              })
+            console.log(job)
           }
+            
+           
           
   render() {
-      let jobOptions = " "
+    let jobOptions = []
     if (this.props.jobtype === "ELECTRICIAN") {
         jobOptions = this.state.electricianOptions
      } else if (this.props.jobtype === "PLUMBING") {
@@ -57,10 +59,25 @@ const Center = styled.div`
     } else {
         jobOptions = this.state.otherChoice
     }
-      
+    console.log(jobOptions)
+
+    const { classes } = this.props;
+
     return (
       <div>
-        <h2 onClick={this.checkOptions}>{jobOptions}</h2>
+      <Center>
+      {this.props.selected ? (jobOptions.map((job)=>{
+        return(
+          <Button
+          variant="contained"
+          color="primary"
+          onClick={(e) => this.checkOptions(e,job)}
+          // {console.log(jobOptions)}
+          >{job}</Button>
+        )
+    })) : null }
+
+      </Center>
       </div>
     )
   }

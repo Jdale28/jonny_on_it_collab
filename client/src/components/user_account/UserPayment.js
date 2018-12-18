@@ -30,24 +30,25 @@ class UserPayment extends Component {
         user: {}
     }
 
-    componentDidMount(){
-        const id = this.props.match.params.id
+    // componentDidMount(){
+    //     const id = this.props.match.params.id
         
-        axios.get(`/api/users/${id}`).then(res => {
-            console.log(res)
-            this.setState({user: res.data})
-        })
+    //     axios.get(`/api/users/${id}`).then(res => {
+    //         console.log(res)
+    //         this.setState({user: res.data})
+    //     })
 
-    }
+    // }
    
     render() {
         return (
             <Container>
             <div>
             <Name> HELLO, {this.state.user.name} !</Name>
-                <UserPaymentDashboard/>
-               <UserNavBar/> 
-            <UserModal/>
+                <UserPaymentDashboard {...this.state}/>
+               <UserNavBar {...this.state}/> 
+            <UserModal {...this.state}/>
+         
 
             </div>
             </Container>
