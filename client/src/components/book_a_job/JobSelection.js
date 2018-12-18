@@ -12,12 +12,18 @@ import { Button } from '@material-ui/core';
 import { IncomingMessage } from 'http';
 import JobType from './JobType'
 import { Link } from 'react-router-dom'
+import classNames from 'classnames'
 
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-evenly; 
 *{margin: 0};
 `
+const Center = styled.div`
+    text-align: center;
+    border: 1px solid black;
+    width: 60vw;
+    `
 const IconsBox = styled.div`
      display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px;
@@ -44,11 +50,11 @@ const styles = theme => ({
 class JobSelection extends React.Component {
   state = {
     expanded: null,
+
     jobs: ["ELECTRICIAN", "PLUMBING", "CLEANING", "PEST", "PAINTING", "CARPENTRY", "ROOFING", "HVAC", "HANDYMAN"],
-
-
     jobtype: "",
-    myJob:[]
+    myJob:[],
+    selected: false
 
   };
 
@@ -62,18 +68,12 @@ class JobSelection extends React.Component {
 
   handleClick = (e, job) =>{
 
-    this.setState({jobtype: job})
+    this.setState({
+      jobtype: job,
+      myJob: job,
+      selected: true
+    })
 
-
-    // if(this.state.jobtype === ""){
-    //   this.state.jobtype.push(newJob)
-    //   this.state.myJob.push(newJob)
-    // } else{
-    //   this.state.jobtype.pop()
-    //   this.state.myJob.pop()
-    //   this.state.jobtype.push(newJob)
-    //   this.state.myJob.push(newJob)
-    // }
   }
 render() {
     const { classes } = this.props;
@@ -100,7 +100,6 @@ render() {
                         color="primary"
                         onClick={(e) => this.handleClick(e ,job)}
                         className={classes.button}>{job}</Button>
-
             ))}
           </Typography>
         </IconsBox>
@@ -146,10 +145,21 @@ render() {
         <Typography>
           Here is where you would pay for your job.
             </Typography>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
-  </div>
-      </Wrapper >
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+          <ExpansionPanel expanded={expanded === 'panel5'} onChange={this.handleChange('panel5')}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>Payment</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              Here is where you would pay for your job.
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      </div>
+      </Wrapper>
+
     );
   }
 }
