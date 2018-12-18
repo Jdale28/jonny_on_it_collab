@@ -11,7 +11,7 @@ Heroku App: https://jonny-on-it-collab.herokuapp.com
 Wireframes: https://idoc.mockplus.com/app/-x9wddoCF/specs/5qHLQmX-CA
 
 Technologies:
-Front-end: React, React styled-components, react-router, axios
+Front-end: React, React styled-components, react-router-dom, axios, font-awesome, material-ui, bootstrap, google-maps-react, react-accessible-accordian, react-calendar, react-geosuggest, react-strap, react-semantic-ui-css
 Back-end: Django, Python, rest-frameworks, serializer
 
 On November 13, 2018
@@ -41,20 +41,20 @@ Loren Kelley: User Account
 Myron Young: Book Now stepper
 Charles DeRosier: Home Page, Footer
 
-December 14, 2018:
+December 14, 2018(plusweekend):
 Jordan Dale: About Us, moved images to imgur
 Loren Kelley: User Account
 Myron Young: Book Now
 Charles DeRosier: Our Guarantee, User Terms, Provider Terms, Book Now JobType
 
-December 15, 2018:
+December 17, 2018:
 Jordan Dale: FAQ, update colors, authentication
 Loren Kelley: User Account
 Myron Young: Book Now
-Charles DeRosier: Book Property (styled/methods), Book Time (styled/some methods), Book Payment (styled), Contact Us (placeholder)
+Charles DeRosier: Book Property (styled/methods), Book Time (style/some methods), Book Payment (styled), Contact Us (placeholder)s
 
-December 16, 2018:
-Jordan Dale: FAQ, update colors, authentication
+December 18, 2018:
+Jordan Dale: authentication, google map api, 
 Loren Kelley: User Account
 Myron Young: Book Now
-Charles DeRosier: Book Property (working waiting for userId), Book Time (some methods), Book Payment (styled), Contact Us (placeholder)
+Charles DeRosier: Book Time (add react-calendar, modify methods), Book Payment (methods, updated model)

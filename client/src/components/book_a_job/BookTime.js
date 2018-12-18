@@ -121,6 +121,7 @@ class BookTime extends Component {
                         </div>
 
                         <div className="slots-content">
+                        {/* time-slots are invisible until user clicks today button or a calendar date */}
                             {this.state.showSlots ?
                                 <div className="time-slots">
                                     <div className="time-slot">
