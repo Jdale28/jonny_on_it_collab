@@ -9,7 +9,7 @@ const HomePageNotLoggedIn = styled.div`
 
 const HomeBanner = styled.div`
     background-color: rgba(0,0,0,1);
-    background-image: url("https://i.imgur.com/AFHbyQJ.jpg");
+    background-image: url("https://i.imgur.com/9anPlaz.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
