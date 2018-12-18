@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserNavBar from "./UserNavBar";
+// import UserNavBar from "./UserNavBar";
 import styled from "styled-components";
 import axios from "axios";
 import Geosuggest from "react-geosuggest";
@@ -136,9 +136,9 @@ class UserProperties extends Component {
       <Container>
         <Name> HELLO, {this.state.user.name} !</Name>
         <PageFlex>
-          <NavBar>
+          {/* <NavBar>
             <UserNavBar {...this.state} />
-          </NavBar>
+          </NavBar> */}
           <PropertyFlex>
             <h1>Your List of Properties Below</h1>
             {this.state.properties.map((property, i) => (

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { BlueButton } from "../ButtonStyle";
+import { ContactUsButton } from "../ButtonStyle";
 
 const PageStyle = styled.div`
   * {
@@ -29,6 +29,10 @@ const Center = styled.div`
   font-size: 44px;
   font-weight: bold;
 `;
+
+const AlignCenter = styled.div`
+  text-align: center;
+`
 
 const AboutHeaders = styled.div`
   width: 94%;
@@ -137,9 +141,9 @@ class AboutUs extends Component {
             </p>
           </div>
         </AboutHeaders>
-        <Center>
-          <BlueButton type="submit">Contact Us</BlueButton>
-        </Center>
+          <AlignCenter>
+            <ContactUsButton type="submit">Contact Us</ContactUsButton>
+          </AlignCenter>
         <Center className="OurTeam">Our Team</Center>
         <ImagesRowOne>
           <ChristianImg>

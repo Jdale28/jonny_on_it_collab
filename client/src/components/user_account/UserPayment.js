@@ -18,7 +18,6 @@ const Name = styled.div`
   margin: 20px;
   margin-left: 361px;
   margin-top: 15px;
-  postion: fixed;
   font-family: "athletics", arial, sans-serif;
 `;
 
@@ -29,7 +28,6 @@ class UserPayment extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-
     axios.get(`/api/users/${id}`).then(res => {
       console.log(res);
       this.setState({ user: res.data });
@@ -42,7 +40,6 @@ class UserPayment extends Component {
         <div>
           <Name> HELLO, {this.state.user.name} !</Name>
           <UserPaymentDashboard {...this.state} />
-          <UserNavBar {...this.state} />
           <UserModal {...this.state} />
         </div>
       </Container>
