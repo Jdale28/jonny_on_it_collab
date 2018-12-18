@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import UserNavBar from './UserNavBar'
-import UserDashboard from './UserDashboard'
+import UserPaymentDashboard from './UserPaymentDashboard'
+import UserModal from './UserModal'
+
 import axios from 'axios'
 
 
@@ -19,31 +21,34 @@ margin: 20px;
 margin-left: 361px;
 margin-top: 15px;
 postion: fixed;
+font-family: 'athletics', arial, sans-serif;
 `
-class UserAccountPage extends Component {
+
+class UserPayment extends Component {
 
     state = {
         user: {}
     }
 
-    componentDidMount(){
-        const id = this.props.match.params.id
+    // componentDidMount(){
+    //     const id = this.props.match.params.id
         
-        axios.get(`/api/users/${id}`).then(res => {
-            console.log(res)
-            this.setState({user: res.data})
-        })
+    //     axios.get(`/api/users/${id}`).then(res => {
+    //         console.log(res)
+    //         this.setState({user: res.data})
+    //     })
 
-    }
+    // }
    
     render() {
         return (
             <Container>
             <div>
             <Name> HELLO, {this.state.user.name} !</Name>
-                <UserDashboard/>
-               
-               <UserNavBar/> 
+                <UserPaymentDashboard {...this.state}/>
+               <UserNavBar {...this.state}/> 
+            <UserModal {...this.state}/>
+         
 
             </div>
             </Container>
@@ -51,4 +56,4 @@ class UserAccountPage extends Component {
     }
 }
 
-export default UserAccountPage;
+export default UserPayment;

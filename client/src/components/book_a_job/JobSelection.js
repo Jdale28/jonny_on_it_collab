@@ -112,7 +112,7 @@ render() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
-          <JobType{...this.state} />
+          <JobType {...this.state} />
         </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
