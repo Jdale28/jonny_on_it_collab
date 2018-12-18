@@ -40,6 +40,37 @@ const PropertyFlex = styled.div`
   .OneProperty {
     margin-left: 5vw;
   }
+  input {
+      width: 20vw;
+      text-align: center;
+  }
+`;
+
+const FormAndGeoBox = styled.div`
+margin-left: 5vw;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 65vw;
+  height: 25vh;
+  button {
+      margin-top: 2vh;
+  }
+`;
+
+const GeoBox = styled.div`
+/* margin-left: 5vw; */
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 35vw;
+  h4 {
+      margin-bottom: 3vh;
+      text-align: center;
+  }
 `;
 
 class UserProperties extends Component {
@@ -52,18 +83,21 @@ class UserProperties extends Component {
       state: "",
       zipcode: "",
       user: ""
-    }
+    },
+    geoValue: ""
   };
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
     const id = this.props.match.params.id;
     axios.get(`/api/users/${id}`).then(res => {
-      console.log(res.data);
       this.setState({ user: res.data, properties: res.data.properties });
-      //   const expandState = res.data;
-      //   localStorage.setItem("user", JSON.stringify(expandState));
     });
-  }
+  };
+
   handleChange = event => {
     const updatedNewProperty = { ...this.state.newProperty };
     updatedNewProperty[event.target.name] = event.target.value;
@@ -73,20 +107,28 @@ class UserProperties extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const payload = {
-      streetAdress: this.state.newProperty.streetAddress,
+      streetAddress: this.state.newProperty.streetAddress,
       city: this.state.newProperty.city,
       state: this.state.newProperty.state,
       zipcode: this.state.newProperty.zipcode,
-      user: this.state.user.name
+      user: this.state.user.id
     };
+    // if this.state.googleaddress != null
     console.log(payload);
-    axios.post(`/api/properties`, payload).then(res => {
-      console.log(res);
-      const newProperty = res.data;
-      const newStateNewProperty = { ...this.state.properties, newProperty };
-      this.setState({ properties: newStateNewProperty });
-      this.props.history.push(`/UserAccountPage/${res.data.id}/properties`);
+    axios.post(`/api/properties/`, payload).then(res => {
+      this.getData();
     });
+  };
+
+  onSuggestSelect = () => {
+    const geoValue = document.querySelector(".geosuggest__input").value;
+    this.setState({ geoValue: geoValue });
+    const geoArr = this.state.geoValue.split(", ");
+    let streetAddress = document.querySelector('.streetAddressInput').value = geoArr[0]
+    let city = document.querySelector('.cityInput').value = geoArr[1]
+    let state = document.querySelector('.stateInput').value = geoArr[2]
+    const newState = { ...this.state.newProperty, streetAddress, city, state }
+    this.setState({ newProperty: newState })
   };
 
   render() {
@@ -99,8 +141,8 @@ class UserProperties extends Component {
           </NavBar>
           <PropertyFlex>
             <h1>Your List of Properties Below</h1>
-            {this.state.properties.map(property => (
-              <div className="OneProperty">
+            {this.state.properties.map((property, i) => (
+              <div key={i} className="OneProperty">
                 <div>{property.streetAddress}</div>
                 <div>
                   {property.city}, {property.state} {property.zipcode}
@@ -108,32 +150,35 @@ class UserProperties extends Component {
               </div>
             ))}
 
-            <form onSubmit={this.handleSubmit}>
-              <p>
-                Street Address<span className="span">*</span>
-              </p>
-              <input
-                type="text"
-                onChange={this.handleChange}
-                name="streetAddress"
-              />
-              <p>
-                City<span className="span">*</span>
-              </p>
-              <input type="text" onChange={this.handleChange} name="city"/>
-              <p>
-                State<span className="span">*</span>
-              </p>
-              <input type="text" onChange={this.handleChange} name="state" />
-              <p>
-                Zip Code<span className="span">*</span>
-              </p>
-              <input type="text" onChange={this.handleChange} name="zipcode" />
-              <button type="submit">Add New Property</button>
+            <FormAndGeoBox><form onSubmit={this.handleSubmit}>
+            <p>
+            Street Address<span className="span">*</span>
+            </p>
+            <input
+            class="streetAddressInput"
+            type="text"
+            onChange={this.handleChange}
+            name="streetAddress"
+            />
+            <p>
+            City<span className="span">*</span>
+            </p>
+            <input class="cityInput" type="text" onChange={this.handleChange} name="city" />
+            <p>
+            State<span className="span">*</span>
+            </p>
+            <input class="stateInput" type="text" onChange={this.handleChange} name="state" />
+            <p>
+            Zip Code<span className="span">*</span>
+            </p>
+            <input placeholder="Authenticate with zipcode" type="text" onChange={this.handleChange} name="zipcode" />
+            <br />
+            <button type="submit">Add New Property</button>
             </form>
-
-            {/* <h1>My Google Map</h1>
-            <Geosuggest /> */}
+            
+            {/* <h1>My Google Map</h1> */}
+            <GeoBox><h4>Find your USA-based address below and populate the form automatically!</h4>
+            <Geosuggest onSuggestSelect={this.onSuggestSelect} /></GeoBox></FormAndGeoBox>
           </PropertyFlex>
         </PageFlex>
       </Container>
