@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-    font-size: .8em;
+    font-size: 2em;
     width: 12em;
     height: 3em;
     border-radius: .4em;
@@ -108,7 +108,8 @@ export const GoButton = styled(GreenButton)`
 `
 
 export const NewsletterButton = styled(GreenButton)`
-    width: 5.6em;
-    height: 2.2em;
-    font-size: .8em;
+    width: 6em;
+    height: 3em;
+    margin: 0 0 0 .5em;
+    font-size: 1.2em;
 `

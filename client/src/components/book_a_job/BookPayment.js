@@ -3,6 +3,17 @@ import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
 
 class BookPayment extends Component {
+
+    state = {
+        newPayment: {
+            user: "",
+            cardNumber: "",
+            cardMonth: "",
+            cardYear: "",
+            cardCVV: ""
+        }
+    }
+
     render() {
         return (
             <FormStyled>

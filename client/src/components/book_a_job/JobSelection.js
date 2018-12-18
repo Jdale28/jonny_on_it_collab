@@ -68,6 +68,7 @@ class JobSelection extends React.Component {
 
   handleClick = (e, job) =>{
 
+
     this.setState({
       jobtype: job,
       myJob: job,

@@ -74,20 +74,17 @@ class BookTime extends Component {
         })
     }
 
-    handleChange = (event) => {
-        const updatedChangeProperty = { ...this.state.property }
-        updatedChangeProperty[event.target.time] = event.target.value
-        this.setState({ property: updatedChangeProperty })
-    }
-
     handleClick = (e, date) => {
         const today = new Date()
         console.log(today)
         this.setState({ date: date })
+        this.toggleSlots()
     }
 
     onChange = date => {
         this.setState({ date })
+        this.toggleSlots()
+        this.toggleCalendar()
         console.log(date)
     }
 
@@ -105,17 +102,6 @@ class BookTime extends Component {
 
     render() {
 
-        // function showTimes() {
-        //     var x = document.getElementsByClassName("slots-content")
-        //     if (x.style.display === "none") {
-        //       x.style.display = "block";
-        //     } else {
-        //       x.style.display = "none";
-        //     }
-        //   }
-
-        // onClick={showTimes()}
-
         return (
             <TimeStyle>
                 <h2>Time</h2>
@@ -127,78 +113,47 @@ class BookTime extends Component {
                                 onClick={(e) => this.handleClick(e, this.value)}
                             >TODAY</RedButton>
                             <GreenButton
-                            onClick={this.toggleCalendar}
+                                onClick={this.toggleCalendar}
                             >SCHEDULE</GreenButton>
                             {this.state.showCalendar ? <Calendar
                                 value={this.state.date}
                                 onChange={this.onChange} /> : null}
                         </div>
-                        <div className="date-bar"></div>
+
                         <div className="slots-content">
-                            <div className="time-slots">
-
-                                <div className="time-slot">
-                                    <button
-                                        onChange={this.handleChange}
-                                        value="9 AM - 11 AM">X</button><p>9 AM - 11 AM</p>
+                            {this.state.showSlots ?
+                                <div className="time-slots">
+                                    <div className="time-slot">
+                                        <button
+                                            onChange={this.handleChange}
+                                            value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
+                                    </div>
+                                    <div className="time-slot">
+                                        <button
+                                            onChange={this.handleChange}
+                                            value="1 PM - 3 PM">X</button><p>1 PM - 3 PM</p>
+                                    </div>
+                                    <div className="time-slot">
+                                        <button
+                                            onChange={this.handleChange}
+                                            value="3 PM - 5 PM">X</button><p>3 PM - 5 PM</p>
+                                    </div>
+                                    <div className="time-slot">
+                                        <button
+                                            onChange={this.handleChange}
+                                            value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
+                                    </div>
                                 </div>
-                                <div className="time-slot">
-                                    <button
-                                        onChange={this.handleChange}
-                                        value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
-                                </div>
-                                <div className="time-slot">
-                                    <button
-                                        onChange={this.handleChange}
-                                        value="1 PM - 3 PM">X</button><p>1 PM - 3 PM</p>
-                                </div>
-                                <div className="time-slot">
-                                    <button
-                                        onChange={this.handleChange}
-                                        value="3 PM - 5 PM">X</button><p>3 PM - 5 PM</p>
-                                </div>
-                                <div className="time-slot">
-                                    <button
-                                        onChange={this.handleChange}
-                                        value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
-                                </div>
-                                <div className="bottom-button">
-                                    <BlueButton type="submit">Next</BlueButton>
-                                </div>
-
+                                : null}
+                            <div className="bottom-button">
+                                <BlueButton type="submit">Next</BlueButton>
                             </div>
                         </div>
-                        {/* {!this.state.isHidden && <Child />} */}
                     </div>
                 </form>
             </TimeStyle>
         )
     }
 }
-// const Child = () => (
-//                     <div className="time-slots">
-//                         <form className="slots-content">
-//                             <div className="time-slot">
-//                                 <button>X</button><p>9 AM - 11 AM</p>
-//                             </div>
-//                             <div className="time-slot">
-//                                 <button>X</button><p>11 AM - 1 PM</p>
-//                             </div>
-//                             <div className="time-slot">
-//                                 <button>X</button><p>1 PM - 3 PM</p>
-//                             </div>
-//                             <div className="time-slot">
-//                                 <button>X</button><p>3 PM - 5 PM</p>
-//                             </div>
-//                             <div className="time-slot">
-//                                 <button>X</button><p>5 PM - 7 PM</p>
-//                             </div>
-//                             <div classname="bottom-button">
-//                                 <BlueButton type="submit">Next</BlueButton>
-//                             </div>
-//                         </form>
-//                     </div>
-//                     )
 
-// const app = document.getElementById('app')
 export default BookTime
