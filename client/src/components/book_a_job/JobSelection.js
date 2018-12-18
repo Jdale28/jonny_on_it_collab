@@ -41,69 +41,72 @@ const styles = theme => ({
   },
 });
 
-
 class JobSelection extends React.Component {
   state = {
     expanded: null,
     jobs: ["ELECTRICIAN", "PLUMBING", "CLEANING", "PEST", "PAINTING", "CARPENTRY", "ROOFING", "HVAC", "HANDYMAN"],
 
-    jobtype: [],
-    myJob: []
+
+    jobtype: "",
+    myJob:[]
 
   };
 
-    handleChange = panel => (event, expanded) => {
-      this.setState({
-        expanded: expanded ? panel : false,
-      });
-    };
+  handleChange = panel => (event, expanded) => {
+    this.setState({
+      expanded: expanded ? panel : false,
+    });
+  };
+  
 
 
-  handleClick = (e) => {
-    const newJob = e.target.innerHTML
+  handleClick = (e, job) =>{
 
-    if (this.state.jobtype === null) {
-      this.state.jobtype.push(newJob)
-      this.state.myJob.push(newJob)
-    } else {
-      this.state.jobtype.pop()
-      this.state.myJob.pop()
-      this.state.jobtype.push(newJob)
-      this.state.myJob.push(newJob)
-    }
+    this.setState({jobtype: job})
+
+
+    // if(this.state.jobtype === ""){
+    //   this.state.jobtype.push(newJob)
+    //   this.state.myJob.push(newJob)
+    // } else{
+    //   this.state.jobtype.pop()
+    //   this.state.myJob.pop()
+    //   this.state.jobtype.push(newJob)
+    //   this.state.myJob.push(newJob)
+    // }
   }
+render() {
+    const { classes } = this.props;
+    const { expanded } = this.state;
 
 
+  render() {
+    const { classes } = this.props;
+    const { expanded } = this.state;
 
 
-
-
-    render() {
-      const { classes } = this.props;
-      const { expanded } = this.state;
-
-
-  return(
-      
+    return (
       <Wrapper>
-  <div>
-    <p>Which Job is it? {this.state.jobtype}</p>
-    <StepperforJob />
-  </div>
-  <div className={classes.root}>
-    <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography className={classes.heading}>Book a Job</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <IconsBox>
-          <Typography>
-            {this.state.jobs.map((job) => (
-              <Button variant="contained"
-                value={job}
-                color="primary"
-                onClick={this.handleClick}
-                className={classes.button}>{job}</Button>
+        <div>
+        <p>Which Job is it? {this.state.jobtype}</p>
+      <StepperforJob/>
+      </div>
+      <div className={classes.root}>
+        <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>Book a Job</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+          <IconsBox>
+            <Typography>
+            { this.state.jobs.map((job) => (
+            <Button variant="contained"
+                        name={job}
+                        value={job}
+                        color="primary"
+                        onClick={(e) => this.handleClick(e ,job)}
+                        className={classes.button}>{job}</Button>
+
             ))}
           </Typography>
         </IconsBox>
