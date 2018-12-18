@@ -15,13 +15,10 @@ class UserModal extends Component {
   }
 
   state = {
-    employee: {},
-    reviews: [],
-    show: false,
     newCard: {
-      card: 0,
+      card: '',
       month: '',
-      cvv: 0
+      cvv: ''
     }
   };
 
@@ -49,10 +46,7 @@ class UserModal extends Component {
       month: this.state.newCard.month,
       cvv: this.state.newCard.cvv
     }
-    // make a post request to the database (save card in database)
-    // axios.post('/api/payments/', payload)
-    // then make a get request to the database for all cards
-    // axios.get('/api/payments/)
+    // make a post re 
     this.handleClose()
   }
 
@@ -109,62 +103,22 @@ class UserModal extends Component {
                   <Button type="submit"> Add Card</Button>
                 </Col>
               </FormGroup>
-
-
-
-
-
-
-
-              {/* <form onSubmit={this.handleSubmit}>
-                  <div>
-                    <label htmlFor="card">Card Number</label>
-                    <input
-                      onChange={this.handleChange}
-                      value={this.state.newCard.card}
-                      type="text"
-                      name="card number"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="month">Month</label>
-                    <input
-                      onChange={this.handleChange}
-                      value={this.state.newCard.month}
-                      type="text"
-                      name="month"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="year">Year</label>
-                    <input
-                      onChange={this.handleChange}
-                      value={this.state.newCard.year}
-                      type="text"
-                      name="year"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="cvv">CVV</label>
-                    <input
-                      onChange={this.handleChange}
-                      value={this.state.newCard.cvv}
-                      type="text"
-                      name="cvv"
-                    />
-                  </div>
-                  <button type="submit">Add Card</button>
-                </form> */}
             </Form>
+       
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
-        <p>{this.state.newCard.card}</p>
-        <p>{this.state.newCard.month}</p>
-        <p>{this.state.newCard.cvv}</p>
+        <div className='cardInfo'>
+        <p>{this.state.newCard.card} 
+        {this.state.newCard.month}
+          {this.state.newCard.cvv}</p>
+           </div>
+          
       </div>
+   
+          
     );
   }
 }

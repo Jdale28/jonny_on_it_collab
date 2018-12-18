@@ -48,6 +48,7 @@ class UserPayment extends Component {
                 <UserPaymentDashboard/>
                <UserNavBar/> 
             <UserModal/>
+         
 
             </div>
             </Container>
