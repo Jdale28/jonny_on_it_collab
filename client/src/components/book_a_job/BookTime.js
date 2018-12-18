@@ -117,7 +117,8 @@ class BookTime extends Component {
                             >SCHEDULE</GreenButton>
                             {this.state.showCalendar ? <Calendar
                                 value={this.state.date}
-                                onChange={this.onChange} /> : null}
+                                onChange={this.onChange}
+                                className="calendar" /> : null}
                         </div>
 
                         <div className="slots-content">

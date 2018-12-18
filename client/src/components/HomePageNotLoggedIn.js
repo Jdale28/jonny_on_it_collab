@@ -42,6 +42,7 @@ const FindOutLinks = styled.div`
     margin: 10px auto;
     text-align: center;
     .find-out-container {
+        font-size: 1.2em;
         display: flex;
         justify-content: space-evenly;
     }
@@ -50,12 +51,12 @@ const FindOutLinks = styled.div`
         color: rgba(0,45,81,1);
     }
     .find-out-title {
-        font-size: 1.4em;
+        font-size: 2.4em;
         color: rgba(14,151,255,1);
     }
     .new-user {
-        width: 12em;
-        height: 8em;
+        width: 20em;
+        height: 14em;
         margin: 8px;
     }
 `
@@ -75,7 +76,7 @@ const Reviews = styled.div`
     text-align: center;
     h2 {
         color: rgba(14,151,255,1);
-        font-size: 1.8em; 
+        font-size: 2.4em; 
         margin: .2em auto;
     }
     .reviews {

@@ -60,7 +60,7 @@ export const HowItWorksBookButton = styled(BlueButton)`
 `
 
 export const ContactUsButton = styled(BlueButton)`
-    height: 61px;
+    height: 1em;
 `
 
 export const CreateAccountButton = styled(BlueButton)`

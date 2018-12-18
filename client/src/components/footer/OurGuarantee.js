@@ -9,7 +9,7 @@ const Guarantee = styled.div`
         font-size: 2.8em;
     }
     p {
-        font-size: 1em;
+        font-size: 1.4em;
         line-height: 1.5;
         margin: 1.8em auto 4em auto;
     }

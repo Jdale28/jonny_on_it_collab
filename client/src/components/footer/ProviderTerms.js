@@ -5,12 +5,12 @@ const ProviderTermsStyle = styled.div`
     margin: 4em 3em .4em 3em;
     h2 {
         color: rgba(14,151,255,1);
-        font-size: 2.2em;
+        font-size: 2.8em;
         margin: 1em 0 0 0;
     }
     p {
         color: rgba(112,112,112,1);
-        font-size: 1em;
+        font-size: 1.4em;
         line-height: 1.5;
         margin: .5em auto .5em auto;
     }
