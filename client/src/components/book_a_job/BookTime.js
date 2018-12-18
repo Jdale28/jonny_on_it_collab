@@ -54,7 +54,7 @@ class BookTime extends Component {
 
     state = {
         date: new Date(),
-        timeslot: "",
+        timeslot: [],
         showCalendar: false,
         showForm: false
     }
@@ -66,23 +66,24 @@ class BookTime extends Component {
         })
     }
 
+    // TODAY BUTTON
     handleClick = (date) => {
         date = this.value
         this.setState({ date })
-        const showDate = this.state.date.toString()
-        console.log(showDate)
-        console.log(this.state.date)
         this.toggleSlots()
     }
 
+    // Calendar clicked
     onChange = date => {
         this.setState({ date })
         this.toggleSlots()
         this.toggleCalendar()
     }
 
-    handleChange = (event, value) => {
-        const timeslot = document.querySelector('.timeslotall').value
+    // Time slot selected
+    handleChange = (timeslot) => {
+        // const timeslot = document.querySelector('.timeslotall').value
+        timeslot = this.value
         console.log(timeslot)
         this.setState({ timeslot: timeslot })
     }
@@ -120,13 +121,13 @@ class BookTime extends Component {
                                 className="calendar" />
                             : null}
                         <div className="slots-content">
-                        <h5>{this.state.date.toString()}</h5>
+                        {/* <h5>{this.state.date.toString()}</h5> */}
                             {/* time-slots are invisible until user clicks today button or a calendar date */}
                             {this.state.showSlots ?
                                 <div className="time-slots">
                                     <div className="time-slot">
                                         <button className="timeslot1"
-                                            onClick={() => this.handleChange()}
+                                            onClick={() => this.handleChange(this.value)}
                                             value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
                                     </div>
                                     <div className="time-slot">
