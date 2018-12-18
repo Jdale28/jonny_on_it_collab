@@ -5,16 +5,8 @@ import axios from "axios";
 import Geosuggest from "react-geosuggest";
 
 const Container = styled.div`
-  border: none;
-  height: 100vh;
+  height: 70vh;
   width: 100vw;
-`;
-const Name = styled.div`
-  color: rgba(14, 151, 255, 1);
-  font-size: 35px;
-  text-align: center;
-  font-weight: bold;
-  font-family: "athletics", arial, sans-serif;
 `;
 
 const PageFlex = styled.div`
@@ -22,15 +14,16 @@ const PageFlex = styled.div`
   justify-content: space-between;
 `;
 
-const NavBar = styled.div`
-  border: 1px solid black;
+const PropertyListFlex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
 `;
 
 const PropertyFlex = styled.div`
-  border: 1px solid black;
   width: 75vw;
-  margin-right: 3vw;
-  margin-top: 3vw;
+  height: 70vh;
+  padding-right: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -47,23 +40,31 @@ const PropertyFlex = styled.div`
 `;
 
 const FormAndGeoBox = styled.div`
-margin-left: 5vw;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
   flex-direction: row;
-  width: 65vw;
-  height: 25vh;
+  width: 80vw;
+  height: 35vh;
+  font-size: 1.25rem;
   button {
       margin-top: 2vh;
+      text-align: center;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 1.25rem;
+      &:hover {
+        background-color: rgba(19,212,171,1);
+        color: white;
+    }
+  }
+  .addProperty {
+      text-align: center;
   }
 `;
 
 const GeoBox = styled.div`
-/* margin-left: 5vw; */
-  /* border: 1px solid black; */
   display: flex;
-  justify-content: center;
+  margin-top: 3vh;
   flex-direction: column;
   align-items: center;
   width: 35vw;
@@ -134,13 +135,10 @@ class UserProperties extends Component {
   render() {
     return (
       <Container>
-        <Name> HELLO, {this.state.user.name} !</Name>
         <PageFlex>
-          {/* <NavBar>
-            <UserNavBar {...this.state} />
-          </NavBar> */}
           <PropertyFlex>
             <h1>Your List of Properties Below</h1>
+            <PropertyListFlex>
             {this.state.properties.map((property, i) => (
               <div key={i} className="OneProperty">
                 <div>{property.streetAddress}</div>
@@ -149,6 +147,7 @@ class UserProperties extends Component {
                 </div>
               </div>
             ))}
+            </PropertyListFlex>
 
             <FormAndGeoBox><form onSubmit={this.handleSubmit}>
             <p>
@@ -173,7 +172,9 @@ class UserProperties extends Component {
             </p>
             <input placeholder="Authenticate with zipcode" type="text" onChange={this.handleChange} name="zipcode" />
             <br />
-            <button type="submit">Add New Property</button>
+            <div className="addProperty">
+                <button type="submit">Add New Property</button>
+            </div>
             </form>
             
             {/* <h1>My Google Map</h1> */}

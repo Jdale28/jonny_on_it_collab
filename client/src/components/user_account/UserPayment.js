@@ -1,24 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import UserNavBar from "./UserNavBar";
-import UserPaymentDashboard from "./UserPaymentDashboard";
 import UserModal from "./UserModal";
 
 import axios from "axios";
 
 const Container = styled.div`
   border: none;
-  height: 100vh;
-  width: 100vw;
-`;
-const Name = styled.div`
-  color: rgba(14, 151, 255, 1);
-  font-size: 35px;
-  font-weight: bold;
-  margin: 20px;
-  margin-left: 361px;
-  margin-top: 15px;
-  font-family: "athletics", arial, sans-serif;
+  height: 70vh;
+  width: 75vw;
+  border: 1px solid black;
 `;
 
 class UserPayment extends Component {
@@ -29,7 +19,6 @@ class UserPayment extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     axios.get(`/api/users/${id}`).then(res => {
-      console.log(res);
       this.setState({ user: res.data });
     });
   }
@@ -38,8 +27,6 @@ class UserPayment extends Component {
     return (
       <Container>
         <div>
-          <Name> HELLO, {this.state.user.name} !</Name>
-          <UserPaymentDashboard {...this.state} />
           <UserModal {...this.state} />
         </div>
       </Container>

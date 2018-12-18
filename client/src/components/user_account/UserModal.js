@@ -10,6 +10,20 @@ import {
   FormControl,
   Checkbox
 } from "react-bootstrap";
+import styled from "styled-components";
+
+const PageStyle = styled.div `
+  .testModal {
+    text-align: center;
+  }
+`
+
+const Title = styled.h1`
+  margin-top: 25px;
+  font-size: 30px;
+  margin-left: 355px;
+`;
+
 
 class UserModal extends Component {
   // Controller for Modal show/hide
@@ -29,12 +43,10 @@ class UserModal extends Component {
   };
 
   handleClose() {
-    console.log("Hello");
     this.setState({ show: false });
   }
 
   handleShow() {
-    console.log("Hello");
     this.setState({ show: true });
   }
 
@@ -58,10 +70,11 @@ class UserModal extends Component {
 
   render() {
     return (
-      <div>
-        <Button
+      <PageStyle>
+        <Title> PAYMENT METHODS </Title>
+        <Button className="testModal"
           bsSize="large"
-          className="modalbutton"
+          className="modalstyle"
           onClick={this.handleShow}
         >
           ADD NEW CARD
@@ -145,7 +158,7 @@ class UserModal extends Component {
             {this.state.newCard.cvv}
           </p>
         </div>
-      </div>
+      </PageStyle>
     );
   }
 }

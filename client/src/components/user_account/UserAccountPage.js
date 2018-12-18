@@ -10,9 +10,13 @@ import UserJobs from './UserJobs';
 
 
 const Container = styled.div `
-border: none;
+height: 80vh;
+width: 100vw;
+`
+const NavBarAndComponent = styled.div `
 height: 100vh;
 width: 100vw;
+display: flex;
 `
 const Name = styled.div`
 color:  rgba(14,151,255,1);
@@ -40,13 +44,13 @@ class UserAccountPage extends Component {
         return (
             <Router>
             <Container>
-            <Name> HELLO, {this.state.user.name}!</Name>
-            <UserNavBar {...this.state}/>
+            <Name> Hello, {this.state.user.name}!</Name>
+            <NavBarAndComponent><UserNavBar {...this.state}/>
             <Switch>
-                <Route exact path="/useraccountpage/:id/payments" component={UserPayment}/>
-                <Route exact path="/useraccountpage/:id/properties" component={UserProperties}/>
-                <Route exact path="/useraccountpage/:id/jobs" component={UserJobs}/>
-            </Switch>
+            <Route exact path="/useraccountpage/:id/payments" component={UserPayment}/>
+            <Route exact path="/useraccountpage/:id/properties" component={UserProperties}/>
+            <Route exact path="/useraccountpage/:id/jobs" component={UserJobs}/>
+            </Switch></NavBarAndComponent>
             </Container>
             </Router>
         );
