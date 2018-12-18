@@ -28,6 +28,8 @@ class Payment(models.Model):
     cardType = models.CharField(max_length=255, choices=CARD_CHOICES, default='Visa')
     cardNumber = models.CharField(max_length=16)
     cardCVV = models.CharField(max_length=4)
+    cardMonth = models.CharField(max_length=2, default='01')
+    cardYear = models.CharField(max_length=2, default='30')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='payments')
 
     def __str__(self):
@@ -65,7 +67,8 @@ class Job(models.Model):
 
     profession = models.CharField(max_length=255, choices=PROFESSION_CHOICES, default='Handyman')
     subcategory = models.CharField(max_length=255, choices=SUBCATEGORY_CHOICES, default='Other')
-    time = models.DateTimeField(null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    timeslot = models.CharField(max_length=30, default='11pm-1pm')
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='jobs')
 
     def __str__(self):

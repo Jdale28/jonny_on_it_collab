@@ -35,13 +35,30 @@ const ViewQuoteButton = styled.button`
     margin-top: -80%;
     border-radius: 5px;
 `
+const Title = styled.h1`
+  margin-top: 80px;
+  font-size: 25px;
+`;
+const Job = styled.div`
+  font-size: 20px;
+  margin-top: 20px;
+  border: solid 1px rgba(112, 112, 112, 1);
+  width: 400px;
+  height: 50px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 5px 5px 5px 5px;
+  color: rgba(66, 66, 66, 1);
+`;
 
 
 class UserJobs extends Component {
     render() {
         return (
             <div>
-               
+                <Title> MY JOBS </Title>
+              {/* <DropDown/> */}
+              <Job> <p>ACTIVE </p> </Job>
                 <Rectangle>
                 <Smallrectangle> <p>Electric Box</p>  
                 </Smallrectangle>
@@ -52,6 +69,7 @@ class UserJobs extends Component {
                  <div> <ViewQuoteButton> View Quote</ViewQuoteButton> </div>
                 <p>View More Details</p>
                 </Rectangle> 
+                {/* UserQuotes IMPORTED HERE? */}
             </div>
         );
     }
