@@ -16,6 +16,17 @@ const PageStyle = styled.div `
   .testModal {
     text-align: center;
   }
+  .cardInfo {
+  border: solid 1px rgba(112, 112, 112, 1);
+  font-size: 15px;
+  width: 930px;
+  height: 85px;
+  opacity: 1;
+  background: orange;
+  border-radius: 5px 5px 5px 5px;
+  margin-left: 350px;
+  margin-top: -550px;
+}
 `
 
 const Title = styled.h1`
