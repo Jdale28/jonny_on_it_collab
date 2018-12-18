@@ -45,8 +45,7 @@ class BookPayment extends Component {
         // const below was for testing post - remove
         const userId = 1
         const payload = {
-            // cardType: this.state.newPayment.cardType,
-            cardType: "AMEX",
+            cardType: this.state.newPayment.cardType,
             cardholderName: this.state.newPayment.cardholderName,
             cardNumber: this.state.newPayment.cardNumber,
             // cardMonth: this.state.newPayment.cardMonth,
@@ -55,10 +54,6 @@ class BookPayment extends Component {
             user: userId
         }
         axios.post(`/api/payments/`, payload).then(res => {
-            // /users/${this.state.userId}
-            // const newPayment = res.data
-            console.log(res)
-            // const newUserPayment = [...this.state.payments, newPayment]
             this.getAllUserData()
         })
     }
@@ -69,6 +64,14 @@ class BookPayment extends Component {
                 <h2>Payment Info</h2>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
+                    <label>Card Type</label>
+                        <input
+                            onChange={this.handleChange}
+                            value={this.state.newPayment.cardType}
+                            type="text" name="cardType"
+                            placeholder=" VISA, MASTERCARD, AMEX, DISCOVER"
+                            maxLength="30">
+                        </input>
                     <label>Card Holder Name</label>
                         <input
                             onChange={this.handleChange}
@@ -81,7 +84,7 @@ class BookPayment extends Component {
                             onChange={this.handleChange}
                             value={this.state.newPayment.cardNumber}
                             type="text" name="cardNumber"
-                            maxLength="120">
+                            maxLength="16">
                         </input>
                         <div className="sub-form-container">
                             <div>
@@ -90,7 +93,7 @@ class BookPayment extends Component {
                                     onChange={this.handleChange}
                                     value={this.state.newPayment.cardMonth}
                                     type="text" name="cardMonth"
-                                    maxLength="120">
+                                    maxLength="2">
                                 </input>
                             </div>
                             <div>
@@ -99,7 +102,7 @@ class BookPayment extends Component {
                                     onChange={this.handleChange}
                                     value={this.state.newPayment.cardYear}
                                     type="text" name="cardYear"
-                                    maxLength="120">
+                                    maxLength="2">
                                 </input>
                             </div>
                             <div>
@@ -108,7 +111,7 @@ class BookPayment extends Component {
                                     onChange={this.handleChange}
                                     value={this.state.newPayment.cardCVV}
                                     type="text" name="cardCVV"
-                                    maxLength="10">
+                                    maxLength="3">
                                 </input>
                             </div>
                         </div>
