@@ -84,6 +84,7 @@ class BookTime extends Component {
     onChange = date => {
         this.setState({ date })
         this.toggleSlots()
+        this.toggleCalendar()
         console.log(date)
     }
 

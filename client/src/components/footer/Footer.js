@@ -19,21 +19,18 @@ const Newsletter = styled.div`
     flex-direction: column;
     justify-content: center;
     input {
-        font-size: .7em;
-        width: 14em;
+        font-size: 1.5em;
+        width: 12em;
         height: 2.4em;
         margin: .1em;
     }
-    h4 {
-        text-align: center;
-    }
     .newsletterH4 {
-        font-size: 1.2em;
+        font-size: 2em;
     }
 `
 
 const LinkList = styled.div`
-    font-size: .8em;
+    font-size: 1.8em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +38,7 @@ const LinkList = styled.div`
         margin: .1em;
     }
     a {
-        margin: .4em;
+        margin: .2em .4em;
         text-decoration: none;
         color: rgba(255,255,255,1);
     }
@@ -55,30 +52,29 @@ const DownloadLink = styled.div`
         flex-direction: column;
     }
     .download {
-        width: 6em;
-        height: 1.8em;
-        margin: .1em .1em .1em .3em;
+        width: 10em;
+        height: 3.2em;
+        margin: .4em .1em .1em .8em;
     }
     .downloadH3 {
-        font-size: .8em;
+        font-size: 1.8em;
     }
 `
 
 const FollowUs = styled.div`
-    font-size: .8em;
     display: flex;
     align-items: center;
     a img {
-        width: 2em;
-        height: 2em;
-        margin: .1em .1em .1em .3em;
+        width: 3em;
+        height: 3em;
+        margin: .6em .1em .1em .8em;
     }
     .follow-links {
         display: flex;
         flex-direction: column;
     }
     .followH3 {
-        font-size: .8em;
+        font-size: 1.8em;
     }
 `
 
