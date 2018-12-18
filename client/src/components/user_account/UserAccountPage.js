@@ -4,7 +4,7 @@ import UserNavBar from './UserNavBar'
 import UserDashboard from './UserDashboard'
 import axios from 'axios'
 import UserProperties from './UserProperties';
-import UserPayment from './UserPayment';
+import UserPayment from './UserPaymentPage';
 
 
 

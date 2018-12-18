@@ -13,7 +13,7 @@ const Container = styled.div`
 const Title = styled.h1`
   margin-top: 25px;
   font-size: 30px;
-  margin-left: 355px;
+  margin-left: 2px;
 `;
 
 class UserPaymentDashboard extends Component {
@@ -23,6 +23,7 @@ class UserPaymentDashboard extends Component {
         <div />
         <Title> PAYMENT METHODS </Title>
         {/* <Paymentbutton> <p> Add New Card </p></Paymentbutton> */}
+       
         <div />
       </Container>
     );

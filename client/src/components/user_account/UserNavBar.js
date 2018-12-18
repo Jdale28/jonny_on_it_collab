@@ -20,7 +20,7 @@ list-style-type: none;
 :active {
     background-color: rgba(19,212,171,1)
 }
-position: relative;
+
 font-family: 'athletics', arial, sans-serif;
 `
 const Menutitle = styled.h1`
@@ -32,6 +32,8 @@ const Backgrounddiv = styled.div`
 background-color: whitesmoke;
 width: 23%;
 margin-left: 0px;
+// position: relative;
+// margin-top: -50px;
 
 `
 

@@ -17,7 +17,7 @@ import Footer from "./components/footer/Footer"
 import OurGuarantee from "./components/footer/OurGuarantee"
 import UserTerms from "./components/footer/UserTerms"
 import ProviderTerms from "./components/footer/ProviderTerms"
-import UserPayment from "./components/user_account/UserPayment";
+import UserPaymentPage from "./components/user_account/UserPaymentPage";
 import ContactUs from "./components/footer/ContactUs"
 import SignIn from "./components/SignIn";
 import FAQ from "./components/footer/FAQ";
@@ -53,7 +53,7 @@ class App extends Component {
             <Route exact path="/stepperforjob" component={StepperforJob} />
             <Route exact path="/faq" component={FAQ} />
             <Route exact path="/useraccountpage/:id" component={UserAccountPage} />
-            <Route exact path="/useraccountpage/:id/payments" component={UserPayment}/>
+            <Route exact path="/useraccountpage/:id/payments" component={UserPaymentPage}/>
             <Route exact path="/useraccountpage/:id/properties" component={UserProperties}/>
             <Route exact path="/signin" component={SignIn} />
             <Route path="/" component={HomePageNotLoggedIn} />
