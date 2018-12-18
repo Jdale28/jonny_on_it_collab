@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import axios from "axios";
-import { Modal, Button, Form, FormGroup, Col, ControlLabel, FormControl, Checkbox } from "react-bootstrap";
-
-
-
+import {
+  Modal,
+  Button,
+  Form,
+  FormGroup,
+  Col,
+  ControlLabel,
+  FormControl,
+  Checkbox
+} from "react-bootstrap";
 
 class UserModal extends Component {
   // Controller for Modal show/hide
@@ -16,19 +22,19 @@ class UserModal extends Component {
 
   state = {
     newCard: {
-      card: '',
-      month: '',
-      cvv: ''
+      card: "",
+      month: "",
+      cvv: ""
     }
   };
 
   handleClose() {
-    console.log("Hello")
+    console.log("Hello");
     this.setState({ show: false });
   }
 
   handleShow() {
-    console.log("Hello")
+    console.log("Hello");
     this.setState({ show: true });
   }
 
@@ -39,58 +45,81 @@ class UserModal extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     // create a payload to send to database
     const payload = {
       card: this.state.newCard.card,
       month: this.state.newCard.month,
       cvv: this.state.newCard.cvv
-    }
-    // make a post re 
-    this.handleClose()
-  }
+    };
+    // make a post re
+    this.handleClose();
+  };
 
   render() {
     return (
       <div>
-        <Button bsSize="large" className='modalbutton' onClick={this.handleShow}>
+        <Button
+          bsSize="large"
+          className="modalbutton"
+          onClick={this.handleShow}
+        >
           ADD NEW CARD
-            </Button>
+        </Button>
 
-
-        <Modal show={this.state.show} animation={false} onHide={this.handleClose}>
+        <Modal
+          show={this.state.show}
+          animation={false}
+          onHide={this.handleClose}
+        >
           <Modal.Header closeButton>
-            <Modal.Title>
-            </Modal.Title>
+            <Modal.Title />
           </Modal.Header>
           <Modal.Body>
             <Form horizontal onSubmit={this.handleSubmit}>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
-                  Card</Col>
+                  Card
+                </Col>
                 <Col sm={10}>
-                  <FormControl onChange={this.handleChange} type="text" name="card" value={this.state.newCard.card} placeholder="Card" />
-
+                  <FormControl
+                    onChange={this.handleChange}
+                    type="text"
+                    name="card"
+                    value={this.state.newCard.card}
+                    placeholder="Card"
+                  />
                 </Col>
               </FormGroup>
 
               <FormGroup controlId="formHorizontalPassword">
                 <Col componentClass={ControlLabel} sm={2}>
                   Month/Year
-    </Col>
+                </Col>
                 <Col sm={10}>
-                  <FormControl  onChange={this.handleChange} type="text" name="month" value={this.state.newCard.month} placeholder="Month" />
+                  <FormControl
+                    onChange={this.handleChange}
+                    type="text"
+                    name="month"
+                    value={this.state.newCard.month}
+                    placeholder="Month"
+                  />
                 </Col>
               </FormGroup>
               <FormGroup>
                 <Col componentClass={ControlLabel} sm={2}>
                   CVV
-    </Col>
+                </Col>
                 <Col sm={10}>
-                <FormControl  onChange={this.handleChange} type="text" name="cvv" value={this.state.newCard.cvv} placeholder="CVV" />
+                  <FormControl
+                    onChange={this.handleChange}
+                    type="text"
+                    name="cvv"
+                    value={this.state.newCard.cvv}
+                    placeholder="CVV"
+                  />
                 </Col>
               </FormGroup>
-
 
               <FormGroup>
                 <Col smOffset={2} sm={10}>
@@ -104,21 +133,19 @@ class UserModal extends Component {
                 </Col>
               </FormGroup>
             </Form>
-       
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
-        <div className='cardInfo'>
-        <p>{this.state.newCard.card} 
-        {this.state.newCard.month}
-          {this.state.newCard.cvv}</p>
-           </div>
-          
+        <div className="cardInfo">
+          <p>
+            {this.state.newCard.card}
+            {this.state.newCard.month}
+            {this.state.newCard.cvv}
+          </p>
+        </div>
       </div>
-   
-          
     );
   }
 }
