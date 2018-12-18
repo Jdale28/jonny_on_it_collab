@@ -76,9 +76,6 @@ render() {
     const { classes } = this.props;
     const { expanded } = this.state;
 
-  render() {
-    const { classes } = this.props;
-    const { expanded } = this.state;
 
     return (
       <Wrapper>

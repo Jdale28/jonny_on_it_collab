@@ -13,7 +13,7 @@ position: absolute;
 // margin-top: 10px;
 `
 const Title = styled.h1 `
-margin-top: 80px;
+margin-top: 25px;
 font-size: 30px;
 margin-left: 355px;
 `
