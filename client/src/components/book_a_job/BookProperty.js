@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
 import axios from 'axios'
+import Jobtype from './JobType'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
@@ -20,8 +21,12 @@ class BookProperty extends Component {
         }
     }
 
+    
+
+
     componentDidMount() {
         this.getAllUserData()
+       
     }
 
     getAllUserData = () => {
@@ -39,8 +44,9 @@ class BookProperty extends Component {
         this.setState({ newProperty: updatedNewProperty })
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (e) => {
         // const below was for testing post - remove
+        e.preventDefault();
         const userId = 1
         const payload = {
             streetAddress: this.state.newProperty.streetAddress,

@@ -4,11 +4,10 @@ import { GreenButton } from '../ButtonStyle'
 import StepperforJob from './StepperforJob'
 import { Button } from '@material-ui/core';
 // import { jobtype } from './JobSelection'
-
+import { handleChangeJobType } from './JobSelection'
 const jobOptions = []
 const Center = styled.div`
     text-align: center;
-    border: 1px solid black;
     width: 60vw;
     `
  export default class JobType extends Component {
@@ -22,18 +21,19 @@ const Center = styled.div`
             rooferOptions: ["Roof Replacement", "Gutters", "Roof Repairs"],
             heatAirOptions: ["Blocked Vents", "Faulty Thermostat", "AC not cooling", "Pressure Imbalance", "Compressor Failure", "nsulation"],
             otherChoice: "Otherz",
-            jobOption: [],
+            subcatagory: [],
             choice: ''
           };
 
 
-          checkOptions = (e,job) => {
+          checkOptions = (e,subcatagory) => {
               this.setState({
-                  myJob: job
+                  subcatagory: subcatagory
               })
-            console.log(job)
+            console.log(subcatagory)
+            this.props.handleChangeJobtype(subcatagory)
           }
-            
+    
            
           
   render() {
@@ -66,14 +66,15 @@ const Center = styled.div`
     return (
       <div>
       <Center>
-      {this.props.selected ? (jobOptions.map((job)=>{
+      {this.props.selected ? (jobOptions.map((subcatagory)=>{
         return(
           <Button
           variant="contained"
-          color="primary"
-          onClick={(e) => this.checkOptions(e,job)}
+          style={{backgroundColor: '#13d4ab'}}
+          onClick={(e) => this.checkOptions(e,subcatagory)
+          }
           // {console.log(jobOptions)}
-          >{job}</Button>
+          >{subcatagory}</Button>
         )
     })) : null }
 

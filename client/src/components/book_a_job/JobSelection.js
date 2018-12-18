@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, createMuiTheme  } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -11,8 +11,18 @@ import styled from  "styled-components"
 import { Button } from '@material-ui/core';
 import { IncomingMessage } from 'http';
 import JobType from './JobType'
+import BookProperty from './BookProperty'
 import { Link } from 'react-router-dom'
 import classNames from 'classnames'
+
+
+const theme = createMuiTheme({
+  palette: {
+      secondary: {
+          main: '#13d4ab'
+      }
+    },
+});
 
 const Wrapper = styled.div`
 display: flex;
@@ -21,21 +31,18 @@ justify-content: space-evenly;
 `
 const Center = styled.div`
     text-align: center;
-    border: 1px solid black;
+    justify-content: space-between;
     width: 60vw;
     `
-const IconsBox = styled.div`
-     display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px;
-  grid-template-areas: ". . . . ." ". . . . .";
-  `
 
 const styles = theme => ({
   root: {
     width: '65%',
+    // borderradius: 10px;
 
   },
+
+  
   heading: {
     fontSize: theme.typography.pxToRem(15),
     flexBasis: '33.33%',
@@ -43,7 +50,7 @@ const styles = theme => ({
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
+    color: theme.palette.primary.main,
   },
 });
 
@@ -64,14 +71,30 @@ class JobSelection extends React.Component {
     });
   };
   
+  handleChangeJobtype = (e, job) =>{
+    console.log(job)
+// this.setState({
+//   myJob: job
+// })
+  }
+
+  handleChangeProperty = (e, job) => {
+    this.setState({
+      myJob: job
+    })
+  }
+
+  
+  
+
 
 
   handleClick = (e, job) =>{
 
     this.setState({
       jobtype: job,
-      myJob: job,
-      selected: true
+      selected: true,
+      myJob: job
     })
 
   }
@@ -91,18 +114,20 @@ render() {
             <Typography className={classes.heading}>Book a Job</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-          <IconsBox>
+          <Center>
             <Typography>
             { this.state.jobs.map((job) => (
+              <MuiThemeProvider theme={theme}>
             <Button variant="contained"
                         name={job}
                         value={job}
-                        color="primary"
+                        style={{backgroundColor: '#13d4ab'}}
                         onClick={(e) => this.handleClick(e ,job)}
                         className={classes.button}>{job}</Button>
+                        </MuiThemeProvider>
             ))}
           </Typography>
-        </IconsBox>
+        </Center>
       </ExpansionPanelDetails>
     </ExpansionPanel>
     <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
@@ -112,7 +137,7 @@ render() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
-          <JobType{...this.state} />
+          <JobType{...this.state} handleChangeJobtype={(e, job) => this.handleChangeJobtype(job)} />
         </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
@@ -122,7 +147,9 @@ render() {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
-          This is where you would edit your property information
+        <Center>
+        <BookProperty{...this.state}{...this.props}/>
+          </Center>
             </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
@@ -144,16 +171,6 @@ render() {
       <ExpansionPanelDetails>
         <Typography>
           Here is where you would pay for your job.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-          <ExpansionPanel expanded={expanded === 'panel5'} onChange={this.handleChange('panel5')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Payment</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              Here is where you would pay for your job.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>

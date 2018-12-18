@@ -94,7 +94,7 @@ class StepperforJob extends React.Component {
                       </Button>
                       <Button
                         variant="contained"
-                        color="primary"
+                        style={{backgroundColor: '#13d4ab'}}
                         onClick={this.handleNext}
                         className={classes.button}
                       >
