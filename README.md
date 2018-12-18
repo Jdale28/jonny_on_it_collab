@@ -52,3 +52,9 @@ Jordan Dale: FAQ, update colors, authentication
 Loren Kelley: User Account
 Myron Young: Book Now
 Charles DeRosier: Book Property (styled/methods), Book Time (styled/some methods), Book Payment (styled), Contact Us (placeholder)
+
+December 16, 2018:
+Jordan Dale: FAQ, update colors, authentication
+Loren Kelley: User Account
+Myron Young: Book Now
+Charles DeRosier: Book Property (working waiting for userId), Book Time (some methods), Book Payment (styled), Contact Us (placeholder)

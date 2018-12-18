@@ -77,6 +77,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jonny_on_it_project.wsgi.application'
 
+DEFAULT_AUTHENTICATION_CLASSES = (
+    
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases

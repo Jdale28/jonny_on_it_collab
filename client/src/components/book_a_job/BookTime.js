@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { RedButton, GreenButton, BlueButton } from '../ButtonStyle'
+import Calendar from 'react-calendar'
 import axios from 'axios'
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 const TimeStyle = styled.div`
     font-size: .8em;
@@ -18,7 +21,6 @@ const TimeStyle = styled.div`
     }
     .top-buttons {
         display: flex;
-        margin: 100px;
     }
     .slots-content.hidden {
         display: none;
@@ -43,20 +45,32 @@ const TimeStyle = styled.div`
         display: flex;
         align-items: center;
     }
-    /* .time-slot, p.hidden {
+    /* .slots-content {
         display: none;
     } */
 `
 
+// function showTimes() {
+//     var x = document.getElementsByClassName("slots-content");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
+//   }
+
 class BookTime extends Component {
 
     state = {
-        property: {}
+        date: new Date(),
+        showCalendar: false,
+        showForm: false
     }
 
     componentDidMount() {
-        axios.get(`/api/properties/${this.props.match.params.propertyId}`).then((res) => {
-            this.setState({ property: res.data })
+        axios.get(`/api/jobs/`).then((res) => {
+            // ${this.props.match.params.propertyId}
+            this.setState({ jobs: res.data })
         })
     }
 
@@ -66,18 +80,33 @@ class BookTime extends Component {
         this.setState({ property: updatedChangeProperty })
     }
 
-    handleUpdate = (event) => {
+    handleClick = (e, date) => {
+        const today = new Date()
+        console.log(today)
+        this.setState({ date: date })
+    }
+
+    onChange = date => {
+        this.setState({ date })
+        console.log(date)
+    }
+
+    handleSubmit = (event) => {
         event.preventDefault()
-        axios.patch(`/api/properties/${this.props.match.params.propertyId}`, this.state.property).then(res => {
-            this.props.history.push(`/bookpayment`)
-            // /properties/${res.data._id}
-        })
+    }
+
+    toggleCalendar = () => {
+        this.setState({ showCalendar: !this.state.showCalendar })
+    }
+
+    toggleSlots = () => {
+        this.setState({ showSlots: !this.state.showSlots })
     }
 
     render() {
 
         // function showTimes() {
-        //     var x = document.getElementByClass("time-slots");
+        //     var x = document.getElementsByClassName("slots-content")
         //     if (x.style.display === "none") {
         //       x.style.display = "block";
         //     } else {
@@ -90,15 +119,24 @@ class BookTime extends Component {
         return (
             <TimeStyle>
                 <h2>Time</h2>
-                <div className="button-container">
-                    <div classname="top-buttons">
-                        <RedButton>TODAY</RedButton>
-                        <GreenButton>SCHEDULE</GreenButton>
-                    </div>
-                    <div className="date-bar"></div>
-                    <form onSubmit={this.handleUpdate}>
-                        <div className="time-slots">
-                            <form className="slots-content">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="button-container">
+                        <div className="top-buttons">
+                            <RedButton
+                                type="datetime-local"
+                                onClick={(e) => this.handleClick(e, this.value)}
+                            >TODAY</RedButton>
+                            <GreenButton
+                            onClick={this.toggleCalendar}
+                            >SCHEDULE</GreenButton>
+                            {this.state.showCalendar ? <Calendar
+                                value={this.state.date}
+                                onChange={this.onChange} /> : null}
+                        </div>
+                        <div className="date-bar"></div>
+                        <div className="slots-content">
+                            <div className="time-slots">
+
                                 <div className="time-slot">
                                     <button
                                         onChange={this.handleChange}
@@ -127,12 +165,12 @@ class BookTime extends Component {
                                 <div className="bottom-button">
                                     <BlueButton type="submit">Next</BlueButton>
                                 </div>
-                            </form>
+
+                            </div>
                         </div>
                         {/* {!this.state.isHidden && <Child />} */}
-                    </form>
-                </div>
-
+                    </div>
+                </form>
             </TimeStyle>
         )
     }

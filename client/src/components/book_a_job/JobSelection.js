@@ -47,11 +47,11 @@ const styles = theme => ({
   },
 });
 
-
 class JobSelection extends React.Component {
   state = {
     expanded: null,
-    jobs: ["ELECTRICIAN", "PLUMBING","CLEANING","PEST","PAINTING","CARPENTRY","ROOFING","HVAC","HANDYMAN"],
+
+    jobs: ["ELECTRICIAN", "PLUMBING", "CLEANING", "PEST", "PAINTING", "CARPENTRY", "ROOFING", "HVAC", "HANDYMAN"],
     jobtype: "",
     myJob:[],
     selected: false
@@ -65,14 +65,19 @@ class JobSelection extends React.Component {
   };
   
 
+
   handleClick = (e, job) =>{
+
     this.setState({
       jobtype: job,
       myJob: job,
       selected: true
     })
-  }
 
+  }
+render() {
+    const { classes } = this.props;
+    const { expanded } = this.state;
 
   render() {
     const { classes } = this.props;
@@ -80,7 +85,6 @@ class JobSelection extends React.Component {
 
 
     return (
-      
       <Wrapper>
         <div>
         <p>Which Job is it? {this.state.jobtype}</p>
@@ -100,44 +104,51 @@ class JobSelection extends React.Component {
                         value={job}
                         color="primary"
                         onClick={(e) => this.handleClick(e ,job)}
-                        className={classes.button}
-                        onChange={this.handleChange('panel2')}
-                        expanded={expanded === 'panel2'}
-                        >{job}</Button>
+                        className={classes.button}>{job}</Button>
             ))}
+          </Typography>
+        </IconsBox>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+    <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>Job Type
             </Typography>
-            </IconsBox>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Job Type
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          <JobType{...this.state} />
+        </Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+    <ExpansionPanel expanded={expanded === 'panel3'} onChange={this.handleChange('panel3')}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>Property</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          This is where you would edit your property information
             </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-            <JobType{...this.state} />
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+    <ExpansionPanel expanded={expanded === 'panel4'} onChange={this.handleChange('panel4')}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>Time</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          Here is where you will be able to select the date for your job. Two buttons, Today will be red and represent booking a job ASAP.
+       Schedule will pull up a calendar and allow you to pull up a date.
             </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel expanded={expanded === 'panel3'} onChange={this.handleChange('panel3')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Property</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              This is where you would edit your property information
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel expanded={expanded === 'panel4'} onChange={this.handleChange('panel4')}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className={classes.heading}>Time</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-             Here is where you will be able to select the date for your job. Two buttons, Today will be red and represent booking a job ASAP.
-          Schedule will pull up a calendar and allow you to pull up a date.
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+    <ExpansionPanel expanded={expanded === 'panel5'} onChange={this.handleChange('panel5')}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>Payment</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          Here is where you would pay for your job.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -153,7 +164,7 @@ class JobSelection extends React.Component {
         </ExpansionPanel>
       </div>
       </Wrapper>
-      
+
     );
   }
 }
