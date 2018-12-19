@@ -71,20 +71,22 @@ const HowItWorksHomePage = styled.div`
 
 const Reviews = styled.div`
     color: rgba(112,112,112,1);
-    width: 100vw;
+    width: 96vw;
+    margin: 0 auto;
     text-align: center;
     h2 {
         color: rgba(14,151,255,1);
-        font-size: 2.4em; 
+        font-size: 2.8em; 
         margin: .2em auto;
     }
     .reviews {
+        font-size: 2em;
         text-align: left;
         display: flex;
         justify-content: center;
         .review {
             font-size: .8em;
-            width: 20em;
+            width: 80em;
             margin: 0 1em;
         }
     }

@@ -3,8 +3,39 @@ import styled from 'styled-components'
 import { RedButton, GreenButton, BlueButton } from '../ButtonStyle'
 import Calendar from 'react-calendar'
 import axios from 'axios'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { withStyles } from '@material-ui/core/styles';
+import Payment from './BookPayment'
+
+
+
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+
+const Center = styled.div`
+      text-align: center;
+      width: 60vw;
+      `
+const styles = theme => ({
+    root: {
+      width: '65%',
+  
+    },
+    heading: {
+      fontSize: theme.typography.pxToRem(15),
+      flexBasis: '33.33%',
+      flexShrink: 0,
+    },
+    secondaryHeading: {
+      fontSize: theme.typography.pxToRem(15),
+      color: theme.palette.text.secondary,
+    },
+  });
 
 const TimeStyle = styled.div`
     font-size: .8em;
@@ -72,6 +103,11 @@ class BookTime extends Component {
         this.setState({ date })
         this.toggleSlots()
     }
+    handleChange = panel => (event, expanded) => {
+        this.setState({
+          expanded: expanded ? panel : false,
+        });
+      };
 
     // Calendar clicked
     onChange = date => {
@@ -81,7 +117,7 @@ class BookTime extends Component {
     }
 
     // Time slot selected
-    handleChange = (timeslot) => {
+    handleChangeTwo = (timeslot) => {
         // const timeslot = document.querySelector('.timeslotall').value
         timeslot = this.value
         console.log(timeslot)
@@ -102,7 +138,12 @@ class BookTime extends Component {
 
     render() {
 
+        const { classes } = this.props;
+        const { expanded } = this.state;
+
         return (
+            <div>
+            <Center> 
             <TimeStyle>
                 <h2>Time</h2>
                 <form onSubmit={this.handleSubmit}>
@@ -121,31 +162,30 @@ class BookTime extends Component {
                                 className="calendar" />
                             : null}
                         <div className="slots-content">
-                        {/* <h5>{this.state.date.toString()}</h5> */}
                             {/* time-slots are invisible until user clicks today button or a calendar date */}
                             {this.state.showSlots ?
                                 <div className="time-slots">
                                     <div className="time-slot">
                                         <button className="timeslot1"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
                                             className="timeslot2"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="1 PM - 3 PM">X</button><p>1 PM - 3 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
                                             className="timeslot3"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="3 PM - 5 PM">X</button><p>3 PM - 5 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
                                             className="timeslot4"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
                                     </div>
                                 </div>
@@ -157,8 +197,20 @@ class BookTime extends Component {
                     </div>
                 </form>
             </TimeStyle>
+            </Center>
+            <ExpansionPanel expanded={expanded === 'panel5'} onChange={this.handleChange('panel5')}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>Payment</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          <Payment{...this.state}{...this.props}/>
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+            </div>
         )
     }
 }
 
-export default BookTime
+export default withStyles(styles)(BookTime)
