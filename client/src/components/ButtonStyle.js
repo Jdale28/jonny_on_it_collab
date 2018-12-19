@@ -63,10 +63,15 @@ export const ContactUsButton = styled(BlueButton)`
     height: 1em;
 `
 
+export const SignInButton = styled(WhiteButton)`
+    font-size: 1.4em;
+    width: 25vw;
+`
+
 export const CreateAccountButton = styled(BlueButton)`
-    width: auto;
-    height: 65px;
-    font-size: 21px;
+    font-size: 1.4em;
+    width: 25vw;
+    height: 2.2em;
 `
 
 export const SaveAccountDetailsButton = styled(BlueButton)`
