@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { CreateAccountButton, SignInButton } from './ButtonStyle';
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -8,6 +9,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 const BannerImage = styled.div`
   width: 100%;
   height: 40vh;
+  margin: 0 0 2em 0;
   background-image: url("https://i.imgur.com/Wrc9gsZ.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -44,14 +46,14 @@ const ColumnPanel = styled.div`
   h3 {
     margin-bottom: 3vh;
   }
+  p {
+    font-size: 1.4em;
+    margin: 0;
+  }
   input {
     width: 25vw;
+    height: 2.8em;
     margin-bottom: 1vh;
-  }
-  button {
-    margin-top: 3vh;
-    margin-left: 4vh;
-    width: 20vw;
   }
 `;
 
@@ -120,7 +122,7 @@ class SignIn extends Component {
                   Password<span className="span">*</span>
                 </p>
                 <input type="password" />
-                <button>Sign In</button>
+                <SignInButton>Sign In</SignInButton>
               </form>
             </div>
           </ColumnPanel>
@@ -160,7 +162,7 @@ class SignIn extends Component {
                   onChange={this.handleChange}
                   name="password"
                 />
-                <button type="submit">Create Account</button>
+                <CreateAccountButton>Create Account</CreateAccountButton>
               </form>
             </div>
           </ColumnPanel>

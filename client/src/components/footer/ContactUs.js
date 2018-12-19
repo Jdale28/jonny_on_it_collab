@@ -22,7 +22,7 @@ const ContactStyle = styled.div`
         margin: 1em 0 0 0;
     }
     p {
-        font-size: 1.4em;
+        font-size: 1.6em;
         margin: 0;
     }
 `
@@ -32,7 +32,7 @@ class ContactUs extends Component {
         return (
             <SplitPage>
                 <FormStyled>
-                    <h2>Contact Us</h2>
+                    <h1>Contact Us</h1>
                     <div className="form-container">
                         <form>
                             <p>First Name<span className="span">*</span><span className="right">* Required</span></p>
