@@ -117,7 +117,7 @@ class BookTime extends Component {
     }
 
     // Time slot selected
-    handleChange = (timeslot) => {
+    handleChangeTwo = (timeslot) => {
         // const timeslot = document.querySelector('.timeslotall').value
         timeslot = this.value
         console.log(timeslot)
@@ -167,25 +167,25 @@ class BookTime extends Component {
                                 <div className="time-slots">
                                     <div className="time-slot">
                                         <button className="timeslot1"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
                                             className="timeslot2"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="1 PM - 3 PM">X</button><p>1 PM - 3 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
                                             className="timeslot3"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="3 PM - 5 PM">X</button><p>3 PM - 5 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
                                             className="timeslot4"
-                                            onClick={() => this.handleChange(this.value)}
+                                            onClick={() => this.handleChangeTwo(this.value)}
                                             value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
                                     </div>
                                 </div>

@@ -13,6 +13,11 @@ import { IncomingMessage } from 'http';
 import JobType from './JobType'
 import { Link } from 'react-router-dom'
 import classNames from 'classnames'
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
+import Paper from '@material-ui/core/Paper';
 
 const Wrapper = styled.div`
 display: flex;
@@ -45,12 +50,42 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
+  button: {
+    marginTop: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  actionsContainer: {
+    marginBottom: theme.spacing.unit * 2,
+  },
+  resetContainer: {
+    padding: theme.spacing.unit * 3,
+  },
 });
 
+function getSteps() {
+  return ['Book a Job', 'Job Type', 'Property', "Time", 'Payment'];
+}
+
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+
+    case 1:
+
+    case 2:
+
+    case 3:
+
+    case 4:
+
+    default:
+
+  }
+}
 class JobSelection extends React.Component {
   state = {
     expanded: null,
-
+    activeStep: 0,
     jobs: ["ELECTRICIAN", "PLUMBING", "CLEANING", "PEST", "PAINTING", "CARPENTRY", "ROOFING", "HVAC", "HANDYMAN"],
     jobtype: "",
     myJob:[],
@@ -63,7 +98,23 @@ class JobSelection extends React.Component {
       expanded: expanded ? panel : false,
     });
   };
-  
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1,
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1,
+    }));
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
+  };
 
 
   handleClick = (e, job) =>{
@@ -77,12 +128,53 @@ class JobSelection extends React.Component {
 render() {
     const { classes } = this.props;
     const { expanded } = this.state;
+    const steps = getSteps();
+    const { activeStep } = this.state;
   
     return (
       <Wrapper>
         <div>
         <p>Which Job is it? {this.state.jobtype}</p>
-      <StepperforJob/>
+        <div className={classes.root}>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((label, index) => {
+            return (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+                <StepContent>
+                  <Typography>{getStepContent(index)}</Typography>
+                  <div className={classes.actionsContainer}>
+                    <div>
+                      <Button
+                        disabled={activeStep === 0}
+                        onClick={this.handleBack}
+                        className={classes.button}
+                      >
+                        Back
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleNext}
+                        className={classes.button}
+                      >
+                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                      </Button>
+                    </div>
+                  </div>
+                </StepContent>
+              </Step>
+            );
+          })}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} className={classes.resetContainer}>
+            <Typography>All steps completed - You can return to your Account</Typography>
+            <Button onClick={this.handleReset} className={classes.button}> Reset </Button>
+            <Button > Return to My Account</Button>
+          </Paper>
+        )}
+      </div>
       </div>
       <div className={classes.root}>
         <ExpansionPanel expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
@@ -97,7 +189,7 @@ render() {
                         name={job}
                         value={job}
                         style={{backgroundColor: '#13d4ab'}}
-                        onClick={(e) => this.handleClick(e ,job)}
+                        onClick={(e) => {this.handleClick(e ,job);this.handleNext();}}
                         className={classes.button}>{job}</Button>
             ))}
           </Typography>
