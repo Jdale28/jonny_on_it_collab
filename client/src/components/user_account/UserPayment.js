@@ -3,7 +3,6 @@ import styled from "styled-components";
 import UserNavBar from "./UserNavBar";
 import UserPaymentDashboard from "./UserPaymentDashboard";
 import UserModal from "./UserModal";
-
 import axios from "axios";
 
 const Container = styled.div`
@@ -44,6 +43,7 @@ class UserPayment extends Component {
           <UserPaymentDashboard {...this.state} />
           <UserNavBar {...this.state} />
           <UserModal {...this.state} />
+       
         </div>
       </Container>
     );

@@ -20,7 +20,7 @@ font-weight: bold;
 margin: 20px;
 margin-left: 361px;
 margin-top: 15px;
-position: fixed;
+// position: fixed;
 `
 class UserAccountPage extends Component {
     state = {

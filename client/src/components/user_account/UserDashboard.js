@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import UserJobs from './UserJobs'
+import UserQuote from './UserQuote'
 
 
 
@@ -45,6 +46,8 @@ class UserDashboard extends Component {
               {/* <DropDown/> */}
               <Job> <p>ACTIVE </p> </Job>
               <UserJobs {...this.props}/>
+              <UserQuote/>
+
             </Container>
         );
     }
