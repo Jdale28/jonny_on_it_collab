@@ -18,6 +18,8 @@ Jonny-On-It is an application that connects homeowners and realtors to service p
 
 ## [Wireframes](https://idoc.mockplus.com/app/-x9wddoCF/specs/5qHLQmX-CA)
 
+## [Asset Images](https://imgur.com/a/3pHhZFx)
+
 ## Technologies:
 ### Front-end: 
 - React
