@@ -19,14 +19,14 @@ const PageStyle = styled.div`
     flex-direction: column;
   }
   .newCardDiv {
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 15vw;
     height: 15vw;
-    width: 30vw;
-    font-size: 2rem;
+    width: 20vw;
+    font-size: 15px;
   }
 `;
 
@@ -103,7 +103,14 @@ class UserModal extends Component {
           >
             ADD NEW CARD
           </Button>
-          <button onClick={this.handleSubmit}>Submit to Database</button>
+          <Button
+            bsSize="large"
+            id="databaseSubmit"
+            className="modalstyle"
+            onClick={this.handleSubmit}
+          >
+            Submit to Database
+          </Button>
         </div>
 
         <Modal
