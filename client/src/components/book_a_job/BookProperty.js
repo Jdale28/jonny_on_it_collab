@@ -49,7 +49,7 @@ class BookProperty extends Component {
             zipcode: this.state.newProperty.zipcode,
             user: userId
         }
-        axios.post(`/api/user/${this.state.userId}/properties/`, payload).then(res => {
+        axios.post(`/api/users/${this.state.userId}/properties/`, payload).then(res => {
             const newProperty = res.data
             const newUserProperty = [...this.state.properties, newProperty]
             this.setState({ properties: newUserProperty })

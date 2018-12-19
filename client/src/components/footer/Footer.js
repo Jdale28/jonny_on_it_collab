@@ -5,8 +5,9 @@ import { NewsletterButton } from '../ButtonStyle'
 
 const FooterStyle = styled.div`
     width: 100%;
-    height: 18vh;
+    height: 16vh;
     margin: 1em auto;
+    padding: 1em;
     background-color: rgba(0,45,81,1);
     color: rgba(255,255,255,1);
     display: flex;
@@ -30,7 +31,7 @@ const Newsletter = styled.div`
 `
 
 const LinkList = styled.div`
-    font-size: 1.8em;
+    font-size: 1.4em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,12 +53,12 @@ const DownloadLink = styled.div`
         flex-direction: column;
     }
     .download {
-        width: 10em;
+        width: 9em;
         height: 3.2em;
         margin: .4em .1em .1em .8em;
     }
     .downloadH3 {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
 `
 
@@ -74,7 +75,7 @@ const FollowUs = styled.div`
         flex-direction: column;
     }
     .followH3 {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
 `
 

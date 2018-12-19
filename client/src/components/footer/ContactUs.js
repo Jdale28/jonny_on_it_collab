@@ -17,10 +17,12 @@ const ContactStyle = styled.div`
         margin: 0 0 0 6em;
     }
     h5 {
+        font-size: 2.8em;
         color: rgba(14,151,255,1);
         margin: 1em 0 0 0;
     }
     p {
+        font-size: 1.4em;
         margin: 0;
     }
 `

@@ -16,14 +16,17 @@ const TimeStyle = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 20px;
         justify-content: space-between;
     }
     .top-buttons {
         display: flex;
     }
-    .slots-content.hidden {
-        display: none;
+    .calendar-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .slots-content {
+        margin: 2em;
     }
     .time-slot {
         font-size: 1.2em;
@@ -45,24 +48,13 @@ const TimeStyle = styled.div`
         display: flex;
         align-items: center;
     }
-    /* .slots-content {
-        display: none;
-    } */
 `
-
-// function showTimes() {
-//     var x = document.getElementsByClassName("slots-content");
-//     if (x.style.display === "none") {
-//       x.style.display = "block";
-//     } else {
-//       x.style.display = "none";
-//     }
-//   }
 
 class BookTime extends Component {
 
     state = {
         date: new Date(),
+        timeslot: [],
         showCalendar: false,
         showForm: false
     }
@@ -74,18 +66,26 @@ class BookTime extends Component {
         })
     }
 
-    handleClick = (e, date) => {
-        const today = new Date()
-        console.log(today)
-        this.setState({ date: date })
+    // TODAY BUTTON
+    handleClick = (date) => {
+        date = this.value
+        this.setState({ date })
         this.toggleSlots()
     }
 
+    // Calendar clicked
     onChange = date => {
         this.setState({ date })
         this.toggleSlots()
         this.toggleCalendar()
-        console.log(date)
+    }
+
+    // Time slot selected
+    handleChange = (timeslot) => {
+        // const timeslot = document.querySelector('.timeslotall').value
+        timeslot = this.value
+        console.log(timeslot)
+        this.setState({ timeslot: timeslot })
     }
 
     handleSubmit = (event) => {
@@ -110,43 +110,48 @@ class BookTime extends Component {
                         <div className="top-buttons">
                             <RedButton
                                 type="datetime-local"
-                                onClick={(e) => this.handleClick(e, this.value)}
+                                onClick={() => this.handleClick(this.value)}
                             >TODAY</RedButton>
-                            <GreenButton
-                                onClick={this.toggleCalendar}
-                            >SCHEDULE</GreenButton>
-                            {this.state.showCalendar ? <Calendar
-                                value={this.state.date}
-                                onChange={this.onChange} /> : null}
+                            <GreenButton onClick={this.toggleCalendar}>SCHEDULE</GreenButton>
                         </div>
-
+                        {this.state.showCalendar ?
+                            <Calendar
+                                value={this.state.date}
+                                onChange={this.onChange}
+                                className="calendar" />
+                            : null}
                         <div className="slots-content">
+                        {/* <h5>{this.state.date.toString()}</h5> */}
+                            {/* time-slots are invisible until user clicks today button or a calendar date */}
                             {this.state.showSlots ?
                                 <div className="time-slots">
                                     <div className="time-slot">
-                                        <button
-                                            onChange={this.handleChange}
+                                        <button className="timeslot1"
+                                            onClick={() => this.handleChange(this.value)}
                                             value="11 AM - 1 PM">X</button><p>11 AM - 1 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
-                                            onChange={this.handleChange}
+                                            className="timeslot2"
+                                            onClick={() => this.handleChange(this.value)}
                                             value="1 PM - 3 PM">X</button><p>1 PM - 3 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
-                                            onChange={this.handleChange}
+                                            className="timeslot3"
+                                            onClick={() => this.handleChange(this.value)}
                                             value="3 PM - 5 PM">X</button><p>3 PM - 5 PM</p>
                                     </div>
                                     <div className="time-slot">
                                         <button
-                                            onChange={this.handleChange}
+                                            className="timeslot4"
+                                            onClick={() => this.handleChange(this.value)}
                                             value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
                                     </div>
                                 </div>
                                 : null}
                             <div className="bottom-button">
-                                <BlueButton type="submit">Next</BlueButton>
+                                <BlueButton type="submit" className="next-button">Next</BlueButton>
                             </div>
                         </div>
                     </div>
