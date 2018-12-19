@@ -16,6 +16,12 @@ import Payment from './BookPayment'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
+const Wrapper = styled.div`
+display: flex;
+justify-content: space-evenly; 
+width: 650px;
+*{margin: 0};
+`
 
 const Center = styled.div`
       text-align: center;
@@ -85,7 +91,7 @@ class BookTime extends Component {
 
     state = {
         date: new Date(),
-        timeslot: [],
+        timeslot: "",
         showCalendar: false,
         showForm: false
     }
@@ -117,7 +123,7 @@ class BookTime extends Component {
     }
 
     // Time slot selected
-    handleChangeTwo = (timeslot) => {
+    handleChangeTwo = (e,timeslot) => {
         // const timeslot = document.querySelector('.timeslotall').value
         timeslot = this.value
         console.log(timeslot)
@@ -142,6 +148,8 @@ class BookTime extends Component {
         const { expanded } = this.state;
 
         return (
+            <Wrapper>
+
             <div>
             <Center> 
             <TimeStyle>
@@ -185,7 +193,7 @@ class BookTime extends Component {
                                     <div className="time-slot">
                                         <button
                                             className="timeslot4"
-                                            onClick={() => this.handleChangeTwo(this.value)}
+                                            onClick={(e) => this.handleChangeTwo(e)}
                                             value="5 PM - 7 PM">X</button><p>5 PM - 7 PM</p>
                                     </div>
                                 </div>
@@ -200,7 +208,9 @@ class BookTime extends Component {
             </Center>
             <ExpansionPanel expanded={expanded === 'panel5'} onChange={this.handleChange('panel5')}>
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <Center>
         <Typography className={classes.heading}>Payment</Typography>
+      </Center>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
@@ -209,6 +219,7 @@ class BookTime extends Component {
           </ExpansionPanelDetails>
         </ExpansionPanel>
             </div>
+            </Wrapper>
         )
     }
 }

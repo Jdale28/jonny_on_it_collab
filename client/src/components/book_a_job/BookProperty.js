@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
 import Time from './BookTime'
+import styled from 'styled-components'
 
 
 
@@ -16,10 +17,16 @@ import Time from './BookTime'
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
+const Wrapper = styled.div`
+display: flex;
+justify-content: space-evenly; 
+width: 650px;
+*{margin: 0};
+`
 
 const styles = theme => ({
     root: {
-      width: '65%',
+      width: '50%',
   
     },
     heading: {
@@ -98,6 +105,8 @@ class BookProperty extends Component {
         const { expanded } = this.state;
 
         return (
+            <Wrapper>
+
             <div>
             <FormStyled>
                 <h1>Property</h1>
@@ -161,6 +170,7 @@ class BookProperty extends Component {
       </ExpansionPanelDetails>
     </ExpansionPanel>
     </div>
+            </Wrapper>
         )
     }
 }
