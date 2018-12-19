@@ -53,8 +53,6 @@ class App extends Component {
             <Route exact path="/stepperforjob" component={StepperforJob} />
             <Route exact path="/faq" component={FAQ} />
             <Route exact path="/useraccountpage/:id" component={UserAccountPage} />
-            {/* <Route exact path="/useraccountpage/:id/payments" component={UserPayment}/> */}
-            {/* <Route exact path="/useraccountpage/:id/properties" component={UserProperties}/> */}
             <Route exact path="/signin" component={SignIn} />
             <Route path="/" component={HomePageNotLoggedIn} />
           </Switch>

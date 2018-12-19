@@ -7,24 +7,13 @@ import {
   FormGroup,
   Col,
   ControlLabel,
-  FormControl,
-  Checkbox
+  FormControl
 } from "react-bootstrap";
 import styled from "styled-components";
 
 const PageStyle = styled.div`
   display: flex;
   flex-wrap: wrap;
-  .currentCardsFlex {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 15vw;
-    width: 75vw;
-    font-size: 2rem;
-    border: 1px solid black;
-  }
   .cardAddCardFlex {
     display: flex;
     flex-direction: column;
@@ -40,12 +29,6 @@ const PageStyle = styled.div`
     font-size: 2rem;
     border: 1px solid black;
   }
-`;
-
-const Title = styled.h1`
-  margin-top: 25px;
-  font-size: 30px;
-  margin-left: 355px;
 `;
 
 class UserModal extends Component {
@@ -84,7 +67,6 @@ class UserModal extends Component {
     this.setState({ newCard: updatedNewCard });
   };
 
-  
   handleSubmit = event => {
     event.preventDefault();
     const payload = {
@@ -96,45 +78,15 @@ class UserModal extends Component {
       cardCVV: this.state.newCard.cardCVV,
       user: this.props.user.id
     };
-    console.log(payload)
+    console.log(payload);
     axios.post(`/api/payments/`, payload).then(res => {
-      console.log(res)
-      console.log('Successful Post')
-    })
+      console.log("Successful Post");
+    });
   };
-
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   const payload = {
-  //     streetAddress: this.state.newProperty.streetAddress,
-  //     city: this.state.newProperty.city,
-  //     state: this.state.newProperty.state,
-  //     zipcode: this.state.newProperty.zipcode,
-  //     user: this.state.user.id
-  //   };
-  //   console.log(payload);
-  //   axios.post(`/api/properties/`, payload).then(res => {
-  //     this.getData();
-  //   });
-  // };
 
   render() {
     return (
       <PageStyle>
-        <Title> PAYMENT METHODS </Title>
-        <div className="currentCardsFlex">
-          {this.props.payments.map((payment, i) => (
-            <div key={i} className="OneCard">
-              <div>Cardholder Name: {payment.cardholderName}</div>
-              <div>{payment.cardType}</div> 
-              <div>Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}</div>
-              <div>
-                Expiration: {payment.cardMonth}/{payment.cardYear}
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="CardAddCardFlex">
           <div className="newCardDiv">
             <div>New Payment Information</div>
@@ -194,7 +146,7 @@ class UserModal extends Component {
                     value={this.state.newCard.cardType}
                   />
                   <datalist id="cards">
-                    <option>AMERICAN EXPRESS</option>
+                    <option>AMEX</option>
                     <option>VISA</option>
                     <option>MASTERCARD</option>
                     <option>DISCOVER</option>
@@ -261,11 +213,10 @@ class UserModal extends Component {
                   />
                 </Col>
               </FormGroup>
-
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleClose}>Submit New Payment</Button>
+            <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
       </PageStyle>
