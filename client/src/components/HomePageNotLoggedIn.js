@@ -12,7 +12,7 @@ const HomeBanner = styled.div`
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 54vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     .form-container {

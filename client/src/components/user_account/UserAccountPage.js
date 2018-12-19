@@ -7,6 +7,7 @@ import UserProperties from './UserProperties';
 import UserPayment from './UserPayment';
 import UserJobs from './UserJobs';
 import EditPayment from './EditPayment'
+import AccountDetails from './AccountDetails';
 
 
 
@@ -52,6 +53,7 @@ class UserAccountPage extends Component {
             <Route exact path="/useraccountpage/:id/properties" component={UserProperties}/>
             <Route exact path="/useraccountpage/:id/jobs" component={UserJobs}/>
             <Route exact path="/useraccountpage/:id/payments/:id" component={EditPayment}/>
+            <Route exact path="/useraccountpage/:id/details" component={AccountDetails}/>
             </Switch></NavBarAndComponent>
             </Container>
             </Router>

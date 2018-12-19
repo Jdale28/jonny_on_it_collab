@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { FormStyled } from '../FormStyle'
 import { BlueButton } from '../ButtonStyle'
 import axios from 'axios'
+import styled from 'styled-components'
 
+
+const PageStyle = styled.div `
+    margin-left: 15vw;
+`
 
 class EditPayment extends Component {
     state = {
@@ -57,65 +62,67 @@ class EditPayment extends Component {
 
     render() {
         return (
-            <FormStyled>
-                <h2>Payment Info</h2>
-                <div className="form-container">
-                    <form onSubmit={this.handleSubmit}>
-                    <label>Card Type</label>
-                        <input
-                            onChange={this.handleChange}
-                            value={this.state.newPayment.cardType}
-                            type="text" name="cardType"
-                            placeholder={this.state.payments.cardType}
-                            maxLength="30">
-                        </input>
-                    <label>Cardholder Name</label>
-                        <input
-                            onChange={this.handleChange}
-                            value={this.state.newPayment.cardholderName}
-                            type="text" name="cardholderName"
-                            maxLength="120" placeholder={this.state.payments.cardholderName}>
-                        </input>
-                        <label>Card Number</label>
-                        <input
-                            onChange={this.handleChange}
-                            value={this.state.newPayment.cardNumber}
-                            type="text" name="cardNumber"
-                            maxLength="16" placeholder={this.state.payments.cardNumber}>
-                        </input>
-                        <div className="sub-form-container">
-                            <div>
-                                <label>MM</label>
-                                <input
-                                    onChange={this.handleChange}
-                                    value={this.state.newPayment.cardMonth}
-                                    type="text" name="cardMonth"
-                                    maxLength="2" placeholder={this.state.payments.cardMonth}>
-                                </input>
-                            </div>
-                            <div>
-                                <label>YY</label>
-                                <input
-                                    onChange={this.handleChange}
-                                    value={this.state.newPayment.cardYear}
-                                    type="text" name="cardYear"
-                                    maxLength="2" placeholder={this.state.payments.cardYear}>
-                                </input>
-                            </div>
-                            <div>
-                                <label>CVV</label>
-                                <input
-                                    onChange={this.handleChange}
-                                    value={this.state.newPayment.cardCVV}
-                                    type="text" name="cardCVV"
-                                    maxLength="4" placeholder={this.state.payments.cardCVV}>
-                                </input>
-                            </div>
-                        </div>
-                        <BlueButton onClick={this.handleSubmit}>Submit Edited Payment</BlueButton>
-                    </form>
-                </div>
-            </FormStyled>
+            <PageStyle><FormStyled className="container">
+            <h2>Payment Info</h2>
+            <div className="form-container">
+            <form onSubmit={this.handleSubmit}>
+            <label>Card Type<span className="span"> *</span></label><span className="right">* Required</span>
+            <input
+            onChange={this.handleChange}
+            value={this.state.newPayment.cardType}
+            type="text" name="cardType"
+            placeholder={this.state.payments.cardType}
+            maxLength="30">
+            </input>
+            <label>Cardholder Name<span className="span"> *</span></label>
+            <input
+            onChange={this.handleChange}
+            value={this.state.newPayment.cardholderName}
+            type="text" name="cardholderName"
+            maxLength="120" placeholder={this.state.payments.cardholderName}>
+            </input>
+            <label>Card Number<span className="span"> *</span></label>
+            <input
+            onChange={this.handleChange}
+            value={this.state.newPayment.cardNumber}
+            type="text" name="cardNumber"
+            maxLength="16" placeholder={this.state.payments.cardNumber}>
+            </input>
+            <div className="sub-form-container">
+            <div>
+            <label>MM<span className="span"> *</span></label>
+            <input
+            onChange={this.handleChange}
+            value={this.state.newPayment.cardMonth}
+            type="text" name="cardMonth"
+            maxLength="2" placeholder={this.state.payments.cardMonth}>
+            </input>
+            </div>
+            <div>
+            <label>YY<span className="span"> *</span></label>
+            <input
+            onChange={this.handleChange}
+            value={this.state.newPayment.cardYear}
+            type="text" name="cardYear"
+            maxLength="2" placeholder={this.state.payments.cardYear}>
+            </input>
+            </div>
+            <div>
+            <label>CVV<span className="span"> *</span></label>
+            <input
+            onChange={this.handleChange}
+            value={this.state.newPayment.cardCVV}
+            type="text" name="cardCVV"
+            maxLength="4" placeholder={this.state.payments.cardCVV}>
+            </input>
+            </div>
+            </div>
+            <div className="submit-button">
+            <BlueButton onClick={this.handleSubmit}>Submit Edits</BlueButton>
+            </div>
+            </form>
+            </div>
+            </FormStyled></PageStyle>
         );
     }
 }

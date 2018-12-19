@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 import { CreateAccountButton, SignInButton } from './ButtonStyle';
 
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -122,7 +123,7 @@ class SignIn extends Component {
                   Password<span className="span">*</span>
                 </p>
                 <input type="password" />
-                <SignInButton>Sign In</SignInButton>
+                <button><Link to="/UserAccountPage/1">Sign In</Link></button>
               </form>
             </div>
           </ColumnPanel>

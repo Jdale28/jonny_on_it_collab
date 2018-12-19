@@ -33,7 +33,7 @@ const NavBarStyles = styled.div`
     justify-content: space-around;
   }
   .blog {
-    margin-right: 13vw;
+    margin-right: 16vw;
   }
 `;
 
@@ -75,8 +75,7 @@ class NavBar extends Component {
                 <BigButton>
                     <Link to="/bookajob">BOOK NOW</Link>
                 </BigButton>
-                {/* <Link to="/useraccountpage">Sign In IF AUTHENTICATED</Link> */}
-                <Link to="/UserAccountPage/1">Sign In</Link>
+                <Link to="/signin">Sign In</Link>
               </div>
             </NavBarStyles>
           </div>

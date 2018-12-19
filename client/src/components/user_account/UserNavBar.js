@@ -37,9 +37,9 @@ class UserNavBar extends Component {
                <Menutitle>MY ACCOUNT</Menutitle>
                 <Backgrounddiv>
                     <Link to={`/useraccountpage/${this.props.user.id}/jobs`}><Menuitems> <div><li>MY JOBS</li></div> </Menuitems> </Link> 
-                    <Link to={`/useraccountpage/${this.props.user.id}/inbox`}> <Menuitems> <div><li>INBOX</li></div></Menuitems></Link> 
+                    {/* <Link to={`/useraccountpage/${this.props.user.id}/inbox`}> <Menuitems> <div><li>INBOX</li></div></Menuitems></Link> 
                     <Link to={`/useraccountpage/${this.props.user.id}/invoices`}> <Menuitems> <div> <li>INVOICE HISTORY</li></div> </Menuitems> </Link> 
-                    <Link to={`/useraccountpage/${this.props.user.id}/providers`}> <Menuitems> <div> <li> PREFERRED PROVIDERS</li></div></Menuitems> </Link> 
+                    <Link to={`/useraccountpage/${this.props.user.id}/providers`}> <Menuitems> <div> <li> PREFERRED PROVIDERS</li></div></Menuitems> </Link>  */}
                     <Link to={`/useraccountpage/${this.props.user.id}/properties`}><Menuitems> <div><li> MANAGE PROPERTIES</li></div> </Menuitems> </Link> 
                     <Link to={`/useraccountpage/${this.props.user.id}/details`}><Menuitems> <div><li> ACOUNT DETAILS</li></div> </Menuitems> </Link>    
                     <Link to={`/useraccountpage/${this.props.user.id}/payments`}><Menuitems> <div><li>PAYMENT METHOD</li></div></Menuitems> </Link> 
