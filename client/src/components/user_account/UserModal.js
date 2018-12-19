@@ -17,7 +17,7 @@ const PageStyle = styled.div`
   flex-wrap: wrap;
   .currentCardsFlex {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     height: 15vw;
@@ -64,9 +64,9 @@ class UserModal extends Component {
       cardholderName: "",
       cardType: "",
       cardNumber: "",
-      month: "",
-      year: "",
-      cvv: ""
+      cardMonth: "",
+      cardYear: "",
+      cardCVV: ""
     }
   };
 
@@ -87,15 +87,36 @@ class UserModal extends Component {
   
   handleSubmit = event => {
     event.preventDefault();
-    // create a payload to send to database
     const payload = {
-      card: this.state.newCard.card,
-      month: this.state.newCard.month,
-      cvv: this.state.newCard.cvv
+      cardholderName: this.state.newCard.cardholderName,
+      cardType: this.state.newCard.cardType,
+      cardNumber: this.state.newCard.cardNumber,
+      cardMonth: this.state.newCard.cardMonth,
+      cardYear: this.state.newCard.cardYear,
+      cardCVV: this.state.newCard.cardCVV,
+      user: this.props.user.id
     };
-    // make a post re
-    this.handleClose();
+    console.log(payload)
+    axios.post(`/api/payments/`, payload).then(res => {
+      console.log(res)
+      console.log('Successful Post')
+    })
   };
+
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const payload = {
+  //     streetAddress: this.state.newProperty.streetAddress,
+  //     city: this.state.newProperty.city,
+  //     state: this.state.newProperty.state,
+  //     zipcode: this.state.newProperty.zipcode,
+  //     user: this.state.user.id
+  //   };
+  //   console.log(payload);
+  //   axios.post(`/api/properties/`, payload).then(res => {
+  //     this.getData();
+  //   });
+  // };
 
   render() {
     return (
@@ -105,21 +126,24 @@ class UserModal extends Component {
           {this.props.payments.map((payment, i) => (
             <div key={i} className="OneCard">
               <div>Cardholder Name: {payment.cardholderName}</div>
-              <div>{payment.cardType} - Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}</div>
+              <div>{payment.cardType}</div> 
+              <div>Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}</div>
               <div>
-                {payment.cardMonth}, {payment.cardYear}
+                Expiration: {payment.cardMonth}/{payment.cardYear}
               </div>
             </div>
           ))}
         </div>
+
         <div className="CardAddCardFlex">
           <div className="newCardDiv">
             <div>New Payment Information</div>
             <div>{this.state.newCard.cardholderName}</div>
+            <div>{this.state.newCard.cardNumber}</div>
             <div>{this.state.newCard.cardType}</div>
-            <div>{this.state.newCard.month}</div>
-            <div>{this.state.newCard.year}</div>
-            <div>{this.state.newCard.cvv}</div>
+            <div>{this.state.newCard.cardMonth}</div>
+            <div>{this.state.newCard.cardYear}</div>
+            <div>{this.state.newCard.cardCVV}</div>
           </div>
           <Button
             bsSize="large"
@@ -128,6 +152,7 @@ class UserModal extends Component {
           >
             ADD NEW CARD
           </Button>
+          <button onClick={this.handleSubmit}>Submit to Database</button>
         </div>
 
         <Modal
@@ -149,7 +174,7 @@ class UserModal extends Component {
                     onChange={this.handleChange}
                     type="text"
                     name="cardholderName"
-                    value={this.state.newCard.card}
+                    value={this.state.newCard.cardholderName}
                     placeholder="Cardholder Name"
                   />
                 </Col>
@@ -169,10 +194,10 @@ class UserModal extends Component {
                     value={this.state.newCard.cardType}
                   />
                   <datalist id="cards">
-                    <option>American Express</option>
-                    <option>Visa</option>
-                    <option>Mastercard</option>
-                    <option>Discover</option>
+                    <option>AMERICAN EXPRESS</option>
+                    <option>VISA</option>
+                    <option>MASTERCARD</option>
+                    <option>DISCOVER</option>
                   </datalist>
                 </Col>
               </FormGroup>
@@ -200,8 +225,8 @@ class UserModal extends Component {
                   <FormControl
                     onChange={this.handleChange}
                     type="text"
-                    name="month"
-                    value={this.state.newCard.month}
+                    name="cardMonth"
+                    value={this.state.newCard.cardMonth}
                     placeholder="Expiration Month"
                   />
                 </Col>
@@ -215,8 +240,8 @@ class UserModal extends Component {
                   <FormControl
                     onChange={this.handleChange}
                     type="text"
-                    name="year"
-                    value={this.state.newCard.year}
+                    name="cardYear"
+                    value={this.state.newCard.cardYear}
                     placeholder="Expiration Year"
                   />
                 </Col>
@@ -230,22 +255,17 @@ class UserModal extends Component {
                   <FormControl
                     onChange={this.handleChange}
                     type="text"
-                    name="cvv"
-                    value={this.state.newCard.cvv}
+                    name="cardCVV"
+                    value={this.state.newCard.cardCVV}
                     placeholder="CVV"
                   />
                 </Col>
               </FormGroup>
 
-              {/* <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Button type="submit"> Add Card</Button>
-                </Col>
-              </FormGroup> */}
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
+            <Button onClick={this.handleClose}>Submit New Payment</Button>
           </Modal.Footer>
         </Modal>
       </PageStyle>
