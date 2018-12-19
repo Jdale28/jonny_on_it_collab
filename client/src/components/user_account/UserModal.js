@@ -27,7 +27,6 @@ const PageStyle = styled.div`
     height: 15vw;
     width: 30vw;
     font-size: 2rem;
-    border: 1px solid black;
   }
 `;
 

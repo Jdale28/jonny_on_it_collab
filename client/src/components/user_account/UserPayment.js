@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import UserModal from "./UserModal";
+import {Link} from 'react-router-dom'
 
 import axios from "axios";
 
@@ -8,7 +9,6 @@ const Container = styled.div`
   border: none;
   height: 70vh;
   width: 75vw;
-  border: 1px solid black;
   .currentCardsFlex {
     display: flex;
     justify-content: space-evenly;
@@ -17,7 +17,6 @@ const Container = styled.div`
     height: 15vw;
     width: 75vw;
     font-size: 2rem;
-    border: 1px solid black;
   }
 `;
 const Title = styled.h1`
@@ -62,6 +61,7 @@ class UserPayment extends Component {
               <div>
                 Expiration: {payment.cardMonth}/{payment.cardYear}
               </div>
+              <Link to={`/useraccountpage/${this.props.match.params.id}/payments/${payment.id}`}>Edit this Payment</Link>
               <div className="deleteButton" onClick={() => this.handleDelete(payment.id)}>x</div>
             </div>
           ))}
