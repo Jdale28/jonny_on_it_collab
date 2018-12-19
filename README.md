@@ -54,7 +54,7 @@ Myron Young: Book Now
 Charles DeRosier: Book Property (styled/methods), Book Time (style/some methods), Book Payment (styled), Contact Us (placeholder)s
 
 December 18, 2018:
-Jordan Dale: authentication, google map api, 
+Jordan Dale: authentication, google map api, react-geosuggest
 Loren Kelley: User Account
-Myron Young: Book Now
-Charles DeRosier: Book Time (add react-calendar, modify methods), Book Payment (methods, updated model)
+Myron Young: Book Now (connecting all the components, bringing down the data)
+Charles DeRosier: Book Time (add react-calendar, modify methods), Book Payment (methods, updated model), Blog

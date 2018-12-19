@@ -48,8 +48,8 @@ class BookPayment extends Component {
             cardType: this.state.newPayment.cardType,
             cardholderName: this.state.newPayment.cardholderName,
             cardNumber: this.state.newPayment.cardNumber,
-            // cardMonth: this.state.newPayment.cardMonth,
-            // cardYear: this.state.newPayment.cardYear,
+            cardMonth: this.state.newPayment.cardMonth,
+            cardYear: this.state.newPayment.cardYear,
             cardCVV: this.state.newPayment.cardCVV,
             user: userId
         }
