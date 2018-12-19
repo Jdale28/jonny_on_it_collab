@@ -1,22 +1,27 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import UserModal from "./UserModal";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
 const Container = styled.div`
   border: none;
-  height: 70vh;
+  height: 60vh;
   width: 75vw;
   .currentCardsFlex {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     height: 15vw;
     width: 75vw;
-    font-size: 2rem;
+    font-size: 16px;
+    .card {
+      padding: 15px;
+      margin-right: 5vw;
+      margin-left: 5vw;
+    }
   }
 `;
 const Title = styled.h1`
@@ -34,11 +39,12 @@ class UserPayment extends Component {
   componentDidMount() {
     this.getData();
   }
-  
-  handleDelete = (id) => {
+
+  handleDelete = id => {
     axios.delete(`/api/payments/${id}`).then(() => {
-        this.getData()
-  })}
+      this.getData();
+    });
+  };
 
   getData = () => {
     const id = this.props.match.params.id;
@@ -51,23 +57,36 @@ class UserPayment extends Component {
     return (
       <Container>
         <div>
-        <Title> PAYMENT METHODS </Title>
-        <div className="currentCardsFlex">
-          {this.state.payments.map((payment, i) => (
-            <div key={i} className="OneCard">
-            <div className='property'>
-              <div>Cardholder Name: {payment.cardholderName}</div>
-              <div>{payment.cardType}</div> 
-              <div>Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}</div>
-              <div>
-                Expiration: {payment.cardMonth}/{payment.cardYear}
+          <Title> PAYMENT METHODS </Title>
+          <div className="currentCardsFlex">
+            {this.state.payments.map((payment, i) => (
+              <div key={i} className="card">
+                <div className="oneCard">
+                  <div>Cardholder Name: {payment.cardholderName}</div>
+                  <div>{payment.cardType}</div>
+                  <div>
+                    Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}
+                  </div>
+                  <div>
+                    Expiration: {payment.cardMonth}/{payment.cardYear}
+                  </div>
+                  <Link
+                    to={`/useraccountpage/${
+                      this.props.match.params.id
+                    }/payments/${payment.id}`}
+                  >
+                    Edit this Payment
+                  </Link>
+                  <div
+                    className="deleteButton"
+                    onClick={() => this.handleDelete(payment.id)}
+                  >
+                    x
+                  </div>
+                </div>
               </div>
-              <Link to={`/useraccountpage/${this.props.match.params.id}/payments/${payment.id}`}>Edit this Payment</Link>
-              <div className="deleteButton" onClick={() => this.handleDelete(payment.id)}>x</div>
-            </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
           <UserModal {...this.state} />
         </div>
       </Container>

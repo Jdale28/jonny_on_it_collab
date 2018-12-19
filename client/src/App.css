@@ -39,6 +39,7 @@
 .modalstyle {
   font-size: 20px;
   text-align: center;
+  margin-right: 2vw;
   width: 200px;
   height: 50px;
   opacity: 1;
@@ -47,32 +48,4 @@
   border-radius: 28%;
   color: white;
 }
-.property{
-  border: solid 1px  rgba(112,112,112,1);
-  width:1050px;
-  height: 200px;
-  font-size: 30px;
-  text-align: center;
-  opacity: 1;
-  border-radius: 5px 5px 5px 5px;
-  margin-left: 25px
-}
-.propertytext{
-  margin-top: -100px;
-  padding-bottom: 10px 10px;
-}
-.photo{
-  margin-top: 18px;
-  margin-left: 5px;
-  height: 170px;
-  width: 170px;
-  border-radius: 50%;
-  border: none;
-  background-image: url("https://cdnimages.familyhomeplans.com/plans/59952/59952-b.jpg");
-  background-position: center;
-} 
 
-.property-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
