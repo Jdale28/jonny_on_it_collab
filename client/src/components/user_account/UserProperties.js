@@ -139,12 +139,20 @@ class UserProperties extends Component {
             <h1>Your List of Properties Below</h1>
             <PropertyListFlex>
             {this.state.properties.map((property, i) => (
-              <div key={i} className="OneProperty">
-                <div>{property.streetAddress}</div>
-                <div>
-                  {property.city}, {property.state} {property.zipcode}
-                </div>
-              </div>
+                  <div className='property'>
+                  <div className='photo'></div>
+                 <div key={i} className="OneProperty">
+                   <div className='propertytext'>{property.streetAddress}</div>
+                  
+                   <div >
+
+                     {property.city}, 
+                     {property.state} 
+                     {property.zipcode}
+                   </div>
+                   <br></br>
+                 </div>
+                 </div>
             ))}
             </PropertyListFlex>
 
