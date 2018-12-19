@@ -107,9 +107,7 @@ getAllUserData = () => {
       password: this.state.user.password
     };
     axios.patch(`/api/users/${userId}/`, payload).then(res => {
-      console.log(res)
       this.getAllUserData();
-      console.log("Successful Patch")
     });
   };
 
@@ -123,17 +121,14 @@ getAllUserData = () => {
       password: this.state.updatedUser.newPasswordTwo
     };
     axios.patch(`/api/users/${userId}/`, payload).then(res => {
-      console.log(res)
       this.getAllUserData();
-      console.log("Successful Patch")
     });
   };
 
   handleDelete = (id) => {
     const userId = this.props.match.params.id
     axios.delete(`/api/users/${userId}`).then(() => {
-      console.log("Successful Delete")
-        // Redirect to the homepage
+      this.props.history.push('/');
   })}
 
   render() {
