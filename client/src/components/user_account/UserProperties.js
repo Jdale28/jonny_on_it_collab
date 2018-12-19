@@ -9,13 +9,14 @@ const Container = styled.div`
   width: 100vw;
   .property {
     border: solid 1px rgba(112, 112, 112, 1);
-    width: 1050px;
-    height: 200px;
-    font-size: 30px;
+    width: 65vw;
+    height: 16vh;
+    font-size: 24px;
     text-align: center;
     opacity: 1;
     border-radius: 5px 5px 5px 5px;
     margin-left: 25px;
+    margin-bottom: 2vh;
   }
   .propertytext {
     margin-top: -100px;
@@ -24,8 +25,8 @@ const Container = styled.div`
   .photo {
     margin-top: 18px;
     margin-left: 5px;
-    height: 170px;
-    width: 170px;
+    height: 125px;
+    width: 125px;
     border-radius: 50%;
     border: none;
     background-image: url("https://cdnimages.familyhomeplans.com/plans/59952/59952-b.jpg");
@@ -44,24 +45,17 @@ const PageFlex = styled.div`
   justify-content: space-between;
 `;
 
-// const PropertyListFlex = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   font-size: 2rem;
-// `;
 const TitleProperty = styled.h1`
   font-size: 40px;
-  margin: -90px;
 `;
 
 const PropertyFlex = styled.div`
   width: 75vw;
-  height: 70vh;
+  height: 100vh;
   padding-right: 5vw;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-evenly;
   h1 {
     text-align: center;
   }
@@ -183,8 +177,7 @@ class UserProperties extends Component {
                   <div key={i} className="OneProperty">
                     <div className="propertytext">{property.streetAddress}</div>
                     <div>
-                      {property.city},{property.state}
-                      {property.zipcode}
+                      {property.city}, {property.state} {property.zipcode}
                     </div>
                   </div>
                 </div>
