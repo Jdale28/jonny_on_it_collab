@@ -21,12 +21,12 @@ const PageStyle = styled.div`
   h1 {
     margin: 0.8vw;
     font-size: 2rem;
-    color: black;
+    color: rgba(112,112,112,1);
   }
   .body {
     margin: 0.8vw;
     font-size: 1rem;
-    color: black;
+    color: rgba(112,112,112,1);
   }
 `;
 

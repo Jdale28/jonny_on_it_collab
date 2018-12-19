@@ -17,9 +17,9 @@ const NavBarStyles = styled.div`
   a {
     text-decoration: none;
     padding-left: 2vw;
-    color: grey;
+    color: rgba(112, 112, 112, 1);
     &:hover {
-      color: red;
+      color: rgba(255,0,0,1);
       text-decoration: none;
     }
   }
@@ -52,9 +52,9 @@ const BigButton = styled.div `
   border-bottom-right-radius: 9px;
   a {
     text-decoration: none;
-    color: white;
+    color: rgba(255,255,255,1);
     &:hover {
-      color: red;
+      color: rgba(255,0,0,1);
       text-decoration: none;
     }
   }

@@ -25,7 +25,7 @@ export const WhiteButton = styled(Button)`
     :hover {
         background-color: rgba(14, 151, 255, 1);
         color: rgba(255, 255, 255, 1);
-}
+    }
 `
 
 export const RedButton = styled(Button)`
@@ -35,7 +35,7 @@ export const RedButton = styled(Button)`
     :hover {
         background-color: rgba(255,255,255,1);
         color: rgba(255,0,0,1);
-    }
+}
 `
 
 export const GreenButton = styled(Button)`
@@ -54,9 +54,9 @@ export const NavBookButton = styled(BlueButton)`
 `
 
 export const HowItWorksBookButton = styled(BlueButton)`
-    height: 78px;
-    width: 366px;
-    font-size: 30px;
+    height: 2.6em;
+    width: 12em;
+    font-size: 1.6em;
 `
 
 export const ContactUsButton = styled(BlueButton)`

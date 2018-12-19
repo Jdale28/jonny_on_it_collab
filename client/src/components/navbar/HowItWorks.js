@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { HowItWorksBookButton, BlueButton, WhiteButton } from '../ButtonStyle';
+import { Link } from "react-router-dom";
 
 const BannerImage = styled.div`
   width: 100%;
@@ -34,10 +36,12 @@ const HowCounter = styled.div`
   .HowCounterHeader {
     text-align: center;
     margin-bottom: 1vh;
+    color: rgba(14,151,255,1);
   }
   .HowCounterTagline {
     text-align: center;
     font-size: 15px;
+    color: rgba(14,151,255,1);
   }
   .BottomMessage {
     margin-bottom: 2vh;
@@ -61,11 +65,23 @@ const HowCounter = styled.div`
     font-size: 15px;
     width: 15vw;
   }
+  .how-it-works-button {
+    color: white;
+    margin: .5em 0;
+    .fix-color {
+      color: rgba(255,255,255,1);
+    }
+  }
 `;
 
 const Center = styled.div`
   text-align: center;
-  font-size: 18px;
+  .fix-color {
+    color: rgba(255,255,255,1);
+  }
+  h1 {
+    color: rgba(14,151,255,1);
+  }
 `;
 
 const IconFlex = styled.div`
@@ -74,6 +90,9 @@ const IconFlex = styled.div`
   margin-top: 3vh;
   .OneIcon {
     width: 15vw;
+  }
+  h2 {
+    color: rgba(14,151,255,1);
   }
   img {
     height: 5vh;
@@ -107,6 +126,12 @@ const KeyFeatures = styled.div`
     justify-content: center;
     flex-wrap: wrap;
   }
+  h1 {
+    color: rgba(14,151,255,1);
+  }
+  h4 {
+    color: rgba(14,151,255,1);
+  }
 `;
 const KeyFlex = styled.div`
   width: 15vw;
@@ -135,13 +160,46 @@ const KeyIconFlex = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 5vh;
-  .KeyIcon {
-    padding: 15px;
-    width: 3vw;
-    height: 3vw;
+  .KeyIcon1 {
+    /* padding: 55px; */
+    width: 6vw;
+    height: 6vw;
     border-radius: 50%;
-    background-color: white;
-    background-image: url("https://i.imgur.com/V7kRgZt.png");
+    background-image: url("https://i.imgur.com/4IL2yeI.png");
+    background-color: rgba(255,255,255,1);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 10vh;
+  }
+  .KeyIcon2 {
+    padding: 15px;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    background-image: url("https://i.imgur.com/bs3HxmK.png");
+    background-color: rgba(255,255,255,1);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 10vh;
+  }
+  .KeyIcon3 {
+    padding: 15px;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    background-image: url("https://i.imgur.com/7lfp7Gu.png");
+    background-color: rgba(255,255,255,1);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 10vh;
+  }
+  .KeyIcon4 {
+    padding: 15px;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    background-image: url("https://i.imgur.com/Vpydbif.png");
+    background-color: rgba(255,255,255,1);
     background-repeat: no-repeat;
     background-size: 100%;
     margin-bottom: 10vh;
@@ -163,7 +221,7 @@ class HowItWorks extends Component {
             <div className="NumberContainer">
               <div className="HowCounterNumber">1</div>
               <div className="HowCounterMessage">
-                Let us know what you need and we can help you ocnnect to a
+                Let us know what you need and we can help you connect to a
                 licensed professional in your area
               </div>
             </div>
@@ -182,10 +240,22 @@ class HowItWorks extends Component {
                 insure timely completion
               </div>
             </div>
+            <div className="button-container">
+              <BlueButton className="how-it-works-button">
+                <Link to="/signin" className="fix-color">SIGN UP</Link>
+              </BlueButton>
+              <WhiteButton className="how-it-works-button">
+                <Link to="/signin">SIGN UP</Link>
+              </WhiteButton>
+            </div>
           </div>
         </HowCounter>
         <HowImage />
-        <Center>Book Now Button</Center>
+        <Center>
+          <HowItWorksBookButton>
+            <Link to="/bookajob" className="fix-color">BOOK NOW</Link>
+          </HowItWorksBookButton>
+        </Center>
         <IconBox>
           <Center>
             <h1>Whatever you need</h1>
@@ -278,8 +348,8 @@ class HowItWorks extends Component {
           </p>
           <div className="FeaturesFlexBox">
             <KeyIconFlex>
-              <div className="KeyIcon" />
-              <div className="KeyIcon" />
+              <div className="KeyIcon1" />
+              <div className="KeyIcon2" />
             </KeyIconFlex>
             <KeyFlex>
               <h4 className="KeyHeader">Safe and Secure</h4>
@@ -296,8 +366,8 @@ class HowItWorks extends Component {
               </p>
             </KeyFlex>
             <KeyIconFlex>
-              <div className="KeyIcon" />
-              <div className="KeyIcon" />
+              <div className="KeyIcon3" />
+              <div className="KeyIcon4" />
             </KeyIconFlex>
             <KeyFlex>
               <h4 className="KeyHeader">Honest Reviews</h4>

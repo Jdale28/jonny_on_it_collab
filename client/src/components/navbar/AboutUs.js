@@ -77,7 +77,7 @@ const ChristianImg = styled.div`
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
-  color: blue;
+  color: rgba(14,151,255,1);
   .form-container {
     display: flex;
     flex-direction: column;
