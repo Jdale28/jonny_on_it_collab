@@ -47,3 +47,13 @@
   border-radius: 28%;
   color: white;
 }
+.property{
+  border: solid;
+  width: 500px;
+}
+.photo{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: solid;
+}

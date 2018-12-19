@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import Geosuggest from "react-geosuggest";
 
+
 const Container = styled.div`
   height: 70vh;
   width: 100vw;
@@ -14,11 +15,11 @@ const PageFlex = styled.div`
   justify-content: space-between;
 `;
 
-const PropertyListFlex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 2rem;
-`;
+// const PropertyListFlex = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   font-size: 2rem;
+// `;
 
 const PropertyFlex = styled.div`
   width: 75vw;
@@ -138,18 +139,25 @@ class UserProperties extends Component {
         <PageFlex>
           <PropertyFlex>
             <h1>Your List of Properties Below</h1>
-            <PropertyListFlex>
+            {/* <PropertyListFlex> */}
+           
             {this.state.properties.map((property, i) => (
+               <div className='property'>
+               <div className='photo'>dkdkdk</div>
               <div key={i} className="OneProperty">
                 <div>{property.streetAddress}</div>
                 <div>
                   {property.city}, {property.state} {property.zipcode}
                 </div>
               </div>
+              </div>
             ))}
-            </PropertyListFlex>
-
-            <FormAndGeoBox><form onSubmit={this.handleSubmit}>
+            {/* </PropertyListFlex> */}
+           
+            <FormAndGeoBox>
+              
+                
+            <form onSubmit={this.handleSubmit}>
             <p>
             Street Address<span className="span">*</span>
             </p>
