@@ -2,8 +2,35 @@ import React, { Component } from 'react'
 import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
 import axios from 'axios'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { withStyles } from '@material-ui/core/styles';
+
+
+
+
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+
+const styles = theme => ({
+    root: {
+      width: '65%',
+  
+    },
+    heading: {
+      fontSize: theme.typography.pxToRem(15),
+      flexBasis: '33.33%',
+      flexShrink: 0,
+    },
+    secondaryHeading: {
+      fontSize: theme.typography.pxToRem(15),
+      color: theme.palette.text.secondary,
+    },
+  });
 
 class BookProperty extends Component {
 
@@ -31,7 +58,13 @@ class BookProperty extends Component {
         })
     }
 
-    handleChange = (event) => {
+    handleChange = panel => (event, expanded) => {
+        this.setState({
+          expanded: expanded ? panel : false,
+        });
+      };
+
+    handleChangeTwo = (event) => {
         event.preventDefault()
         const updatedNewProperty = { ...this.state.newProperty }
         updatedNewProperty[event.target.name] = event.target.value
@@ -41,6 +74,7 @@ class BookProperty extends Component {
 
     handleSubmit = (event) => {
         // const below was for testing post - remove
+        event.preventDefault()
         const userId = 1
         const payload = {
             streetAddress: this.state.newProperty.streetAddress,
@@ -58,14 +92,19 @@ class BookProperty extends Component {
 
 
     render() {
+
+        const { classes } = this.props;
+        const { expanded } = this.state;
+
         return (
+            <div>
             <FormStyled>
                 <h1>Property</h1>
                 <div className="form-container">
                     <form onSubmit={this.handleSubmit}>
                         <label>Street</label>
                         <input
-                            onChange={this.handleChange}
+                            onChange={this.handleChangeTwo}
                             value={this.state.newProperty.streetAddress}
                             type="text" name="streetAddress"
                             maxLength="120">
@@ -79,7 +118,7 @@ class BookProperty extends Component {
                         </input> */}
                         <label>City</label>
                         <input
-                            onChange={this.handleChange}
+                            onChange={this.handleChangeTwo}
                             value={this.state.newProperty.city}
                             type="text" name="city"
                             maxLength="120">
@@ -88,7 +127,7 @@ class BookProperty extends Component {
                             <div>
                                 <label>State</label>
                                 <input
-                                    onChange={this.handleChange}
+                                    onChange={this.handleChangeTwo}
                                     value={this.state.newProperty.state}
                                     type="text" name="state"
                                     maxLength="120">
@@ -97,7 +136,7 @@ class BookProperty extends Component {
                             <div>
                                 <label>Zip code</label>
                                 <input
-                                    onChange={this.handleChange}
+                                    onChange={this.handleChangeTwo}
                                     value={this.state.newProperty.zipcode}
                                     type="text" name="zipcode"
                                     maxLength="10">
@@ -110,8 +149,20 @@ class BookProperty extends Component {
                     </form>
                 </div>
             </FormStyled>
+            <ExpansionPanel expanded={expanded === 'panel4'} onChange={this.handleChange('panel4')}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>Time</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          Here is where you will be able to select the date for your job. Two buttons, Today will be red and represent booking a job ASAP.
+       Schedule will pull up a calendar and allow you to pull up a date.
+            </Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+    </div>
         )
     }
 }
 
-export default BookProperty
+export default withStyles(styles)(BookProperty)
