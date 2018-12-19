@@ -8,12 +8,11 @@ const HomePageNotLoggedIn = styled.div`
 `
 
 const HomeBanner = styled.div`
-    background-color: rgba(0,0,0,1);
     background-image: url("https://i.imgur.com/9anPlaz.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
-    height: 54vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     .form-container {

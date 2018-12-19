@@ -32,6 +32,9 @@ const Center = styled.div`
 
 const AlignCenter = styled.div`
   text-align: center;
+  .contactButton {
+    height: 2vw;
+  }
 `
 
 const AboutHeaders = styled.div`
@@ -142,7 +145,7 @@ class AboutUs extends Component {
           </div>
         </AboutHeaders>
           <AlignCenter>
-            <ContactUsButton type="submit">Contact Us</ContactUsButton>
+            <ContactUsButton className="contactButton" type="submit">Contact Us</ContactUsButton>
           </AlignCenter>
         <Center className="OurTeam">Our Team</Center>
         <ImagesRowOne>
