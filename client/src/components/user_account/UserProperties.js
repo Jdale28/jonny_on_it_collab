@@ -11,20 +11,28 @@ const Container = styled.div`
 
 const PageFlex = styled.div`
   display: flex;
+  height: 100vh;
   justify-content: space-between;
 `;
 
-const PropertyListFlex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 2rem;
-`;
+// const PropertyListFlex = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   font-size: 2rem;
+// `;
+const TitleProperty = styled.h1`
+font-size: 40px;
+margin: -90px;
+
+`
+
 
 const PropertyFlex = styled.div`
   width: 75vw;
   height: 70vh;
   padding-right: 5vw;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-evenly;
   h1 {
@@ -136,57 +144,60 @@ class UserProperties extends Component {
       <Container>
         <PageFlex>
           <PropertyFlex>
-            <h1>Your List of Properties Below</h1>
-            <PropertyListFlex>
-            {this.state.properties.map((property, i) => (
+            <div>
+            <TitleProperty>Manage Properties</TitleProperty>
+            </div>
+            {/* <PropertyListFlex> */}
+              {this.state.properties.map((property, i) => (
+                <div className='property-flex'>
                   <div className='property'>
-                  <div className='photo'></div>
-                 <div key={i} className="OneProperty">
-                   <div className='propertytext'>{property.streetAddress}</div>
-                  
-                   <div >
+                    <div className='photo'></div>
+                    <div key={i} className="OneProperty">
+                      <div className='propertytext'>{property.streetAddress}</div>
+                      <div>
+                        {property.city},
+                     {property.state}
+                        {property.zipcode}
 
-                     {property.city}, 
-                     {property.state} 
-                     {property.zipcode}
-                   </div>
-                   <br></br>
-                 </div>
-                 </div>
-            ))}
-            </PropertyListFlex>
+                      </div>
+
+                    </div>
+                  </div>
+                  </div>
+              ))}
+            {/* </PropertyListFlex> */}
 
             <FormAndGeoBox><form onSubmit={this.handleSubmit}>
-            <p>
-            Street Address<span className="span">*</span>
-            </p>
-            <input
-            class="streetAddressInput"
-            type="text"
-            onChange={this.handleChange}
-            name="streetAddress"
-            />
-            <p>
-            City<span className="span">*</span>
-            </p>
-            <input class="cityInput" type="text" onChange={this.handleChange} name="city" />
-            <p>
-            State<span className="span">*</span>
-            </p>
-            <input class="stateInput" type="text" onChange={this.handleChange} name="state" />
-            <p>
-            Zip Code<span className="span">*</span>
-            </p>
-            <input placeholder="Authenticate with zipcode" type="text" onChange={this.handleChange} name="zipcode" />
-            <br />
-            <div className="addProperty">
+              <p>
+                Street Address<span className="span">*</span>
+              </p>
+              <input
+                class="streetAddressInput"
+                type="text"
+                onChange={this.handleChange}
+                name="streetAddress"
+              />
+              <p>
+                City<span className="span">*</span>
+              </p>
+              <input class="cityInput" type="text" onChange={this.handleChange} name="city" />
+              <p>
+                State<span className="span">*</span>
+              </p>
+              <input class="stateInput" type="text" onChange={this.handleChange} name="state" />
+              <p>
+                Zip Code<span className="span">*</span>
+              </p>
+              <input placeholder="Authenticate with zipcode" type="text" onChange={this.handleChange} name="zipcode" />
+              <br />
+              <div className="addProperty">
                 <button type="submit">Add New Property</button>
-            </div>
+              </div>
             </form>
-            
-            {/* <h1>My Google Map</h1> */}
-            <GeoBox><h4>Find your USA-based address below and populate the form automatically!</h4>
-            <Geosuggest onSuggestSelect={this.onSuggestSelect} /></GeoBox></FormAndGeoBox>
+
+              {/* <h1>My Google Map</h1> */}
+              <GeoBox><h4>Find your USA-based address below and populate the form automatically!</h4>
+                <Geosuggest onSuggestSelect={this.onSuggestSelect} /></GeoBox></FormAndGeoBox>
           </PropertyFlex>
         </PageFlex>
       </Container>

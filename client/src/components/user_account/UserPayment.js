@@ -55,6 +55,7 @@ class UserPayment extends Component {
         <div className="currentCardsFlex">
           {this.state.payments.map((payment, i) => (
             <div key={i} className="OneCard">
+            <div className='property'>
               <div>Cardholder Name: {payment.cardholderName}</div>
               <div>{payment.cardType}</div> 
               <div>Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}</div>
@@ -63,6 +64,7 @@ class UserPayment extends Component {
               </div>
               <Link to={`/useraccountpage/${this.props.match.params.id}/payments/${payment.id}`}>Edit this Payment</Link>
               <div className="deleteButton" onClick={() => this.handleDelete(payment.id)}>x</div>
+            </div>
             </div>
           ))}
         </div>
