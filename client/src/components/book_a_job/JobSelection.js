@@ -26,7 +26,6 @@ justify-content: space-evenly;
 `
 const Center = styled.div`
     text-align: center;
-    border: 1px solid black;
     width: 60vw;
     `
 const IconsBox = styled.div`
@@ -141,37 +140,13 @@ render() {
             return (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
-                <StepContent>
-                  <Typography>{getStepContent(index)}</Typography>
-                  <div className={classes.actionsContainer}>
-                    <div>
-                      <Button
-                        disabled={activeStep === 0}
-                        onClick={this.handleBack}
-                        className={classes.button}
-                      >
-                        Back
-                      </Button>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={this.handleNext}
-                        className={classes.button}
-                      >
-                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                      </Button>
-                    </div>
-                  </div>
-                </StepContent>
               </Step>
             );
           })}
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed - You can return to your Account</Typography>
-            <Button onClick={this.handleReset} className={classes.button}> Reset </Button>
-            <Button > Return to My Account</Button>
+            <Typography>All steps completed </Typography>
           </Paper>
         )}
       </div>
