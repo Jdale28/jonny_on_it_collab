@@ -140,7 +140,7 @@ const KeyIconFlex = styled.div`
     width: 3vw;
     height: 3vw;
     border-radius: 50%;
-    background-color: white;
+    background-color: rgba(255,255,255,1);
     background-image: url("https://i.imgur.com/V7kRgZt.png");
     background-repeat: no-repeat;
     background-size: 100%;
