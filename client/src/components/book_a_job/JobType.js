@@ -46,12 +46,30 @@ const styles = theme => ({
         otherChoice: "Otherz",
         subcatagory: [],
         choice: '',
-        expanded: null
+        expanded: null,
+        activeStep: 1,
       };
       
       handleChange = panel => (event, expanded) => {
         this.setState({
           expanded: expanded ? panel : false,
+        });
+      };
+      handleNext = () => {
+        this.setState(state => ({
+          activeStep: state.activeStep + 1,
+        }));
+      };
+    
+      handleBack = () => {
+        this.setState(state => ({
+          activeStep: state.activeStep - 1,
+        }));
+      };
+    
+      handleReset = () => {
+        this.setState({
+          activeStep: 0,
         });
       };
 
@@ -101,7 +119,7 @@ const styles = theme => ({
           <Button
           variant="contained"
           style={{backgroundColor: '#13d4ab'}}
-          onClick={(e) => this.checkOptions(e,subcatagory)}
+          onClick={(e) => {this.checkOptions(e,subcatagory); this.handleNext();}}
           // {console.log(jobOptions)}
           >{subcatagory}</Button>
         )
