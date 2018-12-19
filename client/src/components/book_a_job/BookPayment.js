@@ -2,8 +2,18 @@ import React, { Component } from 'react'
 import { BlueButton } from '../ButtonStyle'
 import { FormStyled } from '../FormStyle'
 import axios from 'axios'
+import styled from 'styled-components'
+
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+
+const Wrapper = styled.div`
+display: flex;
+justify-content: space-evenly; 
+width: 650px;
+*{margin: 0};
+`
 
 class BookPayment extends Component {
 
@@ -60,6 +70,8 @@ class BookPayment extends Component {
 
     render() {
         return (
+            <Wrapper>
+
             <FormStyled>
                 <h2>Payment Info</h2>
                 <div className="form-container">
@@ -122,6 +134,7 @@ class BookPayment extends Component {
                     </form>
                 </div>
             </FormStyled>
+            </Wrapper>
         )
     }
 }
