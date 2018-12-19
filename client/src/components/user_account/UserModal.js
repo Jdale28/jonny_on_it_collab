@@ -12,29 +12,41 @@ import {
 } from "react-bootstrap";
 import styled from "styled-components";
 
-const PageStyle = styled.div `
-  .testModal {
-    text-align: center;
+const PageStyle = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  .currentCardsFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 15vw;
+    width: 75vw;
+    font-size: 2rem;
+    border: 1px solid black;
   }
-  .cardInfo {
-  border: solid 1px rgba(112, 112, 112, 1);
-  font-size: 15px;
-  width: 930px;
-  height: 85px;
-  opacity: 1;
-  background: orange;
-  border-radius: 5px 5px 5px 5px;
-  margin-left: 350px;
-  margin-top: -550px;
-}
-`
+  .cardAddCardFlex {
+    display: flex;
+    flex-direction: column;
+  }
+  .newCardDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15vw;
+    height: 15vw;
+    width: 30vw;
+    font-size: 2rem;
+    border: 1px solid black;
+  }
+`;
 
 const Title = styled.h1`
   margin-top: 25px;
   font-size: 30px;
   margin-left: 355px;
 `;
-
 
 class UserModal extends Component {
   // Controller for Modal show/hide
@@ -46,9 +58,14 @@ class UserModal extends Component {
   }
 
   state = {
+    user: {},
+    payments: [],
     newCard: {
-      card: "",
+      cardholderName: "",
+      cardType: "",
+      cardNumber: "",
       month: "",
+      year: "",
       cvv: ""
     }
   };
@@ -67,6 +84,7 @@ class UserModal extends Component {
     this.setState({ newCard: updatedNewCard });
   };
 
+  
   handleSubmit = event => {
     event.preventDefault();
     // create a payload to send to database
@@ -83,13 +101,34 @@ class UserModal extends Component {
     return (
       <PageStyle>
         <Title> PAYMENT METHODS </Title>
-        <Button className="testModal"
-          bsSize="large"
-          className="modalstyle"
-          onClick={this.handleShow}
-        >
-          ADD NEW CARD
-        </Button>
+        <div className="currentCardsFlex">
+          {this.props.payments.map((payment, i) => (
+            <div key={i} className="OneCard">
+              <div>Cardholder Name: {payment.cardholderName}</div>
+              <div>{payment.cardType} - Card Number: {payment.cardNumber}; CVV: {payment.cardCVV}</div>
+              <div>
+                {payment.cardMonth}, {payment.cardYear}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="CardAddCardFlex">
+          <div className="newCardDiv">
+            <div>New Payment Information</div>
+            <div>{this.state.newCard.cardholderName}</div>
+            <div>{this.state.newCard.cardType}</div>
+            <div>{this.state.newCard.month}</div>
+            <div>{this.state.newCard.year}</div>
+            <div>{this.state.newCard.cvv}</div>
+          </div>
+          <Button
+            bsSize="large"
+            className="modalstyle"
+            onClick={this.handleShow}
+          >
+            ADD NEW CARD
+          </Button>
+        </div>
 
         <Modal
           show={this.state.show}
@@ -103,22 +142,59 @@ class UserModal extends Component {
             <Form horizontal onSubmit={this.handleSubmit}>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
-                  Card
+                  Cardholder Name
                 </Col>
                 <Col sm={10}>
                   <FormControl
                     onChange={this.handleChange}
                     type="text"
-                    name="card"
+                    name="cardholderName"
                     value={this.state.newCard.card}
-                    placeholder="Card"
+                    placeholder="Cardholder Name"
+                  />
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalEmail">
+                <Col componentClass={ControlLabel} sm={2}>
+                  Type of Card
+                </Col>
+                <Col sm={10}>
+                  <FormControl
+                    onChange={this.handleChange}
+                    type="text"
+                    list="cards"
+                    name="cardType"
+                    placeholder="Type of Card"
+                    value={this.state.newCard.cardType}
+                  />
+                  <datalist id="cards">
+                    <option>American Express</option>
+                    <option>Visa</option>
+                    <option>Mastercard</option>
+                    <option>Discover</option>
+                  </datalist>
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalEmail">
+                <Col componentClass={ControlLabel} sm={2}>
+                  Card Number
+                </Col>
+                <Col sm={10}>
+                  <FormControl
+                    onChange={this.handleChange}
+                    type="text"
+                    name="cardNumber"
+                    value={this.state.newCard.cardNumber}
+                    placeholder="Card Number"
                   />
                 </Col>
               </FormGroup>
 
               <FormGroup controlId="formHorizontalPassword">
                 <Col componentClass={ControlLabel} sm={2}>
-                  Month/Year
+                  Expiration Month
                 </Col>
                 <Col sm={10}>
                   <FormControl
@@ -126,10 +202,26 @@ class UserModal extends Component {
                     type="text"
                     name="month"
                     value={this.state.newCard.month}
-                    placeholder="Month"
+                    placeholder="Expiration Month"
                   />
                 </Col>
               </FormGroup>
+
+              <FormGroup controlId="formHorizontalPassword">
+                <Col componentClass={ControlLabel} sm={2}>
+                  Expiration Year
+                </Col>
+                <Col sm={10}>
+                  <FormControl
+                    onChange={this.handleChange}
+                    type="text"
+                    name="year"
+                    value={this.state.newCard.year}
+                    placeholder="Expiration Year"
+                  />
+                </Col>
+              </FormGroup>
+
               <FormGroup>
                 <Col componentClass={ControlLabel} sm={2}>
                   CVV
@@ -145,30 +237,17 @@ class UserModal extends Component {
                 </Col>
               </FormGroup>
 
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Checkbox>Remember me</Checkbox>
-                </Col>
-              </FormGroup>
-
-              <FormGroup>
+              {/* <FormGroup>
                 <Col smOffset={2} sm={10}>
                   <Button type="submit"> Add Card</Button>
                 </Col>
-              </FormGroup>
+              </FormGroup> */}
             </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
-        <div className="cardInfo">
-          <p>
-            {this.state.newCard.card}
-            {this.state.newCard.month}
-            {this.state.newCard.cvv}
-          </p>
-        </div>
       </PageStyle>
     );
   }

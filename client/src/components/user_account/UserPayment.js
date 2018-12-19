@@ -13,15 +13,27 @@ const Container = styled.div`
 
 class UserPayment extends Component {
   state = {
-    user: {}
+    user: {},
+    payments: []
   };
 
+//   componentDidMount() {
+//     const id = this.props.match.params.id;
+//     axios.get(`/api/users/${id}`).then(res => {
+//       this.setState({ user: res.data });
+//     });
+//   }
+
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
     const id = this.props.match.params.id;
     axios.get(`/api/users/${id}`).then(res => {
-      this.setState({ user: res.data });
+      this.setState({ user: res.data, payments: res.data.payments });
     });
-  }
+  };
 
   render() {
     return (
