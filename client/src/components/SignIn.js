@@ -9,6 +9,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 const BannerImage = styled.div`
   width: 100%;
   height: 40vh;
+  margin: 0 0 2em 0;
   background-image: url("https://i.imgur.com/Wrc9gsZ.jpg");
   background-repeat: no-repeat;
   background-size: 100%;

@@ -8,7 +8,7 @@ export const FormStyled = styled.div`
     .form-container {
         width: 40vw;
         p {
-            font-size: 1.8em;
+            font-size: 1.4em;
             margin: 0;
         }
         .span {
