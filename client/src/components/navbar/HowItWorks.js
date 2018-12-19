@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { HowItWorksBookButton, BlueButton, WhiteButton } from '../ButtonStyle';
+import { Link } from "react-router-dom";
 
 const BannerImage = styled.div`
   width: 100%;
@@ -61,11 +63,20 @@ const HowCounter = styled.div`
     font-size: 15px;
     width: 15vw;
   }
+  .how-it-works-button {
+    color: white;
+    margin: .5em 0;
+    .fix-color {
+      color: rgba(255,255,255,1);
+    }
+  }
 `;
 
 const Center = styled.div`
   text-align: center;
-  font-size: 18px;
+  .fix-color {
+    color: rgba(255,255,255,1);
+  }
 `;
 
 const IconFlex = styled.div`
@@ -163,7 +174,7 @@ class HowItWorks extends Component {
             <div className="NumberContainer">
               <div className="HowCounterNumber">1</div>
               <div className="HowCounterMessage">
-                Let us know what you need and we can help you ocnnect to a
+                Let us know what you need and we can help you connect to a
                 licensed professional in your area
               </div>
             </div>
@@ -182,10 +193,22 @@ class HowItWorks extends Component {
                 insure timely completion
               </div>
             </div>
+            <div className="button-container">
+              <BlueButton className="how-it-works-button">
+                <Link to="/signin" className="fix-color">SIGN UP</Link>
+              </BlueButton>
+              <WhiteButton className="how-it-works-button">
+                <Link to="/signin">SIGN UP</Link>
+              </WhiteButton>
+            </div>
           </div>
         </HowCounter>
         <HowImage />
-        <Center>Book Now Button</Center>
+        <Center>
+          <HowItWorksBookButton>
+            <Link to="/bookajob" className="fix-color">BOOK NOW</Link>
+          </HowItWorksBookButton>
+        </Center>
         <IconBox>
           <Center>
             <h1>Whatever you need</h1>

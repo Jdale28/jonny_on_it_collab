@@ -54,9 +54,9 @@ export const NavBookButton = styled(BlueButton)`
 `
 
 export const HowItWorksBookButton = styled(BlueButton)`
-    height: 78px;
-    width: 366px;
-    font-size: 30px;
+    height: 2.6em;
+    width: 12em;
+    font-size: 1.6em;
 `
 
 export const ContactUsButton = styled(BlueButton)`
