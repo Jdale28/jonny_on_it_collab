@@ -17,7 +17,7 @@ const PageStyle = styled.div`
   }
   p {
     color: rgba(112, 112, 112, 1);
-    font-size: 1.25rem;
+    font-size: 22px;
   }
   .OurTeam {
     margin-top: 5vh;

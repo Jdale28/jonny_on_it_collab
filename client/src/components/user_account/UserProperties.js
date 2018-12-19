@@ -114,7 +114,6 @@ class UserProperties extends Component {
       zipcode: this.state.newProperty.zipcode,
       user: this.state.user.id
     };
-    // if this.state.googleaddress != null
     console.log(payload);
     axios.post(`/api/properties/`, payload).then(res => {
       this.getData();

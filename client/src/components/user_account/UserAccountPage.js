@@ -6,6 +6,7 @@ import axios from 'axios'
 import UserProperties from './UserProperties';
 import UserPayment from './UserPayment';
 import UserJobs from './UserJobs';
+import EditPayment from './EditPayment'
 
 
 
@@ -50,6 +51,7 @@ class UserAccountPage extends Component {
             <Route exact path="/useraccountpage/:id/payments" component={UserPayment}/>
             <Route exact path="/useraccountpage/:id/properties" component={UserProperties}/>
             <Route exact path="/useraccountpage/:id/jobs" component={UserJobs}/>
+            <Route exact path="/useraccountpage/:id/payments/:id" component={EditPayment}/>
             </Switch></NavBarAndComponent>
             </Container>
             </Router>

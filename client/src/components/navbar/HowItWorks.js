@@ -37,6 +37,7 @@ const HowCounter = styled.div`
   }
   .HowCounterTagline {
     text-align: center;
+    font-size: 15px;
   }
   .BottomMessage {
     margin-bottom: 2vh;
@@ -53,17 +54,18 @@ const HowCounter = styled.div`
     align-items: center;
   }
   .HowCounterNumber {
-    font-size: 3rem;
+    font-size: 44px;
     margin-right: 3vw;
   }
   .HowCounterMessage {
-    font-size: 0.75rem;
+    font-size: 15px;
     width: 15vw;
   }
 `;
 
 const Center = styled.div`
   text-align: center;
+  font-size: 18px;
 `;
 
 const IconFlex = styled.div`
@@ -79,7 +81,7 @@ const IconFlex = styled.div`
   }
   p {
     margin-top: 2vh;
-    font-size: 0.75rem;
+    font-size: 15px;
   }
 `;
 const KeyFeatures = styled.div`
@@ -96,7 +98,7 @@ const KeyFeatures = styled.div`
     margin-left: 5vh;
     padding-top: 3vh;
     width: 40vw;
-    font-size: 0.85rem;
+    font-size: 15px;
   }
   .FeaturesFlexBox {
     width: 100vw;
@@ -117,11 +119,11 @@ const KeyFlex = styled.div`
   margin-right: 10vw;
   .KeyHeader {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 25px;
     text-align: left;
   }
   .KeyTagline {
-    font-size: 0.85rem;
+    font-size: 13px;
     margin-bottom: 7vh;
   }
 `;
@@ -142,7 +144,7 @@ const KeyIconFlex = styled.div`
     background-image: url("https://i.imgur.com/V7kRgZt.png");
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-bottom: 5vh;
+    margin-bottom: 10vh;
   }
 `;
 
