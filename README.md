@@ -14,7 +14,7 @@ Jonny-On-It is an application that connects homeowners and realtors to service p
 ## [Trello Board](https://trello.com/b/bp3VLOCm/final-project)
 ![Trello Board](client/src/images/Trello.png)
 
-## [GitHub](https://github.com/Jdale28/jonny_collab)
+## [GitHub](https://github.com/Jdale28/jonny_on_it_collab)
 
 ## [Wireframes](https://idoc.mockplus.com/app/-x9wddoCF/specs/5qHLQmX-CA)
 
