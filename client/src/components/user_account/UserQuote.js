@@ -29,6 +29,15 @@ height: 155px;
 border: solid;
 margin-left: 250px;
 `
+const MiddlePanel = styled.div`
+  .middle-bar {
+    border: 1px solid black;
+    width: 1px;
+    height: 37vh;
+    opacity: 0.5;
+    margin-bottom: 3vh;
+  }
+`
 
 
 
@@ -42,7 +51,10 @@ class UserQuote extends Component {
                 </Smallrectangle>
                 {/* It'3s Electric  <br/>
                 Technician: Maya Jackson <br/> */}
-                 <Smallt> <div className='line'> fnfnfn</div></Smallt>
+                 <Smallt>
+                   <MiddlePanel> </MiddlePanel>
+                      
+                 </Smallt>
                  
                 </Rectangle> 
             </div>
