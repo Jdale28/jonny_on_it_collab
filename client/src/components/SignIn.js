@@ -123,7 +123,7 @@ class SignIn extends Component {
                   Password<span className="span">*</span>
                 </p>
                 <input type="password" />
-                <button><Link to="/UserAccountPage/1">Sign In</Link></button>
+                <SignInButton><Link to="/UserAccountPage/1">Sign In</Link></SignInButton>
               </form>
             </div>
           </ColumnPanel>
