@@ -245,7 +245,7 @@ class HowItWorks extends Component {
                 <Link to="/signin" className="fix-color">SIGN UP</Link>
               </BlueButton>
               <WhiteButton className="how-it-works-button">
-                <Link to="/signin">SIGN UP</Link>
+                <Link to="/signin">SIGN IN</Link>
               </WhiteButton>
             </div>
           </div>
