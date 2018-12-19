@@ -8,6 +8,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
+import Time from './BookTime'
 
 
 
@@ -155,8 +156,7 @@ class BookProperty extends Component {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Typography>
-          Here is where you will be able to select the date for your job. Two buttons, Today will be red and represent booking a job ASAP.
-       Schedule will pull up a calendar and allow you to pull up a date.
+         <Time{...this.state}{...this.props} />
             </Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
