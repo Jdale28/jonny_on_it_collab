@@ -1,3 +1,5 @@
+# [Jonny-On-It](https://jonny-on-it-collab.herokuapp.com)
+
 ## Overview 
 
 Jonny-On-It is an application that connects homeowners and realtors to service providers. How this differs from other service provider finder applications is that it is targeted at realtors and their clients who are just about to buy or sell a property and allows the realtors the ability to track and store Preferred Service Providers and suggest them to clients as they prepare the property for sale or implement repairs or upgrades for a new property owner.
@@ -12,11 +14,11 @@ Jonny-On-It is an application that connects homeowners and realtors to service p
 ## [Trello Board](https://trello.com/b/bp3VLOCm/final-project)
 ![Trello Board](client/src/images/Trello.png)
 
-## [GitHub](https://github.com/Jdale28/jonny_collab)
-
-## [Heroku App](https://jonny-on-it-collab.herokuapp.com)
+## [GitHub](https://github.com/Jdale28/jonny_on_it_collab)
 
 ## [Wireframes](https://idoc.mockplus.com/app/-x9wddoCF/specs/5qHLQmX-CA)
+
+## [Asset Images](https://imgur.com/a/3pHhZFx)
 
 ## Technologies:
 ### Front-end: 
